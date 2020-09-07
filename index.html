@@ -1,1 +1,190 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPBC Fees Structure</title>
+</head>
+<body>
+	
+    <script>
+        function calc(){
+        	var term = parseInt(document.getElementById('term').value)
+            var ci = parseFloat(document.getElementById('ci').value);
+            var cr = (document.getElementById('lc').checked);
+            if(cr == true) ci *= 10000000
+            else ci *= 100000
+            var fee = 0
+
+            var l = 100000
+            var c = 10000000
+            
+            if(ci <= 10 * l) fee=500;
+            else if(ci <= 60 * l) fee = 1500;
+            else if(ci <= 1 * c) fee = 5000;
+            else if(ci <= 5 * c) fee = 15000;
+            else if(ci <= 10 * c) fee = 25000;
+            else if(ci <= 25 * c) fee = 50000;
+            else if(ci <= 50 * c) fee = 75000;
+            else if(ci <= 75 * c) fee = 100000;
+            else if(ci <= 100 * c) fee = 125000;
+            else{
+                fee = 0.02/100 * ci;
+            }
+            fee *= term
+            document.getElementById("output").innerHTML = fee;
+        }
+    </script>
+
+    <h1>Capital Investment : </h><input id="ci" type="text" value=10></input><br>
+    Term : <input type="text" id="term" value=1></input><br>
+    Crore<br>
+    <label class="container">
+        <input type="checkbox" id="lc">
+        <span class="checkmark"></span>
+    </label>
+
+    <script>
+        var input = document.getElementById("ci");
+        var input2 = document.getElementById("term");
+        input.addEventListener("keyup", function(event) {
+            if(event.keyCode == 13 || event.which == 13){
+                event.preventDefault();
+                document.getElementById("myB").click();
+            }
+        })
+        input2.addEventListener("keyup", function(event) {
+            if(event.keyCode == 13 || event.which == 13){
+                event.preventDefault();
+                document.getElementById("myB").click();
+            }
+        })
+    </script><br>
+    <button onclick="calc()" id="myB">Give Fees</button>
+
+    <p id="output"></p>
+    <p id="outputlc"></p>
+
+    <style type="text/css">
+        body{
+            background-color : rgb(255, 255, 255);
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        input[type="text"]{
+            font-size: 20px;
+            font-family: fantasy;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        checkbox{
+            color : black;
+        }
+
+		h1{
+            color : rgb(0, 0, 0);
+		}
+
+        button{
+            background-color: #ffffff;
+            border: #4CAF50;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            transition-duration: 0.4s;
+        }
+
+         /* Customize the label (the container) */
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 0px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            align-content: center;
+        }
+
+        /* Hide the browser's default checkbox */
+        .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+        background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+        background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container input:checked ~ .checkmark:after {
+        display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        } 
+
+        button:hover{
+            background-color:green;
+            color: white;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+	</style>
+</body>
+</html>
