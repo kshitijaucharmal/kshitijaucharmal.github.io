@@ -5,8 +5,19 @@
 
 #Shortcut{
 	text-align: center;
-	font-size: 20px;
+	font-size: 3vw;
 	color: grey;
+}
+
+#HomeButton{
+	position:absolute;
+  right: 1%;
+  width: 15vw;
+  height: 10vh;
+  display: block;
+  font-size: 3vw;
+  text-align: center;
+  padding: 14px 25px;
 }
 
 button {
@@ -31,36 +42,18 @@ button:active {
 }
 
 .Desc{
+	font-size: 6vw;
 	text-align: center;
 	font-family: neon80;
 	color: #FA7205;
 }
 
 .MyName{
+	font-size: 10vw;
 	text-align: center;
 	font-family: neon80;
 	color: #FA7205;
 	text-shadow: transparent;
-}
-
-@media screen and (min-width: 700px){
-	.MyName{
-		font-size: 100px;
-	}
-
-	.Desc{
-		font-size: 70px;
-	}
-}
-
-@media screen and (max-width: 700px){
-	.MyName{
-		font-size: 50px;
-	}
-
-	.Desc{
-		font-size: 30px;
-	}
 }
 
 body{
