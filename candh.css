@@ -1,0 +1,49 @@
+@font-face{
+	font-family: neon80;
+	src: url(Neon.ttf);
+}
+
+#Shortcut{
+	text-align: center;
+	font-size: 25px;
+	color: orange;
+}
+
+@media screen and (min-width: 700px){
+	.MyName{
+		font-size: 100px;
+		text-align: center;
+		font-family: neon80;
+		color: #FA7205;
+	}
+
+	.Desc{
+		font-size: 70px;
+		text-align: center;
+		font-family: neon80;
+		color: #FA7205;
+	}
+
+
+}
+
+@media screen and (max-width: 700px){
+	.MyName{
+		font-size: 50px;
+		text-align: center;
+		font-family: neon80;
+		color: #FA7205;
+	}
+
+	.Desc{
+		font-size: 30px;
+		text-align: center;
+		font-family: neon80;
+		color: #FA7205;
+	}
+}
+
+
+#grad{
+	background-image: linear-gradient(to top left, #000034, #0F025A, #001EFA)
+}
