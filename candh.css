@@ -5,45 +5,64 @@
 
 #Shortcut{
 	text-align: center;
-	font-size: 25px;
-	color: orange;
+	font-size: 20px;
+	color: grey;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+button:hover {
+  background-color: green;
+}
+
+button:active {
+	background-color: lightgreen;
+	color: darkgreen;
+}
+
+.Desc{
+	text-align: center;
+	font-family: neon80;
+	color: #FA7205;
+}
+
+.MyName{
+	text-align: center;
+	font-family: neon80;
+	color: #FA7205;
+	text-shadow: transparent;
 }
 
 @media screen and (min-width: 700px){
 	.MyName{
 		font-size: 100px;
-		text-align: center;
-		font-family: neon80;
-		color: #FA7205;
 	}
 
 	.Desc{
 		font-size: 70px;
-		text-align: center;
-		font-family: neon80;
-		color: #FA7205;
 	}
-
-
 }
 
 @media screen and (max-width: 700px){
 	.MyName{
 		font-size: 50px;
-		text-align: center;
-		font-family: neon80;
-		color: #FA7205;
 	}
 
 	.Desc{
 		font-size: 30px;
-		text-align: center;
-		font-family: neon80;
-		color: #FA7205;
 	}
 }
 
-
-#grad{
-	background-image: linear-gradient(to top left, #000034, #0F025A, #001EFA)
+body{
+	background-color: #08070C;
 }
