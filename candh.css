@@ -3,6 +3,11 @@
 	src: url(Neon.ttf);
 }
 
+h1{
+	color: white;
+	font-family: neon80;
+}
+
 #Shortcut{
 	text-align: center;
 	font-size: 3vw;
@@ -18,6 +23,30 @@
   font-size: 3vw;
   text-align: center;
   padding: 14px 25px;
+}
+
+a.Switch{
+	font-size: 3vw;
+	position: absolute;
+	color: white;
+	text-decoration: none;
+	font-family: neon80;
+}
+
+a#Games{
+	right: 11.5vw;
+}
+
+a#Home{
+	right: 1vw;
+}
+
+a#Videos{
+	right: 30vw;
+}
+
+a.Switch:hover{
+	color: orange;
 }
 
 button {
