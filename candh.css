@@ -87,4 +87,6 @@ button:active {
 
 body{
 	background-color: #08070C;
+	margin:0;
+	overflow:hidden;
 }
