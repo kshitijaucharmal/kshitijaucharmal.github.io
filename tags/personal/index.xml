@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>personal on kshitij</title>
+    <link>https://kshitijaucharmal.github.io/tags/personal/</link>
+    <description>Recent content in personal on kshitij</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Nov 2022 15:04:12 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome!!!</title>
+      <link>https://kshitijaucharmal.github.io/main/</link>
+      <pubDate>Tue, 08 Nov 2022 15:04:12 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/main/</guid>
+      <description>What this website is about Link to heading This website is about the things I do as a programmer, gamedevloper, and AI Developer
+(All Unofficially)
+Don&amp;rsquo;t want this website to be bloated, so I made it in hugo
+My youtube channel Link to heading Youtube Link: Online Projects Link to heading Grid World: A simple test of basic Q learning on a grid world NEAT Algorithm Visualization: NeuroEvolution Of Augumenting Topologies Algorithm Implemented in Javascript (p5.</description>
+    </item>
+    
+  </channel>
+</rss>
