@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Home</title>
+    <link>https://kshitijaucharmal.github.io/blog/</link>
+    <description>Recent content in Blogs on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 09 Nov 2022 16:44:09 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sda</title>
+      <link>https://kshitijaucharmal.github.io/blog/9-11-22/</link>
+      <pubDate>Wed, 09 Nov 2022 16:44:09 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/9-11-22/</guid>
+      <description>This is what happened today</description>
+    </item>
+    
+  </channel>
+</rss>
