@@ -112,7 +112,7 @@ What I did # I used pup in a simple script, which just fetches all the links on 
     "keywords": ["personal","blog"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "297"
+    "wordCount": "301"
   }]
   </script>
 
@@ -295,7 +295,7 @@ What I did # I used pup in a simple script, which just fetches all the links on 
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2022-11-09 16:44:09 &#43;0530 IST">November 9, 2022</time><span class="px-2 text-primary-500">&middot;</span><span>297 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2022-11-09 16:44:09 &#43;0530 IST">November 9, 2022</time><span class="px-2 text-primary-500">&middot;</span><span>301 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
     
 
     
@@ -353,7 +353,7 @@ What I did # I used pup in a simple script, which just fetches all the links on 
   </ul>
 
   <ul>
-    <li><a href="#tools-used">Tools used:</a></li>
+    <li><a href="#tools-used--dmenu-grep-curl-pup-brave-any-browser">Tools used: + dmenu grep curl pup brave (any browser)</a></li>
   </ul>
 </nav>
   </div>
@@ -387,14 +387,7 @@ to choose one, and then opens it up in a browser</p>
   
 
 </p>
-<h2 id="tools-used" class="relative group">Tools used: <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#tools-used" aria-label="Anchor">#</a></span></h2>
-<ul>
-<li>dmenu</li>
-<li>grep</li>
-<li>curl</li>
-<li>pup</li>
-<li>brave (any browser)</li>
-</ul>
+<h2 id="tools-used--dmenu-grep-curl-pup-brave-any-browser" class="relative group">Tools used: + dmenu grep curl pup brave (any browser) <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#tools-used--dmenu-grep-curl-pup-brave-any-browser" aria-label="Anchor">#</a></span></h2>
 <h1 id="walkthrough" class="relative group">Walkthrough <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#walkthrough" aria-label="Anchor">#</a></span></h1>
 <p>So first lets get a website, I&rsquo;ll use <a href="https://kshitijaucharmal.github.io/main"   target="_blank">mine</a>
 , and curl it</p>
@@ -447,6 +440,8 @@ to choose one, and then opens it up in a browser</p>
 </span></span></code></pre></div><p>Now you can store it in a variable and ask brave to open it!!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">brave</span> <span style="color:#960050;background-color:#1e0010">$(</span><span style="color:#a6e22e">curl</span> <span style="color:#a6e22e">-sL</span> <span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">kshitijaucharmal</span>.<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">io</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">main</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">pup</span> <span style="color:#a6e22e">--color</span> <span style="color:#e6db74">&#39;a attr{href}&#39;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">grep</span> <span style="color:#e6db74">&#39;^http&#39;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">dmenu</span> <span style="color:#a6e22e">-i</span> <span style="color:#a6e22e">-l</span> <span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">)</span>
 </span></span></code></pre></div><p>Thats it.</p>
+<h1 id="finished-scripthttpsgistgithubcomkshitijaucharmal3f8beecb1b65bbb12ca0507895d10d1f" class="relative group">Finished <a href="https://gist.github.com/kshitijaucharmal/3f8beecb1b65bbb12ca0507895d10d1f"   target="_blank">Script</a>
+ <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#finished-scripthttpsgistgithubcomkshitijaucharmal3f8beecb1b65bbb12ca0507895d10d1f" aria-label="Anchor">#</a></span></h1>
 
       </div>
     </section>
