@@ -1,11 +1,12 @@
 
 
+
 <!DOCTYPE html>
 <html
   lang="en"
   dir="ltr"
   class="scroll-smooth"
-  data-default-appearance="dark"
+  data-default-appearance="light"
   data-auto-appearance="true"
 ><head>
 	<meta name="generator" content="Hugo 0.105.0">
@@ -38,8 +39,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.e9edbf6ee0d8df9744fb4af1de6acda7275fd9d9a6622b412e52c53a261ec19da90fb6d5c6b6266fdca59d9aeef1a8ce2d9888c9a18dd09be3f799c905636e19.css"
-    integrity="sha512-6e2/buDY35dE&#43;0rx3mrNpydf2dmmYitBLlLFOiYewZ2pD7bVxrYmb9ylnZru8ajOLZiIyaGN0Jvj95nJBWNuGQ=="
+    href="/css/main.bundle.min.559d8e9a6f7201a0ab39126d4ea9f2e836c8bb7003308ba9d54630855435cefb31493f3180a5b2853ed3e28b36d56b58755d3f70afa4721da38bf808ff08f65e.css"
+    integrity="sha512-VZ2Omm9yAaCrORJtTqny6DbIu3ADMIup1UYwhVQ1zvsxST8xgKWyhT7T4os21WtYdV0/cK&#43;kch2ji/gI/wj2Xg=="
   />
   
   
@@ -56,7 +57,7 @@
   
   
     
-    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.15ae6e2c9b1ac24a9ccf40003fa689efb1a18db1ee9b73d780b01a6c31b150441415862513e93184f68fe385759e4698b8763cba6a0f79493c1fed99ad5868d4.js" integrity="sha512-Fa5uLJsawkqcz0AAP6aJ77GhjbHum3PXgLAabDGxUEQUFYYlE&#43;kxhPaP44V1nkaYuHY8umoPeUk8H&#43;2ZrVho1A==" data-copy="Copy" data-copied="Copied"></script>
+    <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.6d78c827ca7bcbf72056dbf698bf9aeb759a08966686187deb23f5949f73eca5f39b461284900cdfc08e2976d99eb80a8663648de778ba2a83e633ae16dbfc25.js" integrity="sha512-bXjIJ8p7y/cgVtv2mL&#43;a63WaCJZmhhh96yP1lJ9z7KXzm0YShJAM38COKXbZnrgKhmNkjed4uiqD5jOuFtv8JQ==" data-copy="Copy" data-copied="Copied"></script>
   
   
   
@@ -135,9 +136,9 @@
     
     
       <header class="py-6 font-semibold text-neutral-900 dark:text-neutral print:hidden sm:py-10">
-  <nav class="flex justify-between">
+  <nav class="flex items-start justify-between sm:items-center">
     
-    <div class="flex flex-row">
+    <div class="z-40 flex flex-row items-center">
       
   <a
     class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
@@ -151,36 +152,66 @@
     </div>
     
     
-      <ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
-        
+      <label id="menu-button" for="menu-controller" class="block">
+        <input type="checkbox" id="menu-controller" class="hidden" />
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
           
-            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-              <a
-                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                href="/main"
-                title=""
-                >About</a
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="invisible fixed inset-0 z-30 m-auto h-screen w-screen cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50"
+        >
+          <ul
+            class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 ltr:text-right rtl:text-left sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32"
+          >
+            <li class="mb-1">
+              <span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"
+                >
+
+  <span class="relative inline-block align-text-bottom icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span
               >
             </li>
-          
-            <li class="mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-              <a
-                class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
-                href="/blog"
-                title=""
-                >Blog</a
-              >
-            </li>
-          
-        
-        
-          <li class="ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-            <button
-              id="search-button"
-              class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-              title="Search (/)"
-            >
+            
               
+                <li class="mb-1">
+                  <a
+                    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                    href="/about"
+                    title=""
+                    >About</a
+                  >
+                </li>
+              
+                <li class="mb-1">
+                  <a
+                    class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2"
+                    href="/blog"
+                    title=""
+                    >Blog</a
+                  >
+                </li>
+              
+            
+            
+              <li>
+                <button
+                  id="search-button"
+                  class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                  title="Search (/)"
+                >
+                  
 
   <span class="relative inline-block align-text-bottom icon">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
@@ -188,10 +219,12 @@
   </span>
 
 
-            </button>
-          </li>
-        
-      </ul>
+                </button>
+              </li>
+            
+          </ul>
+        </div>
+      </label>
     
   </nav>
 </header>
@@ -221,6 +254,83 @@
 <section>
   
   <h2 class="mt-8 text-2xl font-extrabold">Recent</h2>
+  
+    <article class="flex flex-row mt-6 max-w-prose">
+  <div>
+    <h3 class="flex items-center text-xl font-semibold">
+      
+        <a
+          class="text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/blog/first_blog/"
+          >First Blog - Pup</a
+        >
+      
+      
+      
+    </h3>
+    <div class="text-sm text-neutral-500 dark:text-neutral-400">
+      
+
+
+
+
+
+
+
+  
+
+  
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2022-11-09 16:44:09 &#43;0530 IST">November 9, 2022</time><span class="px-2 text-primary-500">&middot;</span><span>291 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+  
+    <div class="my-1 text-xs text-neutral-500 dark:text-neutral-400 ">
+      
+        
+      
+        
+          
+            <a
+              href="/tags/blog/"
+              class="rounded-md border border-neutral-200 px-1 py-[1px] hover:border-primary-300 hover:text-primary-700 dark:border-neutral-600 dark:hover:border-primary-600 dark:hover:text-primary-400"
+              >blog</a
+            >
+          
+        
+      
+    </div>
+  
+
+
+    </div>
+    
+  </div>
+</article>
+
   
 
 

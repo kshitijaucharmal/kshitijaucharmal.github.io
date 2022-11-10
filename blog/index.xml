@@ -13,7 +13,7 @@
       <pubDate>Wed, 09 Nov 2022 16:44:09 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/first_blog/</guid>
-      <description>What I learned today # Today I came across a fantastic tool called pup .
+      <description>What I learned today # Today I came across a fantastic tool called pup.
 From github:
 Pup is &amp;ldquo;a command line tool for processing HTML. It reads from stdin, prints to stdout, and allows the user to filter parts of the page using CSS selectors.&amp;rdquo; # It is basically a html parser, and makes web scraping from websites dead simple.
 What I did # I used pup in a simple script, which just fetches all the links on a website, and gives you a list to choose one, and then opens it up in a browser</description>
