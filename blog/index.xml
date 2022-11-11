@@ -8,12 +8,14 @@
     <language>en</language>
     <lastBuildDate>Fri, 11 Nov 2022 10:17:33 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Friday 11 November 2022</title>
+      <title>Automating the blog making process</title>
       <link>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</link>
       <pubDate>Fri, 11 Nov 2022 10:17:33 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</guid>
-      <description></description>
+      <description>The problem # Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.
+I want a script that makes a blog every day (just a file in the blogs folder) and then gives the name and the title of the date.
+The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&amp;#39; &amp;#39; -f1-4 | tr &amp;#39; &amp;#39; &amp;#39;-&amp;#39;` cd $hugo_project hugo new blog/$today_date.</description>
     </item>
     
     <item>
