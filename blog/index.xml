@@ -6,14 +6,23 @@
     <description>Recent content in Blogs on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 16:44:09 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Nov 2022 10:17:33 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Friday 11 November 2022</title>
+      <link>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</link>
+      <pubDate>Fri, 11 Nov 2022 10:17:33 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>First Blog - Pup</title>
       <link>https://kshitijaucharmal.github.io/blog/first_blog/</link>
       <pubDate>Wed, 09 Nov 2022 16:44:09 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/first_blog/</guid>
-      <description>What I learned today # Today I came across a fantastic tool called pup.
+      <description>What I learned today # Today I came across a fantastic tool called pup .
 From github:
 Pup is &amp;ldquo;a command line tool for processing HTML. It reads from stdin, prints to stdout, and allows the user to filter parts of the page using CSS selectors.&amp;rdquo; # It is basically a html parser, and makes web scraping from websites dead simple.
 What I did # I used pup in a simple script, which just fetches all the links on a website, and gives you a list to choose one, and then opens it up in a browser</description>
