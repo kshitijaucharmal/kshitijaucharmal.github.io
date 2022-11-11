@@ -110,7 +110,7 @@ The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&#39; &#39; -f1-
     "keywords": ["blog"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "264"
+    "wordCount": "290"
   }]
   </script>
 
@@ -325,7 +325,7 @@ The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&#39; &#39; -f1-
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2022-11-11 10:17:33 &#43;0530 IST">November 11, 2022</time><span class="px-2 text-primary-500">&middot;</span><span>264 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2022-11-11 10:17:33 &#43;0530 IST">November 11, 2022</time><span class="px-2 text-primary-500">&middot;</span><span>290 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
     
 
     
@@ -372,6 +372,7 @@ The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&#39; &#39; -f1-
     <li><a href="#the-problem">The problem</a></li>
     <li><a href="#the-script">The Script</a></li>
     <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#update">Update:</a></li>
   </ul>
 </nav>
   </div>
@@ -435,6 +436,9 @@ commit and push.</p>
 </ul>
 <p><strong>Run this as a cron job every day at 10, and I got a
 blog Automating script!!</strong></p>
+<h2 id="update" class="relative group">Update: <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#update" aria-label="Anchor">#</a></span></h2>
+<p>Couldn&rsquo;t get cron to work (I&rsquo;m an idiot), so made a systemd script
+which runs new blog every day at 10, else on startup</p>
 
       </div>
     </section>
