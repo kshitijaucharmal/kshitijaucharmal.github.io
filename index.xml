@@ -6,7 +6,16 @@
     <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Nov 2022 07:33:37 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Nov 2022 21:25:41 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Programs I Use</title>
+      <link>https://kshitijaucharmal.github.io/programs/</link>
+      <pubDate>Tue, 15 Nov 2022 21:25:41 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/programs/</guid>
+      <description>File Managers # ranger nautilus (gnome&amp;rsquo;s file manager) Browsers # brave qutebrowser surf Youtube # ytfzf youtube-dl Anime # ani-cli Feed # newsboat Editors # neovim neovide vim Run Launchers # rofi dmenu (also for scripts) ulauncher (when in gnome) Terminals # alacritty st kitty Image Viewers # sxiv ueberzug System Monitors # bpytop htop System Info # fastfetch neofetch pfetch Music # mpd mpc mpv ncmpcpp playerctl (Awesome program check it out) Torrent and Downloads # aria2c wget curl </description>
+    </item>
+    
     <item>
       <title>Tuesday 15 November 2022</title>
       <link>https://kshitijaucharmal.github.io/blog/tuesday-15-november-2022/</link>
