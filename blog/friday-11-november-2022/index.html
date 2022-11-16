@@ -397,25 +397,25 @@ with <em>hugo new <!-- raw HTML omitted --></em>, and also update the repo after
 <p>I want a script that makes a blog every day (just a file in the blogs folder) and then
 gives the name and the title of the date.</p>
 <h2 id="the-script" class="relative group">The Script <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-script" aria-label="Anchor">#</a></span></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>hugo_project<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>today_date<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date | cut -d<span style="color:#e6db74">&#39; &#39;</span> -f1-4 | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;-&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>cd $hugo_project
+</span></span><span style="display:flex;"><span>hugo new blog/$today_date.md 2&gt; /dev/null <span style="color:#f92672">||</span> notify-send <span style="color:#e6db74">&#34;Blog Exists&#34;</span> <span style="color:#e6db74">&#34;Exiting&#34;</span> <span style="color:#f92672">&amp;&amp;</span> exit
+</span></span><span style="display:flex;"><span>git add content/blog/$today_date.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Added Blog file for Date </span>$today_date<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hugo_project</span>=<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">today_date</span>=<span style="color:#960050;background-color:#1e0010">`</span><span style="color:#a6e22e">date</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">cut</span> <span style="color:#a6e22e">-d</span><span style="color:#e6db74">&#39; &#39;</span> <span style="color:#a6e22e">-f1-4</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">tr</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;-&#39;</span><span style="color:#960050;background-color:#1e0010">`</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cd</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">hugo_project</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hugo</span> <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">blog</span><span style="color:#960050;background-color:#1e0010">/$</span><span style="color:#a6e22e">today_date</span>.<span style="color:#a6e22e">md</span> <span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">&gt;</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">dev</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">null</span> <span style="color:#960050;background-color:#1e0010">||</span> <span style="color:#a6e22e">notify-send</span> <span style="color:#e6db74">&#34;Blog Exists&#34;</span> <span style="color:#e6db74">&#34;Exiting&#34;</span> <span style="color:#960050;background-color:#1e0010">&amp;&amp;</span> <span style="color:#a6e22e">exit</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">git</span> <span style="color:#a6e22e">add</span> <span style="color:#a6e22e">content</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">blog</span><span style="color:#960050;background-color:#1e0010">/$</span><span style="color:#a6e22e">today_date</span>.<span style="color:#a6e22e">md</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">git</span> <span style="color:#a6e22e">commit</span> <span style="color:#a6e22e">-m</span> <span style="color:#e6db74">&#34;Added Blog file for Date $today_date&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">git</span> <span style="color:#a6e22e">push</span> <span style="color:#a6e22e">origin</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>hugo -D
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hugo</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hugo</span> <span style="color:#a6e22e">-D</span>
+</span></span><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>git add -A
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Added Blog for date </span>$today_date<span style="color:#e6db74"> to website&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin master
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cd</span> <span style="color:#a6e22e">public</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">git</span> <span style="color:#a6e22e">add</span> <span style="color:#a6e22e">-A</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">git</span> <span style="color:#a6e22e">commit</span> <span style="color:#a6e22e">-m</span> <span style="color:#e6db74">&#34;Added Blog for date $today_date to website&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">git</span> <span style="color:#a6e22e">push</span> <span style="color:#a6e22e">origin</span> <span style="color:#a6e22e">master</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">notify-send</span> <span style="color:#e6db74">&#34;Added New Blog&#34;</span> <span style="color:#e6db74">&#34;Successfully Done&#34;</span>
+</span></span><span style="display:flex;"><span>notify-send <span style="color:#e6db74">&#34;Added New Blog&#34;</span> <span style="color:#e6db74">&#34;Successfully Done&#34;</span>
 </span></span></code></pre></div><h2 id="how-it-works" class="relative group">How it works <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#how-it-works" aria-label="Anchor">#</a></span></h2>
 <ul>
 <li>

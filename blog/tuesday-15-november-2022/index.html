@@ -423,80 +423,80 @@ right from the command line!!</p>
 <p>By default, the bindings dont allow for vim keys, and also the colors are whack on my terminal.
 The macros can make your life so much easier, but I haven&rsquo;t quite figured it out yet.</p>
 <h3 id="example-config-file" class="relative group">Example config file: <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-config-file" aria-label="Anchor">#</a></span></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># ~/.newsboat/config</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># ~/.newsboat/config</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># general settings</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">auto-reload</span> <span style="color:#a6e22e">yes</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">max-items</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>auto-reload yes
+</span></span><span style="display:flex;"><span>max-items <span style="color:#ae81ff">50</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># externel browser</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;/usr/bin/brave&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">macro</span> <span style="color:#a6e22e">m</span> <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;/usr/local/bin/mpv %u&#34;</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">open-in-browser</span> <span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;/usr/local/bin/w3m %u&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">macro</span> <span style="color:#a6e22e">l</span> <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;/usr/local/bin/firefox %u&#34;</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">open-in-browser</span> <span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;/usr/local/bin/w3m %u&#34;</span>
+</span></span><span style="display:flex;"><span>browser <span style="color:#e6db74">&#34;/usr/bin/brave&#34;</span>
+</span></span><span style="display:flex;"><span>macro m set browser <span style="color:#e6db74">&#34;/usr/local/bin/mpv %u&#34;</span>; open-in-browser ; set browser <span style="color:#e6db74">&#34;/usr/local/bin/w3m %u&#34;</span>
+</span></span><span style="display:flex;"><span>macro l set browser <span style="color:#e6db74">&#34;/usr/local/bin/firefox %u&#34;</span>; open-in-browser ; set browser <span style="color:#e6db74">&#34;/usr/local/bin/w3m %u&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># unbind keys</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># unbind-key ENTER</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">unbind-key</span> <span style="color:#a6e22e">j</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">unbind-key</span> <span style="color:#a6e22e">k</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">unbind-key</span> <span style="color:#a6e22e">J</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">unbind-key</span> <span style="color:#a6e22e">K</span>
+</span></span><span style="display:flex;"><span>unbind-key j
+</span></span><span style="display:flex;"><span>unbind-key k
+</span></span><span style="display:flex;"><span>unbind-key J
+</span></span><span style="display:flex;"><span>unbind-key K
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># bind keys - vim style</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">j</span> <span style="color:#a6e22e">down</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">k</span> <span style="color:#a6e22e">up</span>
+</span></span><span style="display:flex;"><span>bind-key j down
+</span></span><span style="display:flex;"><span>bind-key k up
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># bind-key j next articlelist</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># bind-key k prev articlelist</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">J</span> <span style="color:#a6e22e">next-feed</span> <span style="color:#a6e22e">articlelist</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">K</span> <span style="color:#a6e22e">prev-feed</span> <span style="color:#a6e22e">articlelist</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">G</span> <span style="color:#a6e22e">end</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">g</span> <span style="color:#a6e22e">home</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">d</span> <span style="color:#a6e22e">pagedown</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">u</span> <span style="color:#a6e22e">pageup</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">l</span> <span style="color:#a6e22e">open</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">h</span> <span style="color:#a6e22e">quit</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">toggle-article-read</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">n</span> <span style="color:#a6e22e">next-unread</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">N</span> <span style="color:#a6e22e">prev-unread</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">D</span> <span style="color:#a6e22e">pb-download</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">U</span> <span style="color:#a6e22e">show-urls</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bind-key</span> <span style="color:#a6e22e">x</span> <span style="color:#a6e22e">pb-delete</span>
+</span></span><span style="display:flex;"><span>bind-key J next-feed articlelist
+</span></span><span style="display:flex;"><span>bind-key K prev-feed articlelist
+</span></span><span style="display:flex;"><span>bind-key G end
+</span></span><span style="display:flex;"><span>bind-key g home
+</span></span><span style="display:flex;"><span>bind-key d pagedown
+</span></span><span style="display:flex;"><span>bind-key u pageup
+</span></span><span style="display:flex;"><span>bind-key l open
+</span></span><span style="display:flex;"><span>bind-key h quit
+</span></span><span style="display:flex;"><span>bind-key a toggle-article-read
+</span></span><span style="display:flex;"><span>bind-key n next-unread
+</span></span><span style="display:flex;"><span>bind-key N prev-unread
+</span></span><span style="display:flex;"><span>bind-key D pb-download
+</span></span><span style="display:flex;"><span>bind-key U show-urls
+</span></span><span style="display:flex;"><span>bind-key x pb-delete
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">listnormal</span> <span style="color:#a6e22e">cyan</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">listfocus</span> <span style="color:#a6e22e">black</span> <span style="color:#a6e22e">yellow</span> <span style="color:#a6e22e">standout</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">listnormal_unread</span> <span style="color:#a6e22e">blue</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">listfocus_unread</span> <span style="color:#a6e22e">yellow</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">info</span> <span style="color:#a6e22e">red</span> <span style="color:#a6e22e">black</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">color</span> <span style="color:#a6e22e">article</span> <span style="color:#a6e22e">white</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">bold</span>
+</span></span><span style="display:flex;"><span>color listnormal cyan default
+</span></span><span style="display:flex;"><span>color listfocus black yellow standout bold
+</span></span><span style="display:flex;"><span>color listnormal_unread blue default
+</span></span><span style="display:flex;"><span>color listfocus_unread yellow default bold
+</span></span><span style="display:flex;"><span>color info red black bold
+</span></span><span style="display:flex;"><span>color article white default bold
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Macros</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># macro y set browser &#34;mpv %u&#34; ; open-in-browser ; set browser &#34;elinks %u&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">macro</span> <span style="color:#a6e22e">y</span> <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;youtube-dl -q -f %u&#34;</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">open-in-browser</span> <span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">set</span> <span style="color:#a6e22e">browser</span> <span style="color:#e6db74">&#34;elinks %u&#34;</span>
+</span></span><span style="display:flex;"><span>macro y set browser <span style="color:#e6db74">&#34;youtube-dl -q -f %u&#34;</span>; open-in-browser ; set browser <span style="color:#e6db74">&#34;elinks %u&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">all</span> <span style="color:#e6db74">&#34;---.*---&#34;</span> <span style="color:#a6e22e">yellow</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">feedlist</span> <span style="color:#e6db74">&#34;.*(0/0))&#34;</span> <span style="color:#a6e22e">black</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;(^Feed:.*|^Title:.*|^Author:.*)&#34;</span> <span style="color:#a6e22e">cyan</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;(^Link:.*|^Date:.*)&#34;</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;https?://[^ ]+&#34;</span> <span style="color:#a6e22e">green</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;^(Title):.*$&#34;</span> <span style="color:#a6e22e">blue</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;\\[[0-9][0-9]*\\]&#34;</span> <span style="color:#a6e22e">magenta</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;\\[image\\ [0-9]+\\]&#34;</span> <span style="color:#a6e22e">green</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;\\[embedded flash: [0-9][0-9]*\\]&#34;</span> <span style="color:#a6e22e">green</span> <span style="color:#a6e22e">default</span> <span style="color:#a6e22e">bold</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;:.*\\(link\\)$&#34;</span> <span style="color:#a6e22e">cyan</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;:.*\\(image\\)$&#34;</span> <span style="color:#a6e22e">blue</span> <span style="color:#a6e22e">default</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">highlight</span> <span style="color:#a6e22e">article</span> <span style="color:#e6db74">&#34;:.*\\(embedded flash\\)$&#34;</span> <span style="color:#a6e22e">magenta</span> <span style="color:#a6e22e">default</span>
+</span></span><span style="display:flex;"><span>highlight all <span style="color:#e6db74">&#34;---.*---&#34;</span> yellow
+</span></span><span style="display:flex;"><span>highlight feedlist <span style="color:#e6db74">&#34;.*(0/0))&#34;</span> black
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;(^Feed:.*|^Title:.*|^Author:.*)&#34;</span> cyan default bold
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;(^Link:.*|^Date:.*)&#34;</span> default default
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;https?://[^ ]+&#34;</span> green default
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;^(Title):.*</span>$<span style="color:#e6db74">&#34;</span> blue default
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;\\[[0-9][0-9]*\\]&#34;</span> magenta default bold
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;\\[image\\ [0-9]+\\]&#34;</span> green default bold
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;\\[embedded flash: [0-9][0-9]*\\]&#34;</span> green default bold
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;:.*\\(link\\)</span>$<span style="color:#e6db74">&#34;</span> cyan default
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;:.*\\(image\\)</span>$<span style="color:#e6db74">&#34;</span> blue default
+</span></span><span style="display:flex;"><span>highlight article <span style="color:#e6db74">&#34;:.*\\(embedded flash\\)</span>$<span style="color:#e6db74">&#34;</span> magenta default
 </span></span></code></pre></div><h2 id="the-urls-file" class="relative group">The urls file <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#the-urls-file" aria-label="Anchor">#</a></span></h2>
 <p>The urls file just contains all the urls/rss feeds you want
 to subscribe to.</p>
 <h3 id="example-urls-file" class="relative group">Example urls file <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#example-urls-file" aria-label="Anchor">#</a></span></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">--WEBSITES--</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">kshitijaucharmal</span>.<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">io</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">xml</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">lukesmith</span>.<span style="color:#a6e22e">xyz</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">xml</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">reddit</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">r</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">unixporn</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">new</span>.<span style="color:#a6e22e">rss</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">--YOUTUBE--</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">youtube</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">feeds</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">videos</span>.<span style="color:#a6e22e">xml</span><span style="color:#960050;background-color:#1e0010">?</span><span style="color:#a6e22e">channel_id</span>=<span style="color:#a6e22e">UCmtyQOKKmrMVaKuRXz02jbQ</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">www</span>.<span style="color:#a6e22e">youtube</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">feeds</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">videos</span>.<span style="color:#a6e22e">xml</span><span style="color:#960050;background-color:#1e0010">?</span><span style="color:#a6e22e">channel_id</span>=<span style="color:#a6e22e">UC0e3QhIYukixgh5VVpKHH9Q</span>
-</span></span></code></pre></div><p>(You can make sections with <strong>&ndash;SECTION&ndash;</strong>)</p>
+<pre tabindex="0"><code>--WEBSITES--
+https://kshitijaucharmal.github.io/index.xml
+https://lukesmith.xyz/index.xml
+https://www.reddit.com/r/unixporn/new.rss
+
+--YOUTUBE--
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0e3QhIYukixgh5VVpKHH9Q
+</code></pre><p>(You can make sections with <strong>&ndash;SECTION&ndash;</strong>)</p>
 <h2 id="getting-rss-feed-urls-from-websites" class="relative group">Getting rss feed urls from websites <span class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100"><a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#getting-rss-feed-urls-from-websites" aria-label="Anchor">#</a></span></h2>
 <p>Some websites make this very easy, for example, you can
 add <em>index.xml</em> to the end of <a href="https://kshitijaucharmal.github.io/index.xml"   target="_blank">my website</a>
