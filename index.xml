@@ -6,7 +6,17 @@
     <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Nov 2022 21:25:41 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 07:08:31 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advent of Code</title>
+      <link>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</link>
+      <pubDate>Tue, 06 Dec 2022 07:08:31 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</guid>
+      <description>So I recently came across this website called Advent Of Code (github ), and its awesome!!
+It provides you with 2 part puzzles everyday till Christmas, and of course it is Christmas themed. The questions are structured in a way, where most of the question is related to the premise, and the part gives you an example of a sample of the input file you recieve and how it should be solved.</description>
+    </item>
+    
     <item>
       <title>Programs I Use</title>
       <link>https://kshitijaucharmal.github.io/programs/</link>
