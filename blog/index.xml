@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Dec 2022 07:08:31 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 May 2023 15:01:05 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MicroMouse</title>
+      <link>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</link>
+      <pubDate>Thu, 25 May 2023 15:01:05 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</guid>
+      <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
+The Game # The Game is as follows:
+You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.</description>
+    </item>
+    
     <item>
       <title>Advent of Code</title>
       <link>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</link>
