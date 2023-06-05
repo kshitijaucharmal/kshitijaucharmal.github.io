@@ -8,12 +8,12 @@
     <language>en</language>
     <lastBuildDate>Tue, 06 Jun 2023 00:08:25 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tue Jun  6</title>
+      <title>Recursive Backtracking (Maze Generation)</title>
       <link>https://kshitijaucharmal.github.io/blog/tue-jun--6/</link>
       <pubDate>Tue, 06 Jun 2023 00:08:25 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/tue-jun--6/</guid>
-      <description></description>
+      <description>Recursive Backtracking Algorithm # Basic Idea # This is a simple depth-first search Algorithm, which can generate mazes by carving walls between adjacent cells randomly, and Backtracking when it reaches a dead end.</description>
     </item>
     
     <item>
