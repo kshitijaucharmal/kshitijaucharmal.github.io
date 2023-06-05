@@ -6,16 +6,23 @@
     <description>Recent content in blog on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 May 2023 15:01:05 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Jun 2023 23:11:27 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://kshitijaucharmal.github.io/blog/test/</link>
+      <pubDate>Sun, 04 Jun 2023 23:11:27 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/test/</guid>
+      <description>This shit is cool This is a test blog # This is a chart # This is a lead # When life gives you lemons, make lemonade.</description>
+    </item>
+    
     <item>
       <title>MicroMouse</title>
       <link>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</link>
       <pubDate>Thu, 25 May 2023 15:01:05 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</guid>
-      <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
-The Game # The Game is as follows:
-You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.</description>
+      <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem.</description>
     </item>
     
     <item>
@@ -24,8 +31,7 @@ You have an unknown maze that is revealed at the start You cannot have any devic
       <pubDate>Tue, 06 Dec 2022 07:08:31 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</guid>
-      <description>So I recently came across this website called Advent Of Code (github ), and its awesome!!
-It provides you with 2 part puzzles everyday till Christmas, and of course it is Christmas themed. The questions are structured in a way, where most of the question is related to the premise, and the part gives you an example of a sample of the input file you recieve and how it should be solved.</description>
+      <description>So I recently came across this website called Advent Of Code (github), and its awesome!</description>
     </item>
     
     <item>
@@ -34,8 +40,7 @@ It provides you with 2 part puzzles everyday till Christmas, and of course it is
       <pubDate>Tue, 15 Nov 2022 07:33:37 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/tuesday-15-november-2022/</guid>
-      <description>What is Newsboat # I Recently came across a program called newsboat , which is an rss feed reader. For those who do not know, rss feeds are updates posted to any website and you can subscribe to them to know what is up. It also works on reddit sites, and youtube (tho youtube limits to the latest 15 videos upoaded)
-This means you can use it as a newreader to keep track of everything you want, right from the command line!</description>
+      <description>What is Newsboat # I Recently came across a program called newsboat , which is an rss feed reader.</description>
     </item>
     
     <item>
@@ -44,9 +49,7 @@ This means you can use it as a newreader to keep track of everything you want, r
       <pubDate>Fri, 11 Nov 2022 10:17:33 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</guid>
-      <description>The problem # Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.
-I want a script that makes a blog every day (just a file in the blogs folder) and then gives the name and the title of the date.
-The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&amp;#39; &amp;#39; -f1-4 | tr &amp;#39; &amp;#39; &amp;#39;-&amp;#39;` cd $hugo_project hugo new blog/$today_date.</description>
+      <description>The problem # Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.</description>
     </item>
     
     <item>
@@ -55,10 +58,7 @@ The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&amp;#39; &amp;#
       <pubDate>Wed, 09 Nov 2022 16:44:09 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/first_blog/</guid>
-      <description>What I learned today # Today I came across a fantastic tool called pup .
-From github:
-Pup is &amp;ldquo;a command line tool for processing HTML. It reads from stdin, prints to stdout, and allows the user to filter parts of the page using CSS selectors.&amp;rdquo; # It is basically a html parser, and makes web scraping from websites dead simple.
-What I did # I used pup in a simple script, which just fetches all the links on a website, and gives you a list to choose one, and then opens it up in a browser</description>
+      <description>What I learned today # Today I came across a fantastic tool called pup.</description>
     </item>
     
   </channel>
