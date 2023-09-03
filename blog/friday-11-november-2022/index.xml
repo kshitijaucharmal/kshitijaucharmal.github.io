@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automating the blog making process on Home</title>
+    <link>https://hugo-profile.netlify.app/blog/friday-11-november-2022/</link>
+    <description>Recent content in Automating the blog making process on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 11 Nov 2022 10:17:33 +0530</lastBuildDate><atom:link href="https://hugo-profile.netlify.app/blog/friday-11-november-2022/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

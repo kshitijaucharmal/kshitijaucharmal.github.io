@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>software on Home</title>
-    <link>https://kshitijaucharmal.github.io/tags/software/</link>
+    <link>https://hugo-profile.netlify.app/tags/software/</link>
     <description>Recent content in software on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Nov 2022 21:25:41 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Nov 2022 21:25:41 +0530</lastBuildDate><atom:link href="https://hugo-profile.netlify.app/tags/software/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Programs I Use</title>
-      <link>https://kshitijaucharmal.github.io/programs/</link>
+      <link>https://hugo-profile.netlify.app/programs/</link>
       <pubDate>Tue, 15 Nov 2022 21:25:41 +0530</pubDate>
       
-      <guid>https://kshitijaucharmal.github.io/programs/</guid>
-      <description>File Managers # ranger nautilus (gnome&amp;rsquo;s file manager) Browsers # brave qutebrowser surf Youtube # ytfzf youtube-dl Anime # ani-cli Feed # newsboat Editors # neovim neovide vim Run Launchers # rofi dmenu (also for scripts) ulauncher (when in gnome) Terminals # alacritty st kitty Image Viewers # sxiv ueberzug System Monitors # bpytop htop System Info # fastfetch neofetch pfetch Music # mpd mpc mpv ncmpcpp playerctl (Awesome program check it out) Torrent and Downloads # aria2c wget curl </description>
+      <guid>https://hugo-profile.netlify.app/programs/</guid>
+      <description>File Managers ranger nautilus (gnome&amp;rsquo;s file manager) Browsers brave qutebrowser surf Youtube ytfzf youtube-dl Anime ani-cli Feed newsboat Editors neovim neovide vim Run Launchers rofi dmenu (also for scripts) ulauncher (when in gnome) Terminals alacritty st kitty Image Viewers sxiv ueberzug System Monitors bpytop htop System Info fastfetch neofetch pfetch Music mpd mpc mpv ncmpcpp playerctl (Awesome program check it out) Torrent and Downloads aria2c wget curl </description>
     </item>
     
   </channel>
