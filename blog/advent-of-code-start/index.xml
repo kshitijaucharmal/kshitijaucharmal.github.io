@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advent of Code on Home</title>
-    <link>https://hugo-profile.netlify.app/blog/advent-of-code-start/</link>
+    <link>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</link>
     <description>Recent content in Advent of Code on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Dec 2022 07:08:31 +0530</lastBuildDate><atom:link href="https://hugo-profile.netlify.app/blog/advent-of-code-start/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Dec 2022 07:08:31 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/advent-of-code-start/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

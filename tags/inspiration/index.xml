@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Inspiration on Home</title>
-    <link>https://hugo-profile.netlify.app/tags/inspiration/</link>
+    <link>https://kshitijaucharmal.github.io/tags/inspiration/</link>
     <description>Recent content in Inspiration on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Apr 2023 22:49:00 +0530</lastBuildDate><atom:link href="https://hugo-profile.netlify.app/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Apr 2023 22:49:00 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Inspiration</title>
-      <link>https://hugo-profile.netlify.app/inspiration/</link>
+      <link>https://kshitijaucharmal.github.io/inspiration/</link>
       <pubDate>Sun, 09 Apr 2023 22:49:00 +0530</pubDate>
       
-      <guid>https://hugo-profile.netlify.app/inspiration/</guid>
+      <guid>https://kshitijaucharmal.github.io/inspiration/</guid>
       <description>My Inspirations Sebastian Lague Code Bullet Michael Reeves ThinMatrix </description>
     </item>
     

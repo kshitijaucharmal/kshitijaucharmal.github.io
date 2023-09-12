@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>First Blog - Pup on Home</title>
-    <link>https://hugo-profile.netlify.app/blog/first_blog/</link>
+    <link>https://kshitijaucharmal.github.io/blog/first_blog/</link>
     <description>Recent content in First Blog - Pup on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 16:44:09 +0530</lastBuildDate><atom:link href="https://hugo-profile.netlify.app/blog/first_blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Nov 2022 16:44:09 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/first_blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

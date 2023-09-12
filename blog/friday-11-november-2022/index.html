@@ -40,15 +40,19 @@ if (!doNotTrack) {
 </script>
 
 <meta property="og:title" content="Automating the blog making process" />
-<meta property="og:description" content="The problem Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that." />
+<meta property="og:description" content="The problem Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.
+I want a script that makes a blog every day (just a file in the blogs folder) and then gives the name and the title of the date.
+The Script #!/bin/sh hugo_project=$1 today_date=`date | cut -d&#39; &#39; -f1-4 | tr &#39; &#39; &#39;-&#39;` cd $hugo_project hugo new blog/$today_date." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hugo-profile.netlify.app/blog/friday-11-november-2022/" /><meta property="article:section" content="blog" />
+<meta property="og:url" content="https://kshitijaucharmal.github.io/blog/friday-11-november-2022/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-11-11T10:17:33+05:30" />
 <meta property="article:modified_time" content="2022-11-11T10:17:33+05:30" /><meta property="og:site_name" content="Profile" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Automating the blog making process"/>
-<meta name="twitter:description" content="The problem Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that."/>
+<meta name="twitter:description" content="The problem Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.
+I want a script that makes a blog every day (just a file in the blogs folder) and then gives the name and the title of the date.
+The Script #!/bin/sh hugo_project=$1 today_date=`date | cut -d&#39; &#39; -f1-4 | tr &#39; &#39; &#39;-&#39;` cd $hugo_project hugo new blog/$today_date."/>
 
 
 <link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
@@ -154,9 +158,9 @@ Automating the blog making process | Home
             
             <a class="navbar-brand primary-font text-wrap" href="/">
                 
-                <img src="/fav.png" width="30" height="30"
+                <img src="/favicon.ico" width="30" height="30"
                     class="d-inline-block align-top">
-                Hugo Profile
+                Home
                 
             </a>
 
@@ -187,49 +191,15 @@ Automating the blog making process | Home
                     
 
                     
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#about" aria-label="about">
-                            About Me
-                        </a>
-                    </li>
+
+                    
+
                     
 
                     
 
                     
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#education"
-                            aria-label="education">
-                            Education
-                        </a>
-                    </li>
-                    
 
-                    
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#projects"
-                            aria-label="projects">
-                            Projects
-                        </a>
-                    </li>
-                    
-
-                    
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#achievements"
-                            aria-label="achievements">
-                            Achievements
-                        </a>
-                    </li>
-                    
-
-                    
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#contact"
-                            aria-label="contact">
-                            Contact
-                        </a>
-                    </li>
                     
 
                     
@@ -423,7 +393,7 @@ which runs new blog every day at 10, else on startup</p>
             <h5>Tags</h5>
             <ul class="tags-ul list-unstyled list-inline">
               
-              <li class="list-inline-item"><a href="https://hugo-profile.netlify.app/tags/blog" target="_blank">blog</a></li>
+              <li class="list-inline-item"><a href="https://kshitijaucharmal.github.io/tags/blog" target="_blank">blog</a></li>
               
             </ul>
           </aside>
@@ -435,17 +405,17 @@ which runs new blog every day at 10, else on startup</p>
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://twitter.com/share?text=Automating%20the%20blog%20making%20process&url=https%3a%2f%2fhugo-profile.netlify.app%2fblog%2ffriday-11-november-2022%2f">
+                  <a target="_blank" href="https://twitter.com/share?text=Automating%20the%20blog%20making%20process&url=https%3a%2f%2fkshitijaucharmal.github.io%2fblog%2ffriday-11-november-2022%2f">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text=Automating%20the%20blog%20making%20process: https%3a%2f%2fhugo-profile.netlify.app%2fblog%2ffriday-11-november-2022%2f">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Automating%20the%20blog%20making%20process: https%3a%2f%2fkshitijaucharmal.github.io%2fblog%2ffriday-11-november-2022%2f">
                     <i class="fab fa-whatsapp"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href='mailto:?subject=Automating%20the%20blog%20making%20process&amp;body=Check%20out%20this%20site https%3a%2f%2fhugo-profile.netlify.app%2fblog%2ffriday-11-november-2022%2f'>
+                  <a target="_blank" href='mailto:?subject=Automating%20the%20blog%20making%20process&amp;body=Check%20out%20this%20site https%3a%2f%2fkshitijaucharmal.github.io%2fblog%2ffriday-11-november-2022%2f'>
                     <i class="fa fa-envelope"></i>
                   </a>
                 </li>
@@ -599,8 +569,8 @@ which runs new blog every day at 10, else on startup</p>
     <div class="row justify-content-center">
         <div class="col-md-4 text-center">
             <div class="pb-2">
-                <a href="https://hugo-profile.netlify.app" title="Home">
-                    <img alt="Footer logo" src="/fav.png"
+                <a href="https://kshitijaucharmal.github.io/" title="Home">
+                    <img alt="Footer logo" src="/favicon.ico"
                         height="40px" width="40px">
                 </a>
             </div>
