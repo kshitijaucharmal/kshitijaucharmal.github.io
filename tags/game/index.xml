@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>game on Home</title>
+    <link>https://kshitijaucharmal.github.io/tags/game/</link>
+    <description>Recent content in game on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Nov 2023 22:25:42 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bishop Challenge</title>
+      <link>https://kshitijaucharmal.github.io/blog/bishopchallenge/</link>
+      <pubDate>Sun, 26 Nov 2023 22:25:42 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/bishopchallenge/</guid>
+      <description>Unleash Your Chess Genius: The Bishop Exchange Puzzle Game! # Download Play Now Introduction # Dive into the thrilling world of chess challenges with a game that I crafted in Unity! I recently stumbled upon a unique puzzle that couldn&amp;rsquo;t be found anywhere else on the internet. So, naturally, I turned it into a game that&amp;rsquo;s bound to electrify your strategic senses. Welcome to the Bishop Challenge, where the objective is to swap the positions of the white and black bishops on a compact chess board filled with surprises!</description>
+    </item>
+    
+  </channel>
+</rss>

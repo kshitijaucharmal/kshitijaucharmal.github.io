@@ -14,8 +14,8 @@
       
       <guid>https://kshitijaucharmal.github.io/blog/bard-shell/introduction/</guid>
       <description>Bard-Shell: A Tool for Sending Linux Command Outputs to Bard.
-Introduction I recently created a software called Bard-Shell, which allows me to send the output of Linux commands to Bard for debugging and other purposes. Bard-Shell is a simple Python script that takes a Linux command as input and pipes the output to Bard.
-Usage and Examples The Usage instructions are provided on the github page.
+Introduction # I recently created a software called Bard-Shell, which allows me to send the output of Linux commands to Bard for debugging and other purposes. Bard-Shell is a simple Python script that takes a Linux command as input and pipes the output to Bard.
+Usage and Examples # The Usage instructions are provided on the github page.
 Setup an alias for bard in .</description>
     </item>
     

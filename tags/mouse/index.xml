@@ -13,8 +13,8 @@
       <pubDate>Tue, 06 Jun 2023 00:08:25 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/mazegeneration/</guid>
-      <description>Recursive Backtracking Algorithm Basic Idea This is a simple depth-first search Algorithm, which can generate mazes by carving walls between adjacent cells randomly, and Backtracking when it reaches a dead end.
-Making the grid The grid was the easiest part, a 1D list that contained a Cell object
+      <description>Recursive Backtracking Algorithm # Basic Idea # This is a simple depth-first search Algorithm, which can generate mazes by carving walls between adjacent cells randomly, and Backtracking when it reaches a dead end.
+Making the grid # The grid was the easiest part, a 1D list that contained a Cell object
 grid = [] for i in range(ROWS): for j in range(ROWS): grid.append(Cell(i, j, gridSize)) The cell class just has an i and j and a size.</description>
     </item>
     
@@ -24,8 +24,8 @@ grid = [] for i in range(ROWS): for j in range(ROWS): grid.append(Cell(i, j, gri
       <pubDate>Thu, 25 May 2023 15:01:05 +0530</pubDate>
       
       <guid>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</guid>
-      <description>MicroMouse Context So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
-The Game The Game is as follows:
+      <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
+The Game # The Game is as follows:
 You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.</description>
     </item>
     
