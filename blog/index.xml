@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Sun, 26 Nov 2023 22:25:42 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Bishop Challenge</title>
+      <link>https://kshitijaucharmal.github.io/blog/bishopchallenge/</link>
+      <pubDate>Sun, 26 Nov 2023 22:25:42 +0530</pubDate>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/bishopchallenge/</guid>
+      <description>Unleash Your Chess Genius: The Bishop Exchange Puzzle Game! # Download Play Now Introduction # Dive into the thrilling world of chess challenges with a game that I crafted in Unity! I recently stumbled upon a unique puzzle that couldn&amp;rsquo;t be found anywhere else on the internet. So, naturally, I turned it into a game that&amp;rsquo;s bound to electrify your strategic senses. Welcome to the Bishop Challenge, where the objective is to swap the positions of the white and black bishops on a compact chess board filled with surprises!</description>
+    </item>
+    
+    <item>
       <title>Bard-Shell: Introduction</title>
       <link>https://kshitijaucharmal.github.io/blog/bard-shell/introduction/</link>
       <pubDate>Mon, 24 Jul 2023 18:47:17 +0530</pubDate>
@@ -32,10 +41,10 @@ grid = [] for i in range(ROWS): for j in range(ROWS): grid.append(Cell(i, j, gri
     
     <item>
       <title>MicroMouse</title>
-      <link>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</link>
+      <link>https://kshitijaucharmal.github.io/blog/micromouse/</link>
       <pubDate>Thu, 25 May 2023 15:01:05 +0530</pubDate>
       
-      <guid>https://kshitijaucharmal.github.io/blog/thu-may-25-030105/</guid>
+      <guid>https://kshitijaucharmal.github.io/blog/micromouse/</guid>
       <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
 The Game # The Game is as follows:
 You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.</description>
@@ -53,20 +62,20 @@ It provides you with 2 part puzzles everyday till Christmas, and of course it is
     
     <item>
       <title>Newsboat is Awesome!!</title>
-      <link>https://kshitijaucharmal.github.io/blog/tuesday-15-november-2022/</link>
+      <link>https://kshitijaucharmal.github.io/blog/newsboat/</link>
       <pubDate>Tue, 15 Nov 2022 07:33:37 +0530</pubDate>
       
-      <guid>https://kshitijaucharmal.github.io/blog/tuesday-15-november-2022/</guid>
+      <guid>https://kshitijaucharmal.github.io/blog/newsboat/</guid>
       <description>What is Newsboat # I Recently came across a program called newsboat , which is an rss feed reader. For those who do not know, rss feeds are updates posted to any website and you can subscribe to them to know what is up. It also works on reddit sites, and youtube (tho youtube limits to the latest 15 videos upoaded)
 This means you can use it as a newreader to keep track of everything you want, right from the command line!</description>
     </item>
     
     <item>
       <title>Automating the blog making process</title>
-      <link>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</link>
+      <link>https://kshitijaucharmal.github.io/blog/automating-blog/</link>
       <pubDate>Fri, 11 Nov 2022 10:17:33 +0530</pubDate>
       
-      <guid>https://kshitijaucharmal.github.io/blog/friday-11-november-2022/</guid>
+      <guid>https://kshitijaucharmal.github.io/blog/automating-blog/</guid>
       <description>The problem # Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.
 I want a script that makes a blog every day (just a file in the blogs folder) and then gives the name and the title of the date.
 The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&amp;#39; &amp;#39; -f1-4 | tr &amp;#39; &amp;#39; &amp;#39;-&amp;#39;` cd $hugo_project hugo new blog/$today_date.</description>
