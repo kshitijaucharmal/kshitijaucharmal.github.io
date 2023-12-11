@@ -6,92 +6,77 @@
     <description>Recent content in Blogs on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Nov 2023 22:25:42 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Nov 2023 22:25:42 +0530</lastBuildDate>
+    <atom:link href="https://kshitijaucharmal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bishop Challenge</title>
       <link>https://kshitijaucharmal.github.io/blog/bishopchallenge/</link>
       <pubDate>Sun, 26 Nov 2023 22:25:42 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/bishopchallenge/</guid>
       <description>Unleash Your Chess Genius: The Bishop Exchange Puzzle Game! # Play Now Introduction # Dive into the thrilling world of chess challenges with a game that I crafted in Unity! I recently stumbled upon a unique puzzle that couldn&amp;rsquo;t be found anywhere else on the internet. So, naturally, I turned it into a game that&amp;rsquo;s bound to electrify your strategic senses. Welcome to the Bishop Challenge, where the objective is to swap the positions of the white and black bishops on a compact chess board filled with surprises!</description>
     </item>
-    
     <item>
       <title>Bard-Shell: Introduction</title>
       <link>https://kshitijaucharmal.github.io/blog/bard-shell/introduction/</link>
       <pubDate>Mon, 24 Jul 2023 18:47:17 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/bard-shell/introduction/</guid>
       <description>Bard-Shell: A Tool for Sending Linux Command Outputs to Bard.
 Introduction # I recently created a software called Bard-Shell, which allows me to send the output of Linux commands to Bard for debugging and other purposes. Bard-Shell is a simple Python script that takes a Linux command as input and pipes the output to Bard.
 Usage and Examples # The Usage instructions are provided on the github page.
 Setup an alias for bard in .</description>
     </item>
-    
     <item>
       <title>Recursive Backtracking</title>
       <link>https://kshitijaucharmal.github.io/blog/mazegeneration/</link>
       <pubDate>Tue, 06 Jun 2023 00:08:25 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/mazegeneration/</guid>
       <description>Recursive Backtracking Algorithm # Basic Idea # This is a simple depth-first search Algorithm, which can generate mazes by carving walls between adjacent cells randomly, and Backtracking when it reaches a dead end.
 Making the grid # The grid was the easiest part, a 1D list that contained a Cell object
 grid = [] for i in range(ROWS): for j in range(ROWS): grid.append(Cell(i, j, gridSize)) The cell class just has an i and j and a size.</description>
     </item>
-    
     <item>
       <title>MicroMouse</title>
       <link>https://kshitijaucharmal.github.io/blog/micromouse/</link>
       <pubDate>Thu, 25 May 2023 15:01:05 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/micromouse/</guid>
       <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
 The Game # The Game is as follows:
 You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.</description>
     </item>
-    
     <item>
       <title>Advent of Code</title>
       <link>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</link>
       <pubDate>Tue, 06 Dec 2022 07:08:31 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</guid>
       <description>So I recently came across this website called Advent Of Code (github), and its awesome!!
 It provides you with 2 part puzzles everyday till Christmas, and of course it is Christmas themed. The questions are structured in a way, where most of the question is related to the premise, and the part gives you an example of a sample of the input file you recieve and how it should be solved.</description>
     </item>
-    
     <item>
       <title>Newsboat is Awesome!!</title>
       <link>https://kshitijaucharmal.github.io/blog/newsboat/</link>
       <pubDate>Tue, 15 Nov 2022 07:33:37 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/newsboat/</guid>
       <description>What is Newsboat # I Recently came across a program called newsboat , which is an rss feed reader. For those who do not know, rss feeds are updates posted to any website and you can subscribe to them to know what is up. It also works on reddit sites, and youtube (tho youtube limits to the latest 15 videos upoaded)
 This means you can use it as a newreader to keep track of everything you want, right from the command line!</description>
     </item>
-    
     <item>
       <title>Automating the blog making process</title>
       <link>https://kshitijaucharmal.github.io/blog/automating-blog/</link>
       <pubDate>Fri, 11 Nov 2022 10:17:33 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/automating-blog/</guid>
       <description>The problem # Whenever I need to make a blog, i need to go in the hugo directory, make a new file with hugo new , and also update the repo after that.
 I want a script that makes a blog every day (just a file in the blogs folder) and then gives the name and the title of the date.
 The Script # #!/bin/sh hugo_project=$1 today_date=`date | cut -d&amp;#39; &amp;#39; -f1-4 | tr &amp;#39; &amp;#39; &amp;#39;-&amp;#39;` cd $hugo_project hugo new blog/$today_date.</description>
     </item>
-    
     <item>
       <title>First Blog - Pup</title>
       <link>https://kshitijaucharmal.github.io/blog/first_blog/</link>
       <pubDate>Wed, 09 Nov 2022 16:44:09 +0530</pubDate>
-      
       <guid>https://kshitijaucharmal.github.io/blog/first_blog/</guid>
       <description>What I learned today # Today I came across a fantastic tool called pup.
 From github:
 Pup is &amp;ldquo;a command line tool for processing HTML. It reads from stdin, prints to stdout, and allows the user to filter parts of the page using CSS selectors.&amp;rdquo; # It is basically a html parser, and makes web scraping from websites dead simple.
 What I did # I used pup in a simple script, which just fetches all the links on a website, and gives you a list to choose one, and then opens it up in a browser</description>
     </item>
-    
   </channel>
 </rss>
