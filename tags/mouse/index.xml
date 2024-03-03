@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>mouse on Home</title>
+    <title>Mouse on Home</title>
     <link>https://kshitijaucharmal.github.io/tags/mouse/</link>
-    <description>Recent content in mouse on Home</description>
+    <description>Recent content in Mouse on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jun 2023 00:08:25 +0530</lastBuildDate>
-    <atom:link href="https://kshitijaucharmal.github.io/tags/mouse/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copy, _right?_ :thinking_face:
+</copyright>
+    <lastBuildDate>Tue, 06 Jun 2023 00:08:25 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/mouse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recursive Backtracking</title>
-      <link>https://kshitijaucharmal.github.io/blog/mazegeneration/</link>
+      <link>https://kshitijaucharmal.github.io/blog/2023/06/recursive-backtracking/</link>
       <pubDate>Tue, 06 Jun 2023 00:08:25 +0530</pubDate>
-      <guid>https://kshitijaucharmal.github.io/blog/mazegeneration/</guid>
-      <description>Recursive Backtracking Algorithm # Basic Idea # This is a simple depth-first search Algorithm, which can generate mazes by carving walls between adjacent cells randomly, and Backtracking when it reaches a dead end.
-Making the grid # The grid was the easiest part, a 1D list that contained a Cell object
-grid = [] for i in range(ROWS): for j in range(ROWS): grid.append(Cell(i, j, gridSize)) The cell class just has an i and j and a size.</description>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/2023/06/recursive-backtracking/</guid>
+      <description><![CDATA[Recursive Backtracking Algorithm Basic Idea This is a simple depth-first search Algorithm, which can generate mazes by carving walls between adjacent cells randomly, and Backtracking when it reaches a dead end.
+Making the grid The grid was the easiest part, a 1D list that contained a Cell object
+grid = [] for i in range(ROWS): for j in range(ROWS): grid.append(Cell(i, j, gridSize)) The cell class just has an i and j and a size.]]></description>
     </item>
+    
     <item>
       <title>MicroMouse</title>
-      <link>https://kshitijaucharmal.github.io/blog/micromouse/</link>
+      <link>https://kshitijaucharmal.github.io/blog/2023/05/micromouse/</link>
       <pubDate>Thu, 25 May 2023 15:01:05 +0530</pubDate>
-      <guid>https://kshitijaucharmal.github.io/blog/micromouse/</guid>
-      <description>MicroMouse # Context # So I saw this awesome video on Veritasium&amp;rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&amp;rsquo;m not that good in, c++?.
-The Game # The Game is as follows:
-You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.</description>
+      
+      <guid>https://kshitijaucharmal.github.io/blog/2023/05/micromouse/</guid>
+      <description><![CDATA[MicroMouse Context So I saw this awesome video on Veritasium&rsquo;s channel today and was totally fascinated by the different techniques used by the MicroMouse competition winners to make you solve this simple yet awesome problem. It got me thinking, can I implement this game in a language I&rsquo;m not that good in, c++?.
+The Game The Game is as follows:
+You have an unknown maze that is revealed at the start You cannot have any device other than the mouse, no Iot allowed.]]></description>
     </item>
+    
   </channel>
 </rss>
+

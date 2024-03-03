@@ -1,128 +1,190 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/bishopchallenge/</loc>
-            <lastmod>2023-11-26T22:25:42+05:30</lastmod>
-          </url>
-    
-  
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/</loc>
-            <lastmod>2023-11-26T22:25:42+05:30</lastmod>
-          </url>
-    
-  
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/</loc>
-            <lastmod>2023-11-26T22:25:42+05:30</lastmod>
-            <xhtml:link
-              rel="alternate"
-              hreflang="zh-hans"
-              href="https://kshitijaucharmal.github.io/zh-hans/"
-              />
-            <xhtml:link
-              rel="alternate"
-              hreflang="en"
-              href="https://kshitijaucharmal.github.io/"
-              />
-          </url>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/bard-shell/introduction/</loc>
-            <lastmod>2023-07-24T18:47:17+05:30</lastmod>
-          </url>
-    
-  
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/mazegeneration/</loc>
-            <lastmod>2023-06-06T00:08:25+05:30</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/micromouse/</loc>
-            <lastmod>2023-05-25T15:01:05+05:30</lastmod>
-          </url>
-    
-  
-    
-  
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/inspiration/</loc>
-            <lastmod>2023-04-09T22:49:00+05:30</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/advent-of-code-start/</loc>
-            <lastmod>2022-12-06T07:08:31+05:30</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/programs/</loc>
-            <lastmod>2022-11-15T21:25:41+05:30</lastmod>
-          </url>
-    
-  
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/newsboat/</loc>
-            <lastmod>2022-11-15T07:33:37+05:30</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/automating-blog/</loc>
-            <lastmod>2022-11-11T10:17:33+05:30</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/blog/first_blog/</loc>
-            <lastmod>2022-11-09T16:44:09+05:30</lastmod>
-          </url>
-    
-  
-    
-      <url>
-            <loc>https://kshitijaucharmal.github.io/about/</loc>
-            <lastmod>2022-11-08T15:04:12+05:30</lastmod>
-          </url>
-    
-  
-    
-  
-    
-  
+  <url>
+    <loc>https://kshitijaucharmal.github.io/blog/2023/11/bishop-challenge/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/blog/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/game/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/puzzle/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/</loc>
+    <lastmod>2023-11-26T22:25:42+05:30</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/bard-shell/</loc>
+    <lastmod>2023-07-24T18:47:17+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2023/07/bard-shell-introduction/</loc>
+    <lastmod>2023-07-24T18:47:17+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/mouse/</loc>
+    <lastmod>2023-06-06T00:08:25+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2023/06/recursive-backtracking/</loc>
+    <lastmod>2023-06-06T00:08:25+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2023/05/micromouse/</loc>
+    <lastmod>2023-05-25T15:01:05+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/project/</loc>
+    <lastmod>2023-05-25T15:01:05+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/inspiration/</loc>
+    <lastmod>2023-04-09T22:49:00+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/inspiration/</loc>
+    <lastmod>2023-04-09T22:49:00+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2022/12/advent-of-code/</loc>
+    <lastmod>2022-12-06T07:08:31+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/programs/</loc>
+    <lastmod>2022-11-15T21:25:41+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/software/</loc>
+    <lastmod>2022-11-15T21:25:41+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2022/11/newsboat-is-awesome/</loc>
+    <lastmod>2022-11-15T07:33:37+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2022/11/automating-the-blog-making-process/</loc>
+    <lastmod>2022-11-11T10:17:33+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/blog/2022/11/first-blog-pup/</loc>
+    <lastmod>2022-11-09T16:44:09+05:30</lastmod>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/archives/2022/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/archives/2022/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/archives/2022/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/about/</loc>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/archives/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/authors/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/authors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/authors/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/categories/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/contact/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/contact/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/contact/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/authors/kshitij/</loc>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/offline/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/offline/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/offline/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/tags/personal/</loc>
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/search/"
+                />
+  </url><url>
+    <loc>https://kshitijaucharmal.github.io/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://kshitijaucharmal.github.io/zh-hans/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kshitijaucharmal.github.io/series/"
+                />
+  </url>
 </urlset>

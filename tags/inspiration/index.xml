@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Inspiration on Home</title>
     <link>https://kshitijaucharmal.github.io/tags/inspiration/</link>
     <description>Recent content in Inspiration on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Apr 2023 22:49:00 +0530</lastBuildDate>
-    <atom:link href="https://kshitijaucharmal.github.io/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Inspiration</title>
-      <link>https://kshitijaucharmal.github.io/inspiration/</link>
-      <pubDate>Sun, 09 Apr 2023 22:49:00 +0530</pubDate>
-      <guid>https://kshitijaucharmal.github.io/inspiration/</guid>
-      <description>My Inspirations # Sebastian Lague Code Bullet MichaelReeves Thin Matrix 3Blue1Brown Mark Rober Carykh Code Parade PolyMars Dani Luke Smith ThePrimeagen VSauce Tarodev </description>
-    </item>
+    <copyright>Copy, _right?_ :thinking_face:
+</copyright>
+    <lastBuildDate>Sun, 09 Apr 2023 22:49:00 +0530</lastBuildDate><atom:link href="https://kshitijaucharmal.github.io/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
+
