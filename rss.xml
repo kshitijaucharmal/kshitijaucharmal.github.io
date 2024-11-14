@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Home</title>
+      <link>https://kshitijaucharmal.github.io</link>
+      <description>Portfolio website to showcase projects, share thoughts, etc.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://kshitijaucharmal.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Smart Label Positioning</title>
+          <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/smartpositioning/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/smartpositioning/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/smartpositioning/">&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;&#x2F;h2&gt;
+&lt;p&gt;I wanted to take part in #Hacktoberfest this time, and had found this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;issues&#x2F;1383&quot;&gt;issue&lt;&#x2F;a&gt;.
+The issue was that the labels overlap, making them harder to read and understand when close together.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;smartpositioning&#x2F;banner.jpeg&quot; alt=&quot;Image of Shortbut&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pull-request&quot;&gt;Pull request&lt;&#x2F;h2&gt;
+&lt;p&gt;I created &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;pull&#x2F;1625&quot;&gt;Pull Request&lt;&#x2F;a&gt;
+with the changes, showcasing the changes as follows:&lt;&#x2F;p&gt;
+&lt;figure&gt;
+&lt;video class=&quot;&quot; src=&quot;labelanno.mp4&quot;aria-title=&quot;Label Annotator without overlapping&quot;controls&gt;&lt;&#x2F;video&gt;
+
+&lt;figcaption&gt; Label Annotator without overlapping &lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage:&lt;&#x2F;h2&gt;
+&lt;p&gt;(Taken straight from the &lt;code&gt;v0.25.0&lt;&#x2F;code&gt; Changelog)&lt;&#x2F;p&gt;
+&lt;p&gt;Introducing Smart Labels! When smart_position is set for LabelAnnotator, RichLabelAnnotator or VertexLabelAnnotator, the labels will move around to avoid overlapping others. (&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;pulls&#x2F;1625&quot;&gt;#1625&lt;&#x2F;a&gt;)&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python z-code&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-keyword z-control z-import z-python&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;supervision&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-import z-as z-python&quot;&gt;as&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-keyword z-control z-import z-from z-python&quot;&gt;from&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-meta z-import-source z-python&quot;&gt; &lt;span class=&quot;z-meta z-import-path z-python&quot;&gt;&lt;span class=&quot;z-meta z-import-name z-python&quot;&gt;ultralytics&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-keyword z-control z-import z-python&quot;&gt;import&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt; &lt;span class=&quot;z-variable z-other z-constant z-python&quot;&gt;YOLO&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;cv2&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;imread&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;image.jpg&lt;span class=&quot;z-punctuation z-definition z-string z-end z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;label_annotator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;LabelAnnotator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-python&quot;&gt;smart_position&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-language z-python&quot;&gt;True&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;model&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;YOLO&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;yolo11m.pt&lt;span class=&quot;z-punctuation z-definition z-string z-end z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;results&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;model&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-item-access z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-begin z-python&quot;&gt;[&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-item-access z-arguments z-python&quot;&gt;&lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-python&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-item-access z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-end z-python&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;detections&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;Detections&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;from_ultralytics&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;results&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;annotated_frame&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;label_annotator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;annotate&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;first_frame&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;copy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-arguments z-python&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;detections&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;plot_image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;annotated_frame&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;acceptance&quot;&gt;Acceptance&lt;&#x2F;h2&gt;
+&lt;p&gt;The PR was accepted before &lt;code&gt;#Hacktoberfest&lt;&#x2F;code&gt; was over, and is now part of the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;releases&#x2F;tag&#x2F;0.25.0&quot;&gt;&lt;code&gt;v0.25.0&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; release of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&quot;&gt;supervision&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Flappy NEAT</title>
+          <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/flappyneat/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/flappyneat/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/flappyneat/">&lt;h1 id=&quot;inc-machine-learning-project&quot;&gt;INC Machine Learning Project&lt;&#x2F;h1&gt;
+&lt;p&gt;Welcome to the INC (Impetus and Concepts) Machine Learning Project repository!
+In this project, we have implemented the NEAT (NeuroEvolution of Augmenting Topologies)
+algorithm from scratch, using the official research paper as our primary guide.
+Our goal was to explore and demonstrate the power of NEAT in evolving neural networks for tasks like playing games.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;project-overview&quot;&gt;Project Overview&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;neat-algorithm&quot;&gt;NEAT Algorithm&lt;&#x2F;h3&gt;
+&lt;p&gt;NEAT is a powerful evolutionary algorithm for evolving artificial neural networks.
+It is especially well-suited for problems where the network’s architecture itself needs to evolve,
+making it a valuable tool in reinforcement learning tasks, like game playing.
+Our implementation closely follows the principles outlined in the original NEAT paper:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nn.cs.utexas.edu&#x2F;downloads&#x2F;papers&#x2F;stanley.ec02.pdf&quot;&gt;Original NEAT Paper&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;flappy-bird-clone&quot;&gt;Flappy Bird Clone&lt;&#x2F;h3&gt;
+&lt;p&gt;To test the capabilities of our NEAT implementation,
+we created a Flappy Bird clone using the Pygame library.
+Flappy Bird is a simple yet challenging game where a bird must navigate through pipes by jumping.
+Our goal was to evolve neural networks capable of playing the game and achieving high scores autonomously.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;repository-structure&quot;&gt;Repository Structure&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;neat&lt;&#x2F;code&gt;: Folder containing implementation of the NEAT algorithm.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;game&lt;&#x2F;code&gt;: The Flappy Bird game folder (All Game specific files).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;__main__.py&lt;&#x2F;code&gt;: The main script to run NEAT on the Flappy Bird game.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;README.md&lt;&#x2F;code&gt;: You’re reading it right now!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;&#x2F;h2&gt;
+&lt;p&gt;To get started with this project, follow these steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone this repository to your local machine:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;FlappyNEAT.git&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the necessary dependencies. You can use &lt;code&gt;pip&lt;&#x2F;code&gt; to install them:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;pip&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; install pygame&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the NEAT algorithm on the Flappy Bird game:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;python&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; .&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will start the training process and display the progress of the evolving neural networks as they learn to play the game.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;!!! Not implemented yet !!!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;You can fine-tune the NEAT algorithm by modifying the parameters in the &lt;code&gt;config.txt&lt;&#x2F;code&gt; file.
+These parameters include population size, mutation rates, and various other settings that can influence the evolution process.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;contributors&quot;&gt;Contributors&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&quot;&gt;Kshitij Aucharmal&lt;&#x2F;a&gt; - Algorithm Implementation&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;alisha971&quot;&gt;Alisha Shaikh&lt;&#x2F;a&gt; - Game Development&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Cratan228&quot;&gt;Tanish Chaudhari&lt;&#x2F;a&gt; - Project Management&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;contributing&quot;&gt;Contributing&lt;&#x2F;h2&gt;
+&lt;p&gt;Contributions are always welcome!!&lt;&#x2F;p&gt;
+&lt;p&gt;Just fork the repository and create a pull request with your desired changes, we’ll be sure to review them as soon as possible!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;&#x2F;h2&gt;
+&lt;p&gt;We would like to express our gratitude to the creators of the NEAT algorithm for their pioneering work in neuroevolution.
+This project wouldn’t have been possible without their research.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;license&quot;&gt;License&lt;&#x2F;h2&gt;
+&lt;p&gt;This project is licensed under the GPL 3.0 License - see the &lt;a href=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;flappyneat&#x2F;LICENSE&quot;&gt;LICENSE&lt;&#x2F;a&gt; file for details.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Feel free to explore the code, experiment with the NEAT parameters,
+and enjoy watching neural networks learn to play Flappy Bird!
+If you have any questions or suggestions,
+please don’t hesitate to &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;FlappyNEAT&#x2F;issues&quot;&gt;open an issue&lt;&#x2F;a&gt;
+or &lt;a href=&quot;mailto:kshitijaucharmal21@gmail.com&quot;&gt;reach out to us&lt;&#x2F;a&gt;.
+Happy coding!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Bishop Challenge</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/bishopchallenge/</link>
+          <guid>https://kshitijaucharmal.github.io/games/bishopchallenge/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/bishopchallenge/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;bishopchallenge&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Cursed Collectibles</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/cursedcollectibles/</link>
+          <guid>https://kshitijaucharmal.github.io/games/cursedcollectibles/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/cursedcollectibles/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;cursedcollectibles&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Maze Master 2</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/mazemaster/</link>
+          <guid>https://kshitijaucharmal.github.io/games/mazemaster/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/mazemaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;mazemaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Oceano</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/oceano/</link>
+          <guid>https://kshitijaucharmal.github.io/games/oceano/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/oceano/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;oceano&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Orbit Outbreak</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/orbitoutbreak/</link>
+          <guid>https://kshitijaucharmal.github.io/games/orbitoutbreak/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/orbitoutbreak/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;orbitoutbreak&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>REWIND</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/rewind/</link>
+          <guid>https://kshitijaucharmal.github.io/games/rewind/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/rewind/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;rewind&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Sticky Tanks</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/stickytanks/</link>
+          <guid>https://kshitijaucharmal.github.io/games/stickytanks/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/stickytanks/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;stickytanks&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Swamp Master</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/swampmaster/</link>
+          <guid>https://kshitijaucharmal.github.io/games/swampmaster/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/swampmaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;swampmaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Neat-Q-City</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/projects/neat-q-city/</link>
+          <guid>https://kshitijaucharmal.github.io/projects/neat-q-city/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/projects/neat-q-city/">&lt;h1 id=&quot;neat-q-city&quot;&gt;NEAT Q City&lt;&#x2F;h1&gt;
+&lt;h3 id=&quot;evolving-deep-q-learning-for-sustainable-virtual-city-management-inc-pict-college&quot;&gt;Evolving Deep Q-Learning for Sustainable Virtual City Management (INC @ PICT College)&lt;&#x2F;h3&gt;
+&lt;p&gt;This project investigates the synergy between Deep Q-learning (DQL)
+and Neuro-Evolution of Augmenting Topologies (NEAT) for managing a dynamic,
+virtual city simulation within the context of the INC competition at PICT College.&lt;&#x2F;p&gt;
+&lt;p&gt;The goal is to develop an AI agent that learns optimal decisions to enhance the city’s well-being,
+balancing factors like air quality, resource management, and economic growth.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;approach&quot;&gt;Approach&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Simulated City Environment:&lt;&#x2F;strong&gt; We create a simulated virtual city environment that captures essential aspects like air quality index, resource levels, and economic indicators. The environment provides state information (e.g., current air quality) and responds to the agent’s actions (e.g., building infrastructure).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Deep Q-Learning Agent:&lt;&#x2F;strong&gt; A DQL agent interacts with the simulated city. It receives state information from the environment, employs a deep neural network to predict future rewards for different actions, and takes the action with the highest predicted reward. The agent’s performance is evaluated based on a reward function that incentivizes sustainable and beneficial actions for the city.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;NEAT for Evolving Network Topologies:&lt;&#x2F;strong&gt; NEAT manages a population of diverse DQL agents with varying network configurations. Through mutation operators (adding&#x2F;removing connections or nodes) and crossover (combining genetic material), NEAT fosters the evolution of potentially more effective agents across generations. In each generation, agents are evaluated based on their performance within the simulated city, and the best-performing agents are selected for reproduction with variations introduced through mutations.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;execution&quot;&gt;Execution&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Set Up Simulation and Parameters:&lt;&#x2F;strong&gt; Configure the simulation environment, DQL parameters (network architecture, learning rate), and NEAT parameters (population size, mutation rate).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Run NEAT Evolution:&lt;&#x2F;strong&gt; NEAT iterates through generations, evaluating the performance of each agent in the simulated city and selecting the best ones for reproduction with mutations, leading to a population with potentially improved decision-making strategies.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Evaluation and Visualization (Optional):&lt;&#x2F;strong&gt; Track and visualize the performance of agents across generations, analyzing how the evolved agents’ actions impact the virtual city’s sustainability metrics.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This project explores the potential of combining DQL and NEAT for evolving effective AI agents to manage complex urban environments in a simulated setting. By participating in the INC competition, we aim to showcase this approach and contribute to advancements in AI-powered urban planning and policy optimization.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Bishop Challenge</title>
+          <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/bishopchallenge/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/bishopchallenge/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/bishopchallenge/">&lt;h2 id=&quot;unleash-your-chess-genius-the-bishop-exchange-puzzle-game&quot;&gt;Unleash Your Chess Genius: The Bishop Exchange Puzzle Game!&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h3&gt;
+&lt;p&gt;Dive into the thrilling world of chess challenges with a game that
+I crafted in Unity!
+I recently stumbled upon a unique puzzle that couldn’t be found anywhere else on the internet.
+So, naturally, I turned it into a game that’s bound to electrify your strategic senses.
+Welcome to the Bishop Challenge,
+where the objective is to swap the positions of the
+white and black bishops on a compact chess board filled with surprises!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;rules&quot;&gt;Rules&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objective:&lt;&#x2F;strong&gt; Brace yourself for the ultimate chess challenge – &lt;strong&gt;exchange the positions of the white and black bishops&lt;&#x2F;strong&gt; on a tightly packed 5x4 chess board.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Board Size:&lt;&#x2F;strong&gt; The game unfolds on this compact battlefield, where the 5x4 board limits the movement of your chess pieces, adding an extra layer of excitement to the puzzle.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Piece Placement:&lt;&#x2F;strong&gt; Every piece stands proudly on squares of the same color, setting the stage for a visually striking and uniquely challenging experience.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Interference:&lt;&#x2F;strong&gt; Here’s the twist – no bishop of a different color can dare to step into the attack range of another! It’s not just chess; it’s a strategic showdown.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;how-to-conquer-the-challenge&quot;&gt;How to Conquer the Challenge&lt;&#x2F;h3&gt;
+&lt;p&gt;Get ready for a rollercoaster of moves as you kick off the puzzle on the 5x4 chess board.
+Each move is a carefully calculated step toward achieving the mind-bending objective
+of swapping those bishops. With limited space and an unyielding rule against interference,
+every move becomes a pulse-pounding decision that could make or break your victory.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;strategize-like-a-pro&quot;&gt;Strategize Like a Pro&lt;&#x2F;h3&gt;
+&lt;p&gt;To conquer this chess puzzle, you’ll need to channel your inner chess genius.
+Strategize, plan, and execute your moves with precision.
+Factor in the restricted board space, anticipate potential blockades,
+and above all, abide by the non-interference rule.
+Your journey through this puzzle is a strategic dance, and every move
+propels you closer to the grand prize – the thrilling exchange of bishops.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
+&lt;p&gt;Embark on a chess adventure like no other with the 5x4 Bishop Exchange Puzzle Game!
+Crafted with passion and excitement, this puzzle promises an adrenaline-pumping experience
+that will test your chess prowess. Can you crack the code and make those bishops dance?
+Get ready for the challenge of a lifetime – it’s time to unleash your inner chess genius!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>My Inspirations</title>
+          <pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/inspiration/</link>
+          <guid>https://kshitijaucharmal.github.io/inspiration/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/inspiration/">&lt;div class=&quot;crt scanlines&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; _____             _         _   _             
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;|     |___ ___ ___|_|___ ___| |_|_|___ ___ ___ 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;|-   -|   |_ -| . | |  _| .&amp;#39;|  _| | . |   |_ -|
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;|_____|_|_|___|  _|_|_| |__,|_| |_|___|_|_|___|
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;              |_|                              
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+
+&lt;&#x2F;div&gt;
+&lt;aside&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@SebastianLague&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;seblague.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UC0e3QhIYukixgh5VVpKHH9Q&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;code-bullet.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@MichaelReeves&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;michael-reeves.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@ThinMatrix&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;thin-matrix.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@sentdex&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;sentdex.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@veritasium&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;veritasium.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@JelleVermandere&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;jelle.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@TheCodingTrain&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;codingtrain.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@EngineerMan&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;engineerman.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@MentalOutlaw&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;mental-outlaw.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;&#x2F;aside&gt;
+&lt;aside&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@carykh&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;carykh.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@CodeParade&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;codeparade.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@PolyMars&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;polymars.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Danidev&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;dani.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@MarkRober&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;markrober.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@TEDEd&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;teded.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@GMTK&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;gmtk.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@neatai6702&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;neatai.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@RujiKtheComatose&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;rujik.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@upandatom&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;upandatom.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@sphaerophoria&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;sphaerophoria.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;&#x2F;aside&gt;
+&lt;aside&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Vsauce&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;vsauce.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Tarodev&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;tarodev.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@LukeSmithxyz&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;lukesmith.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@ThePrimeagen&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;theprimeagen.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@3blue1brown&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;3b1b.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Brackeys&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;brackeys.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@TwoMinutePapers&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;two-minute-papers.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Codeer&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;codeer.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@BJGpixel&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;brandon-james-greer.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Spu7Nix&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;sputnix.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@JonasTyroller&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;jonas.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;&#x2F;aside&gt;
+</description>
+      </item>
+    </channel>
+</rss>
