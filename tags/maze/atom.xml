@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Home - maze</title>
+    <subtitle>Portfolio website to showcase projects, share thoughts, etc.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://kshitijaucharmal.github.io/tags/maze/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-05T00:00:00+00:00</updated>
+    <id>https://kshitijaucharmal.github.io/tags/maze/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Maze Master 2</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/mazemaster/"/>
+        <id>https://kshitijaucharmal.github.io/games/mazemaster/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/mazemaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;mazemaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+</feed>
