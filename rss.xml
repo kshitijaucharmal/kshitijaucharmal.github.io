@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Home</title>
+      <link>https://kshitijaucharmal.github.io</link>
+      <description>Portfolio website to showcase projects, share thoughts, etc.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://kshitijaucharmal.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Flying Around in 3D</title>
+          <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/scenewithcamera/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/scenewithcamera/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/scenewithcamera/">&lt;h3 id=&quot;repo-link&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;OpenGL-GE&quot;&gt;Repo Link&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;&#x2F;h2&gt;
+&lt;p&gt;Let me just show you the progress, then we can talk about what I did:&lt;&#x2F;p&gt;
+&lt;figure&gt;
+&lt;video class=&quot;&quot; src=&quot;flying_through.mp4&quot;aria-title=&quot;This is a video&quot;autoplay controls loop&gt;&lt;&#x2F;video&gt;
+
+  &lt;figcaption&gt;
+        Flying through the world
+    &lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+&lt;p&gt;Cool right? Let walk through what improvements have been made since the dawn of the age of triangles.
+So I managed to get multiple triangles rendering last time, along with colors for vertices.&lt;&#x2F;p&gt;
+&lt;p&gt;I had to remove the vertex colors, as it leads to very bad texture mapping later on, so that means removing the
+&lt;code&gt;EBO&lt;&#x2F;code&gt; (Element Buffer Object) Entirely as well. Its only really useful in cases where you don’t want the object to have
+textures, or at least if the object can have &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Procedural_texture&quot;&gt;procedural textures&lt;&#x2F;a&gt;, which I haven’t gotten to yet&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;textures&quot;&gt;Textures&lt;&#x2F;h2&gt;
+&lt;p&gt;I can send the texture coordinates along with vertex data, so that it maps as I want it to.
+There are modes to how the texture repeats, given as follows:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;OpenGL Option&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_REPEAT&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The default behavior for textures. Repeats the texture image.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_MIRRORED_REPEAT&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Same as GL_REPEAT but mirrors the image with each repeat.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_CLAMP_TO_EDGE&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Clamps the coordinates between 0 and 1. The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_CLAMP_TO_BORDER&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Coordinates outside the range are now given a user-specified border color.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;I just used GL_MIRRORED_REPEAT Mode ’cause the tutorial uses that
+OpenGL also generated &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mipmap&quot;&gt;Mipmaps&lt;&#x2F;a&gt; on its own using the &lt;code&gt;glGenerateMipmap(GL_TEXTURE_2D)&lt;&#x2F;code&gt; function&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;coordinate-systems&quot;&gt;Coordinate Systems&lt;&#x2F;h2&gt;
+&lt;p&gt;Anyone who knows the &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&quot;&gt;LearnOpenGL&lt;&#x2F;a&gt; website will know I skipped over the transformations section.
+Nothing to say about it except installing the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;g-truc&#x2F;glm&quot;&gt;glm&lt;&#x2F;a&gt; library, knew how vectors and matrices worked already.&lt;&#x2F;p&gt;
+&lt;p&gt;This image proves very helpful in understanding the stages of transformations to show a 3D scene on a 2D screen:
+&lt;img class=&quot;no-hover&quot;alt=&quot;This is an image&quot;src=&quot;coordinate_systems.png&quot;&#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Each have been explained in ample detail on the &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&#x2F;Getting-started&#x2F;Coordinate-Systems&quot;&gt;website&lt;&#x2F;a&gt;, so you can check out what each
+step does. For an overview,&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Space&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Local space&lt;&#x2F;td&gt;&lt;td&gt;Local space is the coordinate space that is local to your object&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;World space&lt;&#x2F;td&gt;&lt;td&gt;space in which the objects can be defined to have a location in 3D space&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;View space&lt;&#x2F;td&gt;&lt;td&gt;Camera space, space scene from camera’s POV&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Clip space&lt;&#x2F;td&gt;&lt;td&gt;Range of coordinates that will be displayed, if outside this, they will be removed&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Screen space&lt;&#x2F;td&gt;&lt;td&gt;Perspective or Othographic, take your pick&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;These can be represented &#x2F; implemented using transformation matrices, and each transformation is applied seperately in order to form a 3D scene&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;footnotes-and-next-steps&quot;&gt;Footnotes and Next Steps&lt;&#x2F;h2&gt;
+&lt;p&gt;At the end, I implemented the Camera and gave some input instructions to make it a flythrough style camera.
+Also tidied up the code, not exactly how I want it to be but will refactor it later&lt;&#x2F;p&gt;
+&lt;p&gt;Now, the next steps are not gonna be following the tutorial, as it goes in detail about lighting and stuff,
+which is not totally essential right now. The things I need to implement are as follows:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modular system that allows for dynamic creation of objects through UI&lt;&#x2F;li&gt;
+&lt;li&gt;Fullscreen&#x2F;Bigger window editor with imgui windows&lt;&#x2F;li&gt;
+&lt;li&gt;Implementing &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CedricGuillemet&#x2F;ImGuizmo&quot;&gt;imguizmo&lt;&#x2F;a&gt; and add gizmos to move&#x2F;rotate&#x2F;scale&lt;&#x2F;li&gt;
+&lt;li&gt;Implementing pybind11 to allow creation of objects through python&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;I wanna try the lighting stuff too, but this comes first. After this is done, I’ll try to implement a physics engine, maybe
+from scratch maybe taking a library, and then after the engine is pretty modular and scalable, I’ll try to implement a Ray Tracer in
+it as well.&lt;&#x2F;p&gt;
+&lt;p&gt;So Stay tuned Guys !!!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;repo-link-1&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;OpenGL-GE&quot;&gt;Repo Link&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+</description>
+      </item>
+      <item>
+          <title>OpenGL is Awesome!!</title>
+          <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/opengl-getting-started/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/opengl-getting-started/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/opengl-getting-started/">&lt;p&gt;Okay, so this is gonna be a bit long, get excited!&lt;&#x2F;p&gt;
+&lt;p&gt;Lets divide this into three Parts:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;OpenGL&lt;&#x2F;li&gt;
+&lt;li&gt;C++&lt;&#x2F;li&gt;
+&lt;li&gt;Kdevelop&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Lets start with OpenGL first.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;opengl&quot;&gt;OpenGL&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OpenGL (Open Graphics Library) is a cross-language, cross-platform application programming
+interface (API) for rendering 2D and 3D vector graphics&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;OpenGL is cross-platform like vulkan, and wayyyy easier to understand and code than vulkan.
+While vulkan took me &lt;em&gt;one week&lt;&#x2F;em&gt; to get started and to draw a triangle on the screen (the one thing you do first as a
+graphics programming beginner), OpenGL allowed this to happen in under a few hours !!!&lt;&#x2F;p&gt;
+&lt;p&gt;I’ve identified some differences, which maybe good or bad according to industry standards, but I’ll list them here according to &lt;em&gt;my&lt;&#x2F;em&gt; standards&lt;&#x2F;p&gt;
+&lt;p&gt;Lets focus on the good points first:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;OpenGL is &lt;em&gt;easy&lt;&#x2F;em&gt;: The code is easy to understand, it does not require a hell lot of setup to get started, and also makes everything easier to understand. I of course am comparing it to Vulkan&lt;&#x2F;li&gt;
+&lt;li&gt;Handles a lot of things on its own: using glad, which is library for managing function pointers for OpenGL, initialization is a cinch&lt;&#x2F;li&gt;
+&lt;li&gt;Fast on my machine: Vulkan gave me some lagging when resizing windows, maybe it was my fault (probably), but in OpenGL I just used a callback function and it worked without any significant lags&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Unfortunately, OpenGL is not all good:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Not explicit: Many things are handled internally, unlike vulkan which allows for in depth customization of each system using structs.&lt;&#x2F;li&gt;
+&lt;li&gt;Not Shader friendly: Although people may call it shader friendly as you can compile the shaders anywhere you want in the code, but the
+code has to be compiled and shaders are a part of this. shaders can be kept different from the full code compilation, unlike vulkan.&lt;&#x2F;li&gt;
+&lt;li&gt;Slower: I haven’t personally experienced this, but people have said that Vulkan is much more performant than OpenGL&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Given everything above, I’m going to stick to OpenGL and try my best to make the engine
+Next step will be to integrate Imgui, which is much easier as compared to Vulkan&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;current-progress&quot;&gt;Current Progress&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;window.png&quot; alt=&quot;Two triangles&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Yup, two triangles forming a rectangle with only 4 vertices defined and 6 indices for drawing&#x2F;filling in the triangles using VBO and EBO
+This is the progress I got, and I can even send these values to the vertex shader !!!&lt;&#x2F;p&gt;
+&lt;p&gt;The process is for rendering anything on the screen is as follows, taken from the LearnOpenGL website
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;pipeline.png&quot; alt=&quot;pipline&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The Vertex Buffer Objects (VBO) and Element Buffer Objects (EBO) are stored as follows under the Vertex Array Objects
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;vertex_array_objects_ebo.png&quot; alt=&quot;vertex&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;c&quot;&gt;C++&lt;&#x2F;h2&gt;
+&lt;p&gt;I’m learning c++ from the c++ playlist series by the cherno, and its been amazing. I understand a lot of concepts, and
+it really allows my code to flow seamlessly. I have taken the liberty to seperate all of the code into seperate files,
+creating namespaces for certain systems such as &lt;code&gt;WindowManagement&lt;&#x2F;code&gt; and &lt;code&gt;InputManagement&lt;&#x2F;code&gt;.
+The heirarchy of the code is as follows:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;OpenGL
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── build
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── CMakeLists.txt
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── external
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── glad
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── imgui
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── include
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── input.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── shaderman.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── window.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── Makefile
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── OpenGL.kdev4
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── shaders
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;└── src
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── input.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── main.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── shaderman.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    └── window.cpp
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As you can see, the structure is a pretty standard one with all
+the headers in the &lt;code&gt;include&lt;&#x2F;code&gt; directory, c++ files in the &lt;code&gt;src&lt;&#x2F;code&gt; directory,
+and the libaries in the &lt;code&gt;external&lt;&#x2F;code&gt; directory. The &lt;code&gt;shaders&lt;&#x2F;code&gt; is for storing the shader files, which is
+currently not being used as the shaders are written as &lt;code&gt;const char *&lt;&#x2F;code&gt; (I’m following the tutorial man)&lt;&#x2F;p&gt;
+&lt;p&gt;The CmakeLists.txt handles everything, and I have a new Target in it to run the program once its compiled as well&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kdevelop&quot;&gt;Kdevelop&lt;&#x2F;h2&gt;
+&lt;p&gt;Yeah, I started using Kdevelop. Neovim is amazing, but the syntax highlighting and lsp server messes up as the structure changes.
+It does not take the &lt;code&gt;CmakeLists.txt&lt;&#x2F;code&gt; in consideration, and hence I’m always faced with not resolved&#x2F;found errors.&lt;&#x2F;p&gt;
+&lt;p&gt;As to why I don’t use VSCode, its electron based, and feels too slow for me.&lt;&#x2F;p&gt;
+&lt;p&gt;Kdevelop has been perfect, it automatically detects what my CmakeLists.txt defines, and adds targets to the project window.
+It also has much better autocomplete, vi mode, and my preffered theme &lt;code&gt;ayu-dark&lt;&#x2F;code&gt; built-in, so thats definately a plus.&lt;&#x2F;p&gt;
+&lt;p&gt;I’ve added a custom target to the make system, so that I can just build (the build system is amazing as well, you can just add and remove targets)
+and it will run the binary generated as well. I can’t use harpoon (a nvim plugin) in it, but I’ll soon get used to Kdevelop’s version of it,
+and it definately feels fast as nvim too.&lt;&#x2F;p&gt;
+&lt;p&gt;Thats it! That was the update, will see you guys in the next one!!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Switching from Vulkan to OpenGL</title>
+          <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/27-apr-sun/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/27-apr-sun/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/27-apr-sun/">&lt;p&gt;Its been a while since I started work on the &lt;a href=&quot;&#x2F;blog&#x2F;simengine-05-apr-sat&quot;&gt;ConceptForge&lt;&#x2F;a&gt; Project, and have no progress to show other than I managed to integrate imgui into vulkan.
+I tried to learn shaders from the &lt;a href=&quot;https:&#x2F;&#x2F;thebookofshaders.com&#x2F;&quot;&gt;Book Of Shaders&lt;&#x2F;a&gt;, and have a basic understanding of how they work, but the problem I’m facing is seperating out the
+code into multiple files. I’m not very good at cpp, and I shot myself in my foot by taking up this enormous project at the start.&lt;&#x2F;p&gt;
+&lt;p&gt;The imgui integration:
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;27-apr-sun&#x2F;diagram.png&quot; alt=&quot;imgui&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So I’ve decided this: Switching from Vulkan to OpenGL. This decision is based on the experience of many graphics programmers who are at a
+much higher level than me. I’ll do everything in OpenGL, and once I get the gist of how it works, will maybe come back to Vulkan&lt;&#x2F;p&gt;
+&lt;p&gt;So Lets go step by step:&lt;&#x2F;p&gt;
+&lt;p&gt;Firstly, learning cpp by following this &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&quot;&gt;playlist&lt;&#x2F;a&gt;
+Secondly, Learning OpenGL, will be much easier than Vulkan.
+Then, I’ll integrate imgui in it, which’ll be a cinch too.
+Then, learning shaders and doing some cool stuff using only shaders and the basic engine I’ll have by then
+The next part will be adding pybind11 and so on.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m not giving up, this is still progress !!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</description>
+      </item>
+      <item>
+          <title>Drawing a Triangle (Finally)</title>
+          <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/simengine-06-apr-sun/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/simengine-06-apr-sun/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/simengine-06-apr-sun/">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Yup, all I can show after 2 weeks is this triangle.”&lt;&#x2F;em&gt;&lt;br &#x2F;&gt;
+— Me, after losing sleep to a graphics API&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;simengine-06-apr-sun&#x2F;.&#x2F;triangle.png&quot; alt=&quot;Triangle Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If you’ve ever written a graphics engine — or even &lt;em&gt;touched&lt;&#x2F;em&gt; a graphics API — you know that getting a triangle on screen is &lt;strong&gt;no joke&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;But after &lt;strong&gt;2 weeks&lt;&#x2F;strong&gt; of wrestling Vulkan into submission, I finally did it.
+And this triangle? It’s beautiful.
+Not because it’s a work of art, but because it represents the &lt;strong&gt;first real pixel&lt;&#x2F;strong&gt; in my AI-powered simulation engine: &lt;strong&gt;ConceptForge&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-vulkan-struggle-is-real&quot;&gt;The Vulkan Struggle Is Real&lt;&#x2F;h2&gt;
+&lt;p&gt;I followed the &lt;a href=&quot;https:&#x2F;&#x2F;docs.vulkan.org&#x2F;tutorial&#x2F;latest&#x2F;00_Introduction.html&quot;&gt;Khronos Vulkan Tutorial&lt;&#x2F;a&gt; to get started.&lt;&#x2F;p&gt;
+&lt;p&gt;Okay fine — &lt;em&gt;partially&lt;&#x2F;em&gt; followed. I may have… copy-pasted a few things without fully understanding them. 🙈 But hey — when you’re dealing with &lt;strong&gt;hundreds of lines of boilerplate just to clear the screen&lt;&#x2F;strong&gt;, you do what you gotta do.&lt;&#x2F;p&gt;
+&lt;p&gt;Vulkan is not like OpenGL. It doesn’t hold your hand.&lt;br &#x2F;&gt;
+It doesn’t even look at you. It just gives you &lt;strong&gt;raw power&lt;&#x2F;strong&gt;, and expects you to wire up &lt;strong&gt;everything&lt;&#x2F;strong&gt; — memory management, pipelines, synchronization, shaders, framebuffers, render passes… all of it.&lt;&#x2F;p&gt;
+&lt;p&gt;But it does so &lt;strong&gt;explicitly&lt;&#x2F;strong&gt;, and that’s kind of the genius of it.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;structs-not-functions&quot;&gt;Structs, Not Functions&lt;&#x2F;h2&gt;
+&lt;p&gt;Most things in Vulkan are set up by &lt;strong&gt;creating structs&lt;&#x2F;strong&gt;, filling them out, and passing them into Vulkan functions.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, creating a framebuffer looks like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp z-code&quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;VkFramebufferCreateInfo &lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-variable z-function z-c++&quot;&gt;framebufferInfo&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;{&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;sType&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;renderPass&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; renderPass&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;width&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; swapChainExtent&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;width&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;height&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; swapChainExtent&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;height&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;layers&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-c++&quot;&gt;1&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;&lt;span class=&quot;z-keyword z-control z-c++&quot;&gt;if&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-variable z-function z-c++&quot;&gt;vkCreateFramebuffer&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;device&lt;span class=&quot;z-punctuation z-separator z-c++&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-c&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-separator z-c++&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-language z-c++&quot;&gt;nullptr&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-c++&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-c&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;swapChainFramebuffers&lt;span class=&quot;z-meta z-brackets z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-begin z-c++&quot;&gt;[&lt;&#x2F;span&gt;i&lt;span class=&quot;z-punctuation z-section z-brackets z-end z-c++&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-comparison z-c&quot;&gt;!=&lt;&#x2F;span&gt; VK_SUCCESS&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-begin z-c++&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;&lt;span class=&quot;z-meta z-block z-c++&quot;&gt;    &lt;span class=&quot;z-keyword z-control z-flow z-throw z-c++&quot;&gt;throw&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;std&lt;span class=&quot;z-punctuation z-accessor z-double-colon z-c++&quot;&gt;::&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-c++&quot;&gt;runtime_error&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-c&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-c&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;failed to create framebuffer!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-c&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;&lt;span class=&quot;z-meta z-block z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-end z-c++&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Notice how there’s:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A clearly defined struct with named fields,&lt;&#x2F;li&gt;
+&lt;li&gt;An explicit &lt;code&gt;sType&lt;&#x2F;code&gt; to describe the structure’s role,&lt;&#x2F;li&gt;
+&lt;li&gt;And then a Vulkan function that consumes the whole config.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I actually like this model. It avoids long, confusing function calls with 10+ parameters, and makes the code pretty readable — especially once you understand what the structs do.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;it-s-just-a-triangle-or-is-it&quot;&gt;It’s Just a Triangle… or Is It?&lt;&#x2F;h2&gt;
+&lt;p&gt;Sure, visually it’s just three vertices forming a triangle.&lt;&#x2F;p&gt;
+&lt;p&gt;But behind the scenes?&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vulkan instance setup ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Device selection ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Logical device + queues ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Swapchain management ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Render pass &amp;amp; framebuffer setup ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Shaders + pipeline layout ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Command buffers &amp;amp; synchronization ✔️&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If that sounds like overkill for a triangle… that’s because it &lt;em&gt;is&lt;&#x2F;em&gt;.&lt;br &#x2F;&gt;
+But it’s also the groundwork for everything that will follow.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-next-step&quot;&gt;The Next Step&lt;&#x2F;h2&gt;
+&lt;p&gt;Now that I’ve got a triangle on screen, I need a break from Vulkan boilerplate.&lt;br &#x2F;&gt;
+So, I’m going to integrate &lt;strong&gt;Dear ImGui&lt;&#x2F;strong&gt; next — to add a nice GUI overlay and make debugging and interaction a lot easier moving forward.&lt;&#x2F;p&gt;
+&lt;p&gt;Being able to click buttons, inspect data, and tweak values in real-time is going to be a &lt;strong&gt;game changer&lt;&#x2F;strong&gt; as I start building out the actual engine systems.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;This isn’t just about rendering a triangle.&lt;br &#x2F;&gt;
+It’s about building the foundation for &lt;strong&gt;ConceptForge&lt;&#x2F;strong&gt; — my AI-powered simulation engine where users will eventually just &lt;em&gt;describe&lt;&#x2F;em&gt; a world in plain English… and watch it unfold.&lt;&#x2F;p&gt;
+&lt;p&gt;Today, it’s a triangle.&lt;br &#x2F;&gt;
+Tomorrow, it’ll be a procedurally generated city full of AI agents reacting to gravity and laser beams.&lt;&#x2F;p&gt;
+&lt;p&gt;Stay tuned 🚀&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Concept Forge</title>
+          <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/simengine-05-apr-sat/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/simengine-05-apr-sat/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/simengine-05-apr-sat/">&lt;h1 id=&quot;conceptforge-building-my-ai-powered-simulation-engine-from-scratch&quot;&gt;ConceptForge: Building My AI-Powered Simulation Engine from Scratch&lt;&#x2F;h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Describe your world in English. Let the AI bring it to life.”&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;what-i-m-building&quot;&gt;What I’m Building&lt;&#x2F;h2&gt;
+&lt;p&gt;Over the next six months, I’m working on &lt;strong&gt;ConceptForge&lt;&#x2F;strong&gt; — an &lt;strong&gt;AI-powered simulation engine&lt;&#x2F;strong&gt; built completely from scratch, using &lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;, &lt;strong&gt;C++&lt;&#x2F;strong&gt;, and a layer of &lt;strong&gt;natural language processing&lt;&#x2F;strong&gt; magic.&lt;&#x2F;p&gt;
+&lt;p&gt;This isn’t just a simulation engine. It’s the start of something more — maybe even a game engine down the line. Here’s the dream:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A low-level, high-performance &lt;strong&gt;rendering and simulation engine&lt;&#x2F;strong&gt; in &lt;strong&gt;C++&lt;&#x2F;strong&gt;, powered by &lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Physics, real-time simulation, ray tracing (yes, built myself — no Vulkan RTX extensions).&lt;&#x2F;li&gt;
+&lt;li&gt;A &lt;strong&gt;Python API&lt;&#x2F;strong&gt; using &lt;strong&gt;pybind11&lt;&#x2F;strong&gt;, so users can write high-level logic easily.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;LLM integration&lt;&#x2F;strong&gt; — users can describe scenes in plain English, and the AI will generate Python code behind the scenes.&lt;&#x2F;li&gt;
+&lt;li&gt;GUI using &lt;strong&gt;GLFW&lt;&#x2F;strong&gt; and &lt;strong&gt;ImGui&lt;&#x2F;strong&gt; to provide visual feedback, simulation controls, and editing tools.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;All of this is open-source and evolving here:&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;ConceptForge&quot;&gt;GitHub: ConceptForge&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;high-level-architecture&quot;&gt;High-Level Architecture&lt;&#x2F;h2&gt;
+&lt;p&gt;This is the general structure I’m working with:
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;simengine-05-apr-sat&#x2F;flowchart.png&quot; alt=&quot;Flowchart&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It’s a full-stack creative pipeline — except instead of websites, it makes interactive 3D simulations based on natural language prompts.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;tech-stack&quot;&gt;Tech Stack&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Tech&lt;&#x2F;th&gt;&lt;th&gt;Purpose&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;C++&lt;&#x2F;strong&gt;&lt;&#x2F;td&gt;&lt;td&gt;Core simulation logic, ECS, physics, and rendering backend&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.vulkan.org&#x2F;&quot;&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Raw rendering control — full GPU access, custom pipelines, ray tracing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.glfw.org&#x2F;&quot;&gt;&lt;strong&gt;GLFW&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Window&#x2F;context management&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ocornut&#x2F;imgui&quot;&gt;&lt;strong&gt;ImGui&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Editor UI, debug controls, interactive tweaks&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pybind&#x2F;pybind11&quot;&gt;&lt;strong&gt;pybind11&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Binding layer to expose C++ functionality to Python&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Python&lt;&#x2F;strong&gt;&lt;&#x2F;td&gt;&lt;td&gt;User scripting interface (and what the AI generates)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;LLMs&lt;&#x2F;strong&gt;&lt;&#x2F;td&gt;&lt;td&gt;Converts English into code using GPT or custom small models&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;vulkan-in-simple-terms&quot;&gt;Vulkan in Simple Terms&lt;&#x2F;h2&gt;
+&lt;p&gt;Why Vulkan? Because I want &lt;strong&gt;total control&lt;&#x2F;strong&gt; over how things render, move, and interact — right down to how memory is allocated on the GPU.&lt;&#x2F;p&gt;
+&lt;p&gt;Think of Vulkan like this:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenGL holds your hand. Vulkan tells you to build the chair you’re gonna sit on.&lt;&#x2F;li&gt;
+&lt;li&gt;That means more boilerplate, but also &lt;strong&gt;massive control&lt;&#x2F;strong&gt; and &lt;strong&gt;zero hidden costs&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Perfect for things like: &lt;strong&gt;custom ray tracing&lt;&#x2F;strong&gt;, &lt;strong&gt;compute shaders&lt;&#x2F;strong&gt;, &lt;strong&gt;massive simulations&lt;&#x2F;strong&gt;, and &lt;strong&gt;crazy GPU tricks&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-vision&quot;&gt;The Vision&lt;&#x2F;h2&gt;
+&lt;p&gt;Here’s the core loop I’m building toward:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;User: &lt;em&gt;“Spawn a red sphere on a green plane. Drop a blue cube from 5 meters with gravity.”&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;The LLM parses this text and generates corresponding Python code using the engine’s API.&lt;&#x2F;li&gt;
+&lt;li&gt;Python runs → &lt;code&gt;pybind11&lt;&#x2F;code&gt; passes it to the C++ backend.&lt;&#x2F;li&gt;
+&lt;li&gt;Simulation is updated, rendered using Vulkan, displayed in the GLFW window.&lt;&#x2F;li&gt;
+&lt;li&gt;User can interact, tweak parameters, or add more prompts.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;This bridges &lt;strong&gt;natural language + code + simulation&lt;&#x2F;strong&gt;, and gives users an almost magical interface to create with.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;what-you-ll-be-able-to-do&quot;&gt;What You’ll Be Able To Do&lt;&#x2F;h2&gt;
+&lt;p&gt;Eventually, this will support things like:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prototyping with AI assistance&lt;&#x2F;li&gt;
+&lt;li&gt;Simulating complex systems: physics, particles, ray tracing, ray marching, etc.&lt;&#x2F;li&gt;
+&lt;li&gt;Procedural scene generation via LLMs&lt;&#x2F;li&gt;
+&lt;li&gt;AI agents interacting in a simulated world&lt;&#x2F;li&gt;
+&lt;li&gt;Realtime interactive visualization for data or experiments&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;visual-overview&quot;&gt;Visual Overview&lt;&#x2F;h2&gt;
+&lt;p&gt;Here’s a high-level diagram of how it all connects:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;simengine-05-apr-sat&#x2F;diagram.png&quot; alt=&quot;ConceptForge Diagram&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;why-i-m-doing-this&quot;&gt;Why I’m Doing This&lt;&#x2F;h2&gt;
+&lt;p&gt;I’ve always wanted an engine where I could &lt;em&gt;just describe what I want&lt;&#x2F;em&gt;, and it would spring to life.
+We’re at a point now where LLMs are good enough to bridge that gap — but most engines are built from the top-down,
+and not designed for this kind of integration.&lt;&#x2F;p&gt;
+&lt;p&gt;So I’m doing it differently: bottom-up, from &lt;strong&gt;GPU code to English-language scripting&lt;&#x2F;strong&gt;, with a clean and extensible architecture in mind.&lt;&#x2F;p&gt;
+&lt;p&gt;This is going to take time, but I’m documenting every step, and you can follow the journey (and maybe even contribute) on GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;The real reason can just be cause I want to :P&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;follow-the-project&quot;&gt;Follow the Project&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;ConceptForge&quot;&gt;GitHub: ConceptForge&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Blog posts, demos, and releases will be linked here as they come out.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Got ideas? Want to contribute? Drop me a message or a GitHub issue.
+Let’s build something wild. 🔥&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Smart Label Positioning</title>
+          <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/smartpositioning/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/smartpositioning/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/smartpositioning/">&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;&#x2F;h2&gt;
+&lt;p&gt;I wanted to take part in #Hacktoberfest this time, and had found this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;issues&#x2F;1383&quot;&gt;issue&lt;&#x2F;a&gt;.
+The issue was that the labels overlap, making them harder to read and understand when close together.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;smartpositioning&#x2F;banner.jpeg&quot; alt=&quot;Image of Shortbut&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;pull-request&quot;&gt;Pull request&lt;&#x2F;h2&gt;
+&lt;p&gt;I created &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;pull&#x2F;1625&quot;&gt;Pull Request&lt;&#x2F;a&gt;
+with the changes, showcasing the changes as follows:&lt;&#x2F;p&gt;
+&lt;figure&gt;
+&lt;video class=&quot;&quot; src=&quot;labelanno.mp4&quot;aria-title=&quot;Label Annotator without overlapping&quot;controls&gt;&lt;&#x2F;video&gt;
+
+&lt;figcaption&gt; Label Annotator without overlapping &lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage:&lt;&#x2F;h2&gt;
+&lt;p&gt;(Taken straight from the &lt;code&gt;v0.25.0&lt;&#x2F;code&gt; Changelog)&lt;&#x2F;p&gt;
+&lt;p&gt;Introducing Smart Labels! When smart_position is set for LabelAnnotator, RichLabelAnnotator or VertexLabelAnnotator, the labels will move around to avoid overlapping others. (&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;pulls&#x2F;1625&quot;&gt;#1625&lt;&#x2F;a&gt;)&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; class=&quot;language-python z-code&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-keyword z-control z-import z-python&quot;&gt;import&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;supervision&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-import z-as z-python&quot;&gt;as&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-keyword z-control z-import z-from z-python&quot;&gt;from&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-meta z-import-source z-python&quot;&gt; &lt;span class=&quot;z-meta z-import-path z-python&quot;&gt;&lt;span class=&quot;z-meta z-import-name z-python&quot;&gt;ultralytics&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;span class=&quot;z-keyword z-control z-import z-python&quot;&gt;import&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-statement z-import z-python&quot;&gt; &lt;span class=&quot;z-variable z-other z-constant z-python&quot;&gt;YOLO&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;cv2&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;imread&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;image.jpg&lt;span class=&quot;z-punctuation z-definition z-string z-end z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;label_annotator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;LabelAnnotator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-python&quot;&gt;smart_position&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-language z-python&quot;&gt;True&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;model&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;YOLO&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-string z-python&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-python&quot;&gt;yolo11m.pt&lt;span class=&quot;z-punctuation z-definition z-string z-end z-python&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;results&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;model&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-item-access z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-begin z-python&quot;&gt;[&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-item-access z-arguments z-python&quot;&gt;&lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-python&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-item-access z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-end z-python&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;detections&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;Detections&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;from_ultralytics&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;results&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;annotated_frame&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-python&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;label_annotator&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;annotate&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;first_frame&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;copy&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-arguments z-python&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;detections&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-python&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-python&quot;&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;sv&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-python&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-variable z-function z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;plot_image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-python&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-begin z-python&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-qualified-name z-python&quot;&gt;&lt;span class=&quot;z-meta z-generic-name z-python&quot;&gt;annotated_frame&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-arguments z-end z-python&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;acceptance&quot;&gt;Acceptance&lt;&#x2F;h2&gt;
+&lt;p&gt;The PR was accepted before &lt;code&gt;#Hacktoberfest&lt;&#x2F;code&gt; was over, and is now part of the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&#x2F;releases&#x2F;tag&#x2F;0.25.0&quot;&gt;&lt;code&gt;v0.25.0&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; release of &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;roboflow&#x2F;supervision&quot;&gt;supervision&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Flappy NEAT</title>
+          <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/flappyneat/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/flappyneat/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/flappyneat/">&lt;h1 id=&quot;inc-machine-learning-project&quot;&gt;INC Machine Learning Project&lt;&#x2F;h1&gt;
+&lt;p&gt;Welcome to the INC (Impetus and Concepts) Machine Learning Project repository!
+In this project, we have implemented the NEAT (NeuroEvolution of Augmenting Topologies)
+algorithm from scratch, using the official research paper as our primary guide.
+Our goal was to explore and demonstrate the power of NEAT in evolving neural networks for tasks like playing games.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;project-overview&quot;&gt;Project Overview&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;neat-algorithm&quot;&gt;NEAT Algorithm&lt;&#x2F;h3&gt;
+&lt;p&gt;NEAT is a powerful evolutionary algorithm for evolving artificial neural networks.
+It is especially well-suited for problems where the network’s architecture itself needs to evolve,
+making it a valuable tool in reinforcement learning tasks, like game playing.
+Our implementation closely follows the principles outlined in the original NEAT paper:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nn.cs.utexas.edu&#x2F;downloads&#x2F;papers&#x2F;stanley.ec02.pdf&quot;&gt;Original NEAT Paper&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;flappy-bird-clone&quot;&gt;Flappy Bird Clone&lt;&#x2F;h3&gt;
+&lt;p&gt;To test the capabilities of our NEAT implementation,
+we created a Flappy Bird clone using the Pygame library.
+Flappy Bird is a simple yet challenging game where a bird must navigate through pipes by jumping.
+Our goal was to evolve neural networks capable of playing the game and achieving high scores autonomously.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;repository-structure&quot;&gt;Repository Structure&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;neat&lt;&#x2F;code&gt;: Folder containing implementation of the NEAT algorithm.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;game&lt;&#x2F;code&gt;: The Flappy Bird game folder (All Game specific files).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;__main__.py&lt;&#x2F;code&gt;: The main script to run NEAT on the Flappy Bird game.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;README.md&lt;&#x2F;code&gt;: You’re reading it right now!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;&#x2F;h2&gt;
+&lt;p&gt;To get started with this project, follow these steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone this repository to your local machine:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;FlappyNEAT.git&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the necessary dependencies. You can use &lt;code&gt;pip&lt;&#x2F;code&gt; to install them:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;pip&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; install pygame&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the NEAT algorithm on the Flappy Bird game:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;python&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; .&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will start the training process and display the progress of the evolving neural networks as they learn to play the game.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;!!! Not implemented yet !!!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;You can fine-tune the NEAT algorithm by modifying the parameters in the &lt;code&gt;config.txt&lt;&#x2F;code&gt; file.
+These parameters include population size, mutation rates, and various other settings that can influence the evolution process.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;contributors&quot;&gt;Contributors&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&quot;&gt;Kshitij Aucharmal&lt;&#x2F;a&gt; - Algorithm Implementation&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;alisha971&quot;&gt;Alisha Shaikh&lt;&#x2F;a&gt; - Game Development&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Cratan228&quot;&gt;Tanish Chaudhari&lt;&#x2F;a&gt; - Project Management&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;contributing&quot;&gt;Contributing&lt;&#x2F;h2&gt;
+&lt;p&gt;Contributions are always welcome!!&lt;&#x2F;p&gt;
+&lt;p&gt;Just fork the repository and create a pull request with your desired changes, we’ll be sure to review them as soon as possible!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;&#x2F;h2&gt;
+&lt;p&gt;We would like to express our gratitude to the creators of the NEAT algorithm for their pioneering work in neuroevolution.
+This project wouldn’t have been possible without their research.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;license&quot;&gt;License&lt;&#x2F;h2&gt;
+&lt;p&gt;This project is licensed under the GPL 3.0 License - see the &lt;a href=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;flappyneat&#x2F;LICENSE&quot;&gt;LICENSE&lt;&#x2F;a&gt; file for details.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Feel free to explore the code, experiment with the NEAT parameters,
+and enjoy watching neural networks learn to play Flappy Bird!
+If you have any questions or suggestions,
+please don’t hesitate to &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;FlappyNEAT&#x2F;issues&quot;&gt;open an issue&lt;&#x2F;a&gt;
+or &lt;a href=&quot;mailto:kshitijaucharmal21@gmail.com&quot;&gt;reach out to us&lt;&#x2F;a&gt;.
+Happy coding!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Cursed Collectibles</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/cursedcollectibles/</link>
+          <guid>https://kshitijaucharmal.github.io/games/cursedcollectibles/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/cursedcollectibles/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;cursedcollectibles&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Maze Master 2</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/mazemaster/</link>
+          <guid>https://kshitijaucharmal.github.io/games/mazemaster/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/mazemaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;mazemaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Oceano</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/oceano/</link>
+          <guid>https://kshitijaucharmal.github.io/games/oceano/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/oceano/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;oceano&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Orbit Outbreak</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/orbitoutbreak/</link>
+          <guid>https://kshitijaucharmal.github.io/games/orbitoutbreak/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/orbitoutbreak/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;orbitoutbreak&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>REWIND</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/rewind/</link>
+          <guid>https://kshitijaucharmal.github.io/games/rewind/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/rewind/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;rewind&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Sticky Tanks</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/stickytanks/</link>
+          <guid>https://kshitijaucharmal.github.io/games/stickytanks/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/stickytanks/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;stickytanks&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Swamp Master</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/swampmaster/</link>
+          <guid>https://kshitijaucharmal.github.io/games/swampmaster/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/swampmaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;swampmaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+      <item>
+          <title>Neat-Q-City</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/projects/neat-q-city/</link>
+          <guid>https://kshitijaucharmal.github.io/projects/neat-q-city/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/projects/neat-q-city/">&lt;h1 id=&quot;neat-q-city&quot;&gt;NEAT Q City&lt;&#x2F;h1&gt;
+&lt;h3 id=&quot;evolving-deep-q-learning-for-sustainable-virtual-city-management-inc-pict-college&quot;&gt;Evolving Deep Q-Learning for Sustainable Virtual City Management (INC @ PICT College)&lt;&#x2F;h3&gt;
+&lt;p&gt;This project investigates the synergy between Deep Q-learning (DQL)
+and Neuro-Evolution of Augmenting Topologies (NEAT) for managing a dynamic,
+virtual city simulation within the context of the INC competition at PICT College.&lt;&#x2F;p&gt;
+&lt;p&gt;The goal is to develop an AI agent that learns optimal decisions to enhance the city’s well-being,
+balancing factors like air quality, resource management, and economic growth.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;approach&quot;&gt;Approach&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Simulated City Environment:&lt;&#x2F;strong&gt; We create a simulated virtual city environment that captures essential aspects like air quality index, resource levels, and economic indicators. The environment provides state information (e.g., current air quality) and responds to the agent’s actions (e.g., building infrastructure).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Deep Q-Learning Agent:&lt;&#x2F;strong&gt; A DQL agent interacts with the simulated city. It receives state information from the environment, employs a deep neural network to predict future rewards for different actions, and takes the action with the highest predicted reward. The agent’s performance is evaluated based on a reward function that incentivizes sustainable and beneficial actions for the city.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;NEAT for Evolving Network Topologies:&lt;&#x2F;strong&gt; NEAT manages a population of diverse DQL agents with varying network configurations. Through mutation operators (adding&#x2F;removing connections or nodes) and crossover (combining genetic material), NEAT fosters the evolution of potentially more effective agents across generations. In each generation, agents are evaluated based on their performance within the simulated city, and the best-performing agents are selected for reproduction with variations introduced through mutations.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;execution&quot;&gt;Execution&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Set Up Simulation and Parameters:&lt;&#x2F;strong&gt; Configure the simulation environment, DQL parameters (network architecture, learning rate), and NEAT parameters (population size, mutation rate).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Run NEAT Evolution:&lt;&#x2F;strong&gt; NEAT iterates through generations, evaluating the performance of each agent in the simulated city and selecting the best ones for reproduction with mutations, leading to a population with potentially improved decision-making strategies.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Evaluation and Visualization (Optional):&lt;&#x2F;strong&gt; Track and visualize the performance of agents across generations, analyzing how the evolved agents’ actions impact the virtual city’s sustainability metrics.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This project explores the potential of combining DQL and NEAT for evolving effective AI agents to manage complex urban environments in a simulated setting. By participating in the INC competition, we aim to showcase this approach and contribute to advancements in AI-powered urban planning and policy optimization.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Bishop Challenge</title>
+          <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/bishopchallenge/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/bishopchallenge/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/bishopchallenge/">&lt;h2 id=&quot;unleash-your-chess-genius-the-bishop-exchange-puzzle-game&quot;&gt;Unleash Your Chess Genius: The Bishop Exchange Puzzle Game!&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h3&gt;
+&lt;p&gt;Dive into the thrilling world of chess challenges with a game that
+I crafted in Unity!
+I recently stumbled upon a unique puzzle that couldn’t be found anywhere else on the internet.
+So, naturally, I turned it into a game that’s bound to electrify your strategic senses.
+Welcome to the Bishop Challenge,
+where the objective is to swap the positions of the
+white and black bishops on a compact chess board filled with surprises!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;rules&quot;&gt;Rules&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objective:&lt;&#x2F;strong&gt; Brace yourself for the ultimate chess challenge – &lt;strong&gt;exchange the positions of the white and black bishops&lt;&#x2F;strong&gt; on a tightly packed 5x4 chess board.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Board Size:&lt;&#x2F;strong&gt; The game unfolds on this compact battlefield, where the 5x4 board limits the movement of your chess pieces, adding an extra layer of excitement to the puzzle.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Piece Placement:&lt;&#x2F;strong&gt; Every piece stands proudly on squares of the same color, setting the stage for a visually striking and uniquely challenging experience.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Interference:&lt;&#x2F;strong&gt; Here’s the twist – no bishop of a different color can dare to step into the attack range of another! It’s not just chess; it’s a strategic showdown.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;how-to-conquer-the-challenge&quot;&gt;How to Conquer the Challenge&lt;&#x2F;h3&gt;
+&lt;p&gt;Get ready for a rollercoaster of moves as you kick off the puzzle on the 5x4 chess board.
+Each move is a carefully calculated step toward achieving the mind-bending objective
+of swapping those bishops. With limited space and an unyielding rule against interference,
+every move becomes a pulse-pounding decision that could make or break your victory.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;strategize-like-a-pro&quot;&gt;Strategize Like a Pro&lt;&#x2F;h3&gt;
+&lt;p&gt;To conquer this chess puzzle, you’ll need to channel your inner chess genius.
+Strategize, plan, and execute your moves with precision.
+Factor in the restricted board space, anticipate potential blockades,
+and above all, abide by the non-interference rule.
+Your journey through this puzzle is a strategic dance, and every move
+propels you closer to the grand prize – the thrilling exchange of bishops.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
+&lt;p&gt;Embark on a chess adventure like no other with the 5x4 Bishop Exchange Puzzle Game!
+Crafted with passion and excitement, this puzzle promises an adrenaline-pumping experience
+that will test your chess prowess. Can you crack the code and make those bishops dance?
+Get ready for the challenge of a lifetime – it’s time to unleash your inner chess genius!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>My Inspirations</title>
+          <pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/inspiration/</link>
+          <guid>https://kshitijaucharmal.github.io/inspiration/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/inspiration/">&lt;div class=&quot;crt scanlines&quot; aria-hidden=&quot;true&quot;&gt;
+	&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; _____             _         _   _             
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;|     |___ ___ ___|_|___ ___| |_|_|___ ___ ___ 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;|-   -|   |_ -| . | |  _| .&amp;#39;|  _| | . |   |_ -|
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;|_____|_|_|___|  _|_|_| |__,|_| |_|___|_|_|___|
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;              |_|                              
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+
+&lt;&#x2F;div&gt;
+&lt;aside&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@SebastianLague&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;seblague.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UC0e3QhIYukixgh5VVpKHH9Q&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;code-bullet.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@MichaelReeves&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;michael-reeves.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@ThinMatrix&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;thin-matrix.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@sentdex&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;sentdex.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@veritasium&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;veritasium.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@JelleVermandere&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;jelle.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@TheCodingTrain&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;codingtrain.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@EngineerMan&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;engineerman.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@MentalOutlaw&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;mental-outlaw.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;&#x2F;aside&gt;
+&lt;aside&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@carykh&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;carykh.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@CodeParade&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;codeparade.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@PolyMars&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;polymars.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Danidev&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;dani.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@MarkRober&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;markrober.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@TEDEd&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;teded.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@GMTK&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;gmtk.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@neatai6702&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;neatai.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@RujiKtheComatose&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;rujik.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@upandatom&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;upandatom.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@sphaerophoria&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;sphaerophoria.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;&#x2F;aside&gt;
+&lt;aside&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Vsauce&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;vsauce.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Tarodev&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;tarodev.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@LukeSmithxyz&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;lukesmith.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@ThePrimeagen&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;theprimeagen.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@3blue1brown&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;3b1b.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Brackeys&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;brackeys.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@TwoMinutePapers&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;two-minute-papers.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Codeer&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;codeer.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@BJGpixel&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;brandon-james-greer.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@Spu7Nix&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;sputnix.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@JonasTyroller&quot;&gt;&lt;img class=&quot;transparent&quot; style=&quot;margin-block-end: 0; border-radius: 0;&quot; alt=&quot;Quill and a parchment&quot; src=&quot;jonas.jpg&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;br&#x2F;&gt;
+&lt;&#x2F;aside&gt;
+</description>
+      </item>
+      <item>
+          <title>Bishop Challenge</title>
+          <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/bishopchallenge/</link>
+          <guid>https://kshitijaucharmal.github.io/games/bishopchallenge/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/bishopchallenge/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;bishopchallenge&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;click-here-to-play-now&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gamejolt.com&#x2F;games&#x2F;bishop-challenge&#x2F;708092&quot;&gt;Click Here to Play Now!&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;&#x2F;h2&gt;
+&lt;p&gt;This is a challenge that I was reminded of recently, and I didn’t find the exact one anywhere on the internet,
+so I though I would make this a game to challenge everyone to solve this short but hard puzzle.
+The rules have not been implemented in the game yet so here they are:&lt;&#x2F;p&gt;
+&lt;p&gt;Rules:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The objective of the puzzle is to exchange the white and the black bishops’ positions.&lt;&#x2F;li&gt;
+&lt;li&gt;The chess board is a 5x4 board which restricts the movement&lt;&#x2F;li&gt;
+&lt;li&gt;All the pieces are on the same color.&lt;&#x2F;li&gt;
+&lt;li&gt;No Bishop of different color can come in the attack range of another (programmed in the game).&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;That’s it!!&lt;&#x2F;p&gt;
+&lt;p&gt;If you solve it, make sure to send me a screenshot&#x2F;moves you did to solve the puzzle on my &lt;a href=&quot;mailto:kshitijaucharmal21@gmail.com&quot;&gt;email&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;thank-you&quot;&gt;THANK YOU!&lt;&#x2F;h2&gt;
+</description>
+      </item>
+    </channel>
+</rss>

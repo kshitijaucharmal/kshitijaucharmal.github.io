@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Home - imgui</title>
+      <link>https://kshitijaucharmal.github.io</link>
+      <description>Portfolio website to showcase projects, share thoughts, etc.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://kshitijaucharmal.github.io/tags/imgui/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Flying Around in 3D</title>
+          <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/scenewithcamera/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/scenewithcamera/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/scenewithcamera/">&lt;h3 id=&quot;repo-link&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;OpenGL-GE&quot;&gt;Repo Link&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;&#x2F;h2&gt;
+&lt;p&gt;Let me just show you the progress, then we can talk about what I did:&lt;&#x2F;p&gt;
+&lt;figure&gt;
+&lt;video class=&quot;&quot; src=&quot;flying_through.mp4&quot;aria-title=&quot;This is a video&quot;autoplay controls loop&gt;&lt;&#x2F;video&gt;
+
+  &lt;figcaption&gt;
+        Flying through the world
+    &lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+&lt;p&gt;Cool right? Let walk through what improvements have been made since the dawn of the age of triangles.
+So I managed to get multiple triangles rendering last time, along with colors for vertices.&lt;&#x2F;p&gt;
+&lt;p&gt;I had to remove the vertex colors, as it leads to very bad texture mapping later on, so that means removing the
+&lt;code&gt;EBO&lt;&#x2F;code&gt; (Element Buffer Object) Entirely as well. Its only really useful in cases where you don’t want the object to have
+textures, or at least if the object can have &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Procedural_texture&quot;&gt;procedural textures&lt;&#x2F;a&gt;, which I haven’t gotten to yet&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;textures&quot;&gt;Textures&lt;&#x2F;h2&gt;
+&lt;p&gt;I can send the texture coordinates along with vertex data, so that it maps as I want it to.
+There are modes to how the texture repeats, given as follows:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;OpenGL Option&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_REPEAT&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The default behavior for textures. Repeats the texture image.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_MIRRORED_REPEAT&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Same as GL_REPEAT but mirrors the image with each repeat.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_CLAMP_TO_EDGE&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Clamps the coordinates between 0 and 1. The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_CLAMP_TO_BORDER&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Coordinates outside the range are now given a user-specified border color.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;I just used GL_MIRRORED_REPEAT Mode ’cause the tutorial uses that
+OpenGL also generated &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mipmap&quot;&gt;Mipmaps&lt;&#x2F;a&gt; on its own using the &lt;code&gt;glGenerateMipmap(GL_TEXTURE_2D)&lt;&#x2F;code&gt; function&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;coordinate-systems&quot;&gt;Coordinate Systems&lt;&#x2F;h2&gt;
+&lt;p&gt;Anyone who knows the &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&quot;&gt;LearnOpenGL&lt;&#x2F;a&gt; website will know I skipped over the transformations section.
+Nothing to say about it except installing the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;g-truc&#x2F;glm&quot;&gt;glm&lt;&#x2F;a&gt; library, knew how vectors and matrices worked already.&lt;&#x2F;p&gt;
+&lt;p&gt;This image proves very helpful in understanding the stages of transformations to show a 3D scene on a 2D screen:
+&lt;img class=&quot;no-hover&quot;alt=&quot;This is an image&quot;src=&quot;coordinate_systems.png&quot;&#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Each have been explained in ample detail on the &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&#x2F;Getting-started&#x2F;Coordinate-Systems&quot;&gt;website&lt;&#x2F;a&gt;, so you can check out what each
+step does. For an overview,&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Space&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Local space&lt;&#x2F;td&gt;&lt;td&gt;Local space is the coordinate space that is local to your object&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;World space&lt;&#x2F;td&gt;&lt;td&gt;space in which the objects can be defined to have a location in 3D space&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;View space&lt;&#x2F;td&gt;&lt;td&gt;Camera space, space scene from camera’s POV&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Clip space&lt;&#x2F;td&gt;&lt;td&gt;Range of coordinates that will be displayed, if outside this, they will be removed&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Screen space&lt;&#x2F;td&gt;&lt;td&gt;Perspective or Othographic, take your pick&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;These can be represented &#x2F; implemented using transformation matrices, and each transformation is applied seperately in order to form a 3D scene&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;footnotes-and-next-steps&quot;&gt;Footnotes and Next Steps&lt;&#x2F;h2&gt;
+&lt;p&gt;At the end, I implemented the Camera and gave some input instructions to make it a flythrough style camera.
+Also tidied up the code, not exactly how I want it to be but will refactor it later&lt;&#x2F;p&gt;
+&lt;p&gt;Now, the next steps are not gonna be following the tutorial, as it goes in detail about lighting and stuff,
+which is not totally essential right now. The things I need to implement are as follows:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modular system that allows for dynamic creation of objects through UI&lt;&#x2F;li&gt;
+&lt;li&gt;Fullscreen&#x2F;Bigger window editor with imgui windows&lt;&#x2F;li&gt;
+&lt;li&gt;Implementing &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CedricGuillemet&#x2F;ImGuizmo&quot;&gt;imguizmo&lt;&#x2F;a&gt; and add gizmos to move&#x2F;rotate&#x2F;scale&lt;&#x2F;li&gt;
+&lt;li&gt;Implementing pybind11 to allow creation of objects through python&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;I wanna try the lighting stuff too, but this comes first. After this is done, I’ll try to implement a physics engine, maybe
+from scratch maybe taking a library, and then after the engine is pretty modular and scalable, I’ll try to implement a Ray Tracer in
+it as well.&lt;&#x2F;p&gt;
+&lt;p&gt;So Stay tuned Guys !!!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;repo-link-1&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;OpenGL-GE&quot;&gt;Repo Link&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+</description>
+      </item>
+      <item>
+          <title>OpenGL is Awesome!!</title>
+          <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/opengl-getting-started/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/opengl-getting-started/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/opengl-getting-started/">&lt;p&gt;Okay, so this is gonna be a bit long, get excited!&lt;&#x2F;p&gt;
+&lt;p&gt;Lets divide this into three Parts:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;OpenGL&lt;&#x2F;li&gt;
+&lt;li&gt;C++&lt;&#x2F;li&gt;
+&lt;li&gt;Kdevelop&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Lets start with OpenGL first.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;opengl&quot;&gt;OpenGL&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OpenGL (Open Graphics Library) is a cross-language, cross-platform application programming
+interface (API) for rendering 2D and 3D vector graphics&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;OpenGL is cross-platform like vulkan, and wayyyy easier to understand and code than vulkan.
+While vulkan took me &lt;em&gt;one week&lt;&#x2F;em&gt; to get started and to draw a triangle on the screen (the one thing you do first as a
+graphics programming beginner), OpenGL allowed this to happen in under a few hours !!!&lt;&#x2F;p&gt;
+&lt;p&gt;I’ve identified some differences, which maybe good or bad according to industry standards, but I’ll list them here according to &lt;em&gt;my&lt;&#x2F;em&gt; standards&lt;&#x2F;p&gt;
+&lt;p&gt;Lets focus on the good points first:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;OpenGL is &lt;em&gt;easy&lt;&#x2F;em&gt;: The code is easy to understand, it does not require a hell lot of setup to get started, and also makes everything easier to understand. I of course am comparing it to Vulkan&lt;&#x2F;li&gt;
+&lt;li&gt;Handles a lot of things on its own: using glad, which is library for managing function pointers for OpenGL, initialization is a cinch&lt;&#x2F;li&gt;
+&lt;li&gt;Fast on my machine: Vulkan gave me some lagging when resizing windows, maybe it was my fault (probably), but in OpenGL I just used a callback function and it worked without any significant lags&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Unfortunately, OpenGL is not all good:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Not explicit: Many things are handled internally, unlike vulkan which allows for in depth customization of each system using structs.&lt;&#x2F;li&gt;
+&lt;li&gt;Not Shader friendly: Although people may call it shader friendly as you can compile the shaders anywhere you want in the code, but the
+code has to be compiled and shaders are a part of this. shaders can be kept different from the full code compilation, unlike vulkan.&lt;&#x2F;li&gt;
+&lt;li&gt;Slower: I haven’t personally experienced this, but people have said that Vulkan is much more performant than OpenGL&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Given everything above, I’m going to stick to OpenGL and try my best to make the engine
+Next step will be to integrate Imgui, which is much easier as compared to Vulkan&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;current-progress&quot;&gt;Current Progress&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;window.png&quot; alt=&quot;Two triangles&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Yup, two triangles forming a rectangle with only 4 vertices defined and 6 indices for drawing&#x2F;filling in the triangles using VBO and EBO
+This is the progress I got, and I can even send these values to the vertex shader !!!&lt;&#x2F;p&gt;
+&lt;p&gt;The process is for rendering anything on the screen is as follows, taken from the LearnOpenGL website
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;pipeline.png&quot; alt=&quot;pipline&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The Vertex Buffer Objects (VBO) and Element Buffer Objects (EBO) are stored as follows under the Vertex Array Objects
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;vertex_array_objects_ebo.png&quot; alt=&quot;vertex&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;c&quot;&gt;C++&lt;&#x2F;h2&gt;
+&lt;p&gt;I’m learning c++ from the c++ playlist series by the cherno, and its been amazing. I understand a lot of concepts, and
+it really allows my code to flow seamlessly. I have taken the liberty to seperate all of the code into seperate files,
+creating namespaces for certain systems such as &lt;code&gt;WindowManagement&lt;&#x2F;code&gt; and &lt;code&gt;InputManagement&lt;&#x2F;code&gt;.
+The heirarchy of the code is as follows:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;OpenGL
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── build
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── CMakeLists.txt
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── external
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── glad
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── imgui
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── include
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── input.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── shaderman.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── window.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── Makefile
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── OpenGL.kdev4
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── shaders
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;└── src
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── input.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── main.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── shaderman.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    └── window.cpp
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As you can see, the structure is a pretty standard one with all
+the headers in the &lt;code&gt;include&lt;&#x2F;code&gt; directory, c++ files in the &lt;code&gt;src&lt;&#x2F;code&gt; directory,
+and the libaries in the &lt;code&gt;external&lt;&#x2F;code&gt; directory. The &lt;code&gt;shaders&lt;&#x2F;code&gt; is for storing the shader files, which is
+currently not being used as the shaders are written as &lt;code&gt;const char *&lt;&#x2F;code&gt; (I’m following the tutorial man)&lt;&#x2F;p&gt;
+&lt;p&gt;The CmakeLists.txt handles everything, and I have a new Target in it to run the program once its compiled as well&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kdevelop&quot;&gt;Kdevelop&lt;&#x2F;h2&gt;
+&lt;p&gt;Yeah, I started using Kdevelop. Neovim is amazing, but the syntax highlighting and lsp server messes up as the structure changes.
+It does not take the &lt;code&gt;CmakeLists.txt&lt;&#x2F;code&gt; in consideration, and hence I’m always faced with not resolved&#x2F;found errors.&lt;&#x2F;p&gt;
+&lt;p&gt;As to why I don’t use VSCode, its electron based, and feels too slow for me.&lt;&#x2F;p&gt;
+&lt;p&gt;Kdevelop has been perfect, it automatically detects what my CmakeLists.txt defines, and adds targets to the project window.
+It also has much better autocomplete, vi mode, and my preffered theme &lt;code&gt;ayu-dark&lt;&#x2F;code&gt; built-in, so thats definately a plus.&lt;&#x2F;p&gt;
+&lt;p&gt;I’ve added a custom target to the make system, so that I can just build (the build system is amazing as well, you can just add and remove targets)
+and it will run the binary generated as well. I can’t use harpoon (a nvim plugin) in it, but I’ll soon get used to Kdevelop’s version of it,
+and it definately feels fast as nvim too.&lt;&#x2F;p&gt;
+&lt;p&gt;Thats it! That was the update, will see you guys in the next one!!&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Switching from Vulkan to OpenGL</title>
+          <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/27-apr-sun/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/27-apr-sun/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/27-apr-sun/">&lt;p&gt;Its been a while since I started work on the &lt;a href=&quot;&#x2F;blog&#x2F;simengine-05-apr-sat&quot;&gt;ConceptForge&lt;&#x2F;a&gt; Project, and have no progress to show other than I managed to integrate imgui into vulkan.
+I tried to learn shaders from the &lt;a href=&quot;https:&#x2F;&#x2F;thebookofshaders.com&#x2F;&quot;&gt;Book Of Shaders&lt;&#x2F;a&gt;, and have a basic understanding of how they work, but the problem I’m facing is seperating out the
+code into multiple files. I’m not very good at cpp, and I shot myself in my foot by taking up this enormous project at the start.&lt;&#x2F;p&gt;
+&lt;p&gt;The imgui integration:
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;27-apr-sun&#x2F;diagram.png&quot; alt=&quot;imgui&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So I’ve decided this: Switching from Vulkan to OpenGL. This decision is based on the experience of many graphics programmers who are at a
+much higher level than me. I’ll do everything in OpenGL, and once I get the gist of how it works, will maybe come back to Vulkan&lt;&#x2F;p&gt;
+&lt;p&gt;So Lets go step by step:&lt;&#x2F;p&gt;
+&lt;p&gt;Firstly, learning cpp by following this &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&quot;&gt;playlist&lt;&#x2F;a&gt;
+Secondly, Learning OpenGL, will be much easier than Vulkan.
+Then, I’ll integrate imgui in it, which’ll be a cinch too.
+Then, learning shaders and doing some cool stuff using only shaders and the basic engine I’ll have by then
+The next part will be adding pybind11 and so on.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m not giving up, this is still progress !!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</description>
+      </item>
+      <item>
+          <title>Drawing a Triangle (Finally)</title>
+          <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/simengine-06-apr-sun/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/simengine-06-apr-sun/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/simengine-06-apr-sun/">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Yup, all I can show after 2 weeks is this triangle.”&lt;&#x2F;em&gt;&lt;br &#x2F;&gt;
+— Me, after losing sleep to a graphics API&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;simengine-06-apr-sun&#x2F;.&#x2F;triangle.png&quot; alt=&quot;Triangle Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;If you’ve ever written a graphics engine — or even &lt;em&gt;touched&lt;&#x2F;em&gt; a graphics API — you know that getting a triangle on screen is &lt;strong&gt;no joke&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;But after &lt;strong&gt;2 weeks&lt;&#x2F;strong&gt; of wrestling Vulkan into submission, I finally did it.
+And this triangle? It’s beautiful.
+Not because it’s a work of art, but because it represents the &lt;strong&gt;first real pixel&lt;&#x2F;strong&gt; in my AI-powered simulation engine: &lt;strong&gt;ConceptForge&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-vulkan-struggle-is-real&quot;&gt;The Vulkan Struggle Is Real&lt;&#x2F;h2&gt;
+&lt;p&gt;I followed the &lt;a href=&quot;https:&#x2F;&#x2F;docs.vulkan.org&#x2F;tutorial&#x2F;latest&#x2F;00_Introduction.html&quot;&gt;Khronos Vulkan Tutorial&lt;&#x2F;a&gt; to get started.&lt;&#x2F;p&gt;
+&lt;p&gt;Okay fine — &lt;em&gt;partially&lt;&#x2F;em&gt; followed. I may have… copy-pasted a few things without fully understanding them. 🙈 But hey — when you’re dealing with &lt;strong&gt;hundreds of lines of boilerplate just to clear the screen&lt;&#x2F;strong&gt;, you do what you gotta do.&lt;&#x2F;p&gt;
+&lt;p&gt;Vulkan is not like OpenGL. It doesn’t hold your hand.&lt;br &#x2F;&gt;
+It doesn’t even look at you. It just gives you &lt;strong&gt;raw power&lt;&#x2F;strong&gt;, and expects you to wire up &lt;strong&gt;everything&lt;&#x2F;strong&gt; — memory management, pipelines, synchronization, shaders, framebuffers, render passes… all of it.&lt;&#x2F;p&gt;
+&lt;p&gt;But it does so &lt;strong&gt;explicitly&lt;&#x2F;strong&gt;, and that’s kind of the genius of it.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;structs-not-functions&quot;&gt;Structs, Not Functions&lt;&#x2F;h2&gt;
+&lt;p&gt;Most things in Vulkan are set up by &lt;strong&gt;creating structs&lt;&#x2F;strong&gt;, filling them out, and passing them into Vulkan functions.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, creating a framebuffer looks like this:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cpp&quot; class=&quot;language-cpp z-code&quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;VkFramebufferCreateInfo &lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-variable z-function z-c++&quot;&gt;framebufferInfo&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;{&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;sType&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;renderPass&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; renderPass&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;width&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; swapChainExtent&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;width&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;height&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; swapChainExtent&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;height&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-accessor z-dot z-c++&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-readwrite z-member z-c++&quot;&gt;layers&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-assignment z-c&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-c++&quot;&gt;1&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;&lt;span class=&quot;z-keyword z-control z-c++&quot;&gt;if&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-variable z-function z-c++&quot;&gt;vkCreateFramebuffer&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;device&lt;span class=&quot;z-punctuation z-separator z-c++&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-c&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;framebufferInfo&lt;span class=&quot;z-punctuation z-separator z-c++&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-language z-c++&quot;&gt;nullptr&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-c++&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-c&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;swapChainFramebuffers&lt;span class=&quot;z-meta z-brackets z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-brackets z-begin z-c++&quot;&gt;[&lt;&#x2F;span&gt;i&lt;span class=&quot;z-punctuation z-section z-brackets z-end z-c++&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-operator z-comparison z-c&quot;&gt;!=&lt;&#x2F;span&gt; VK_SUCCESS&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-block z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-begin z-c++&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;&lt;span class=&quot;z-meta z-block z-c++&quot;&gt;    &lt;span class=&quot;z-keyword z-control z-flow z-throw z-c++&quot;&gt;throw&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;std&lt;span class=&quot;z-punctuation z-accessor z-double-colon z-c++&quot;&gt;::&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-c++&quot;&gt;runtime_error&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-c++&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-c&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-c&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;failed to create framebuffer!&lt;span class=&quot;z-punctuation z-definition z-string z-end z-c&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-c++&quot;&gt;&lt;span class=&quot;z-meta z-group z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-c++&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-c++&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-c++&quot;&gt;&lt;span class=&quot;z-meta z-block z-c++&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-end z-c++&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Notice how there’s:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A clearly defined struct with named fields,&lt;&#x2F;li&gt;
+&lt;li&gt;An explicit &lt;code&gt;sType&lt;&#x2F;code&gt; to describe the structure’s role,&lt;&#x2F;li&gt;
+&lt;li&gt;And then a Vulkan function that consumes the whole config.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I actually like this model. It avoids long, confusing function calls with 10+ parameters, and makes the code pretty readable — especially once you understand what the structs do.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;it-s-just-a-triangle-or-is-it&quot;&gt;It’s Just a Triangle… or Is It?&lt;&#x2F;h2&gt;
+&lt;p&gt;Sure, visually it’s just three vertices forming a triangle.&lt;&#x2F;p&gt;
+&lt;p&gt;But behind the scenes?&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vulkan instance setup ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Device selection ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Logical device + queues ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Swapchain management ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Render pass &amp;amp; framebuffer setup ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Shaders + pipeline layout ✔️&lt;&#x2F;li&gt;
+&lt;li&gt;Command buffers &amp;amp; synchronization ✔️&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;If that sounds like overkill for a triangle… that’s because it &lt;em&gt;is&lt;&#x2F;em&gt;.&lt;br &#x2F;&gt;
+But it’s also the groundwork for everything that will follow.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-next-step&quot;&gt;The Next Step&lt;&#x2F;h2&gt;
+&lt;p&gt;Now that I’ve got a triangle on screen, I need a break from Vulkan boilerplate.&lt;br &#x2F;&gt;
+So, I’m going to integrate &lt;strong&gt;Dear ImGui&lt;&#x2F;strong&gt; next — to add a nice GUI overlay and make debugging and interaction a lot easier moving forward.&lt;&#x2F;p&gt;
+&lt;p&gt;Being able to click buttons, inspect data, and tweak values in real-time is going to be a &lt;strong&gt;game changer&lt;&#x2F;strong&gt; as I start building out the actual engine systems.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;This isn’t just about rendering a triangle.&lt;br &#x2F;&gt;
+It’s about building the foundation for &lt;strong&gt;ConceptForge&lt;&#x2F;strong&gt; — my AI-powered simulation engine where users will eventually just &lt;em&gt;describe&lt;&#x2F;em&gt; a world in plain English… and watch it unfold.&lt;&#x2F;p&gt;
+&lt;p&gt;Today, it’s a triangle.&lt;br &#x2F;&gt;
+Tomorrow, it’ll be a procedurally generated city full of AI agents reacting to gravity and laser beams.&lt;&#x2F;p&gt;
+&lt;p&gt;Stay tuned 🚀&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Concept Forge</title>
+          <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/simengine-05-apr-sat/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/simengine-05-apr-sat/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/simengine-05-apr-sat/">&lt;h1 id=&quot;conceptforge-building-my-ai-powered-simulation-engine-from-scratch&quot;&gt;ConceptForge: Building My AI-Powered Simulation Engine from Scratch&lt;&#x2F;h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Describe your world in English. Let the AI bring it to life.”&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;what-i-m-building&quot;&gt;What I’m Building&lt;&#x2F;h2&gt;
+&lt;p&gt;Over the next six months, I’m working on &lt;strong&gt;ConceptForge&lt;&#x2F;strong&gt; — an &lt;strong&gt;AI-powered simulation engine&lt;&#x2F;strong&gt; built completely from scratch, using &lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;, &lt;strong&gt;C++&lt;&#x2F;strong&gt;, and a layer of &lt;strong&gt;natural language processing&lt;&#x2F;strong&gt; magic.&lt;&#x2F;p&gt;
+&lt;p&gt;This isn’t just a simulation engine. It’s the start of something more — maybe even a game engine down the line. Here’s the dream:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;A low-level, high-performance &lt;strong&gt;rendering and simulation engine&lt;&#x2F;strong&gt; in &lt;strong&gt;C++&lt;&#x2F;strong&gt;, powered by &lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Physics, real-time simulation, ray tracing (yes, built myself — no Vulkan RTX extensions).&lt;&#x2F;li&gt;
+&lt;li&gt;A &lt;strong&gt;Python API&lt;&#x2F;strong&gt; using &lt;strong&gt;pybind11&lt;&#x2F;strong&gt;, so users can write high-level logic easily.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;LLM integration&lt;&#x2F;strong&gt; — users can describe scenes in plain English, and the AI will generate Python code behind the scenes.&lt;&#x2F;li&gt;
+&lt;li&gt;GUI using &lt;strong&gt;GLFW&lt;&#x2F;strong&gt; and &lt;strong&gt;ImGui&lt;&#x2F;strong&gt; to provide visual feedback, simulation controls, and editing tools.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;All of this is open-source and evolving here:&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;ConceptForge&quot;&gt;GitHub: ConceptForge&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;high-level-architecture&quot;&gt;High-Level Architecture&lt;&#x2F;h2&gt;
+&lt;p&gt;This is the general structure I’m working with:
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;simengine-05-apr-sat&#x2F;flowchart.png&quot; alt=&quot;Flowchart&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It’s a full-stack creative pipeline — except instead of websites, it makes interactive 3D simulations based on natural language prompts.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;tech-stack&quot;&gt;Tech Stack&lt;&#x2F;h2&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Tech&lt;&#x2F;th&gt;&lt;th&gt;Purpose&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;C++&lt;&#x2F;strong&gt;&lt;&#x2F;td&gt;&lt;td&gt;Core simulation logic, ECS, physics, and rendering backend&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.vulkan.org&#x2F;&quot;&gt;&lt;strong&gt;Vulkan&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Raw rendering control — full GPU access, custom pipelines, ray tracing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.glfw.org&#x2F;&quot;&gt;&lt;strong&gt;GLFW&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Window&#x2F;context management&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ocornut&#x2F;imgui&quot;&gt;&lt;strong&gt;ImGui&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Editor UI, debug controls, interactive tweaks&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pybind&#x2F;pybind11&quot;&gt;&lt;strong&gt;pybind11&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;td&gt;&lt;td&gt;Binding layer to expose C++ functionality to Python&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Python&lt;&#x2F;strong&gt;&lt;&#x2F;td&gt;&lt;td&gt;User scripting interface (and what the AI generates)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;LLMs&lt;&#x2F;strong&gt;&lt;&#x2F;td&gt;&lt;td&gt;Converts English into code using GPT or custom small models&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;vulkan-in-simple-terms&quot;&gt;Vulkan in Simple Terms&lt;&#x2F;h2&gt;
+&lt;p&gt;Why Vulkan? Because I want &lt;strong&gt;total control&lt;&#x2F;strong&gt; over how things render, move, and interact — right down to how memory is allocated on the GPU.&lt;&#x2F;p&gt;
+&lt;p&gt;Think of Vulkan like this:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenGL holds your hand. Vulkan tells you to build the chair you’re gonna sit on.&lt;&#x2F;li&gt;
+&lt;li&gt;That means more boilerplate, but also &lt;strong&gt;massive control&lt;&#x2F;strong&gt; and &lt;strong&gt;zero hidden costs&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Perfect for things like: &lt;strong&gt;custom ray tracing&lt;&#x2F;strong&gt;, &lt;strong&gt;compute shaders&lt;&#x2F;strong&gt;, &lt;strong&gt;massive simulations&lt;&#x2F;strong&gt;, and &lt;strong&gt;crazy GPU tricks&lt;&#x2F;strong&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-vision&quot;&gt;The Vision&lt;&#x2F;h2&gt;
+&lt;p&gt;Here’s the core loop I’m building toward:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;User: &lt;em&gt;“Spawn a red sphere on a green plane. Drop a blue cube from 5 meters with gravity.”&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;The LLM parses this text and generates corresponding Python code using the engine’s API.&lt;&#x2F;li&gt;
+&lt;li&gt;Python runs → &lt;code&gt;pybind11&lt;&#x2F;code&gt; passes it to the C++ backend.&lt;&#x2F;li&gt;
+&lt;li&gt;Simulation is updated, rendered using Vulkan, displayed in the GLFW window.&lt;&#x2F;li&gt;
+&lt;li&gt;User can interact, tweak parameters, or add more prompts.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;This bridges &lt;strong&gt;natural language + code + simulation&lt;&#x2F;strong&gt;, and gives users an almost magical interface to create with.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;what-you-ll-be-able-to-do&quot;&gt;What You’ll Be Able To Do&lt;&#x2F;h2&gt;
+&lt;p&gt;Eventually, this will support things like:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prototyping with AI assistance&lt;&#x2F;li&gt;
+&lt;li&gt;Simulating complex systems: physics, particles, ray tracing, ray marching, etc.&lt;&#x2F;li&gt;
+&lt;li&gt;Procedural scene generation via LLMs&lt;&#x2F;li&gt;
+&lt;li&gt;AI agents interacting in a simulated world&lt;&#x2F;li&gt;
+&lt;li&gt;Realtime interactive visualization for data or experiments&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;visual-overview&quot;&gt;Visual Overview&lt;&#x2F;h2&gt;
+&lt;p&gt;Here’s a high-level diagram of how it all connects:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;simengine-05-apr-sat&#x2F;diagram.png&quot; alt=&quot;ConceptForge Diagram&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;why-i-m-doing-this&quot;&gt;Why I’m Doing This&lt;&#x2F;h2&gt;
+&lt;p&gt;I’ve always wanted an engine where I could &lt;em&gt;just describe what I want&lt;&#x2F;em&gt;, and it would spring to life.
+We’re at a point now where LLMs are good enough to bridge that gap — but most engines are built from the top-down,
+and not designed for this kind of integration.&lt;&#x2F;p&gt;
+&lt;p&gt;So I’m doing it differently: bottom-up, from &lt;strong&gt;GPU code to English-language scripting&lt;&#x2F;strong&gt;, with a clean and extensible architecture in mind.&lt;&#x2F;p&gt;
+&lt;p&gt;This is going to take time, but I’m documenting every step, and you can follow the journey (and maybe even contribute) on GitHub.&lt;&#x2F;p&gt;
+&lt;p&gt;The real reason can just be cause I want to :P&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;follow-the-project&quot;&gt;Follow the Project&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;ConceptForge&quot;&gt;GitHub: ConceptForge&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Blog posts, demos, and releases will be linked here as they come out.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Got ideas? Want to contribute? Drop me a message or a GitHub issue.
+Let’s build something wild. 🔥&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

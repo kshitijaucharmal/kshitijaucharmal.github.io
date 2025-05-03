@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Home - bishop</title>
+      <link>https://kshitijaucharmal.github.io</link>
+      <description>Portfolio website to showcase projects, share thoughts, etc.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://kshitijaucharmal.github.io/tags/bishop/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sun, 26 Nov 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Bishop Challenge</title>
+          <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/blog/bishopchallenge/</link>
+          <guid>https://kshitijaucharmal.github.io/blog/bishopchallenge/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/blog/bishopchallenge/">&lt;h2 id=&quot;unleash-your-chess-genius-the-bishop-exchange-puzzle-game&quot;&gt;Unleash Your Chess Genius: The Bishop Exchange Puzzle Game!&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h3&gt;
+&lt;p&gt;Dive into the thrilling world of chess challenges with a game that
+I crafted in Unity!
+I recently stumbled upon a unique puzzle that couldn’t be found anywhere else on the internet.
+So, naturally, I turned it into a game that’s bound to electrify your strategic senses.
+Welcome to the Bishop Challenge,
+where the objective is to swap the positions of the
+white and black bishops on a compact chess board filled with surprises!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;rules&quot;&gt;Rules&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objective:&lt;&#x2F;strong&gt; Brace yourself for the ultimate chess challenge – &lt;strong&gt;exchange the positions of the white and black bishops&lt;&#x2F;strong&gt; on a tightly packed 5x4 chess board.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Board Size:&lt;&#x2F;strong&gt; The game unfolds on this compact battlefield, where the 5x4 board limits the movement of your chess pieces, adding an extra layer of excitement to the puzzle.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Piece Placement:&lt;&#x2F;strong&gt; Every piece stands proudly on squares of the same color, setting the stage for a visually striking and uniquely challenging experience.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Interference:&lt;&#x2F;strong&gt; Here’s the twist – no bishop of a different color can dare to step into the attack range of another! It’s not just chess; it’s a strategic showdown.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;how-to-conquer-the-challenge&quot;&gt;How to Conquer the Challenge&lt;&#x2F;h3&gt;
+&lt;p&gt;Get ready for a rollercoaster of moves as you kick off the puzzle on the 5x4 chess board.
+Each move is a carefully calculated step toward achieving the mind-bending objective
+of swapping those bishops. With limited space and an unyielding rule against interference,
+every move becomes a pulse-pounding decision that could make or break your victory.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;strategize-like-a-pro&quot;&gt;Strategize Like a Pro&lt;&#x2F;h3&gt;
+&lt;p&gt;To conquer this chess puzzle, you’ll need to channel your inner chess genius.
+Strategize, plan, and execute your moves with precision.
+Factor in the restricted board space, anticipate potential blockades,
+and above all, abide by the non-interference rule.
+Your journey through this puzzle is a strategic dance, and every move
+propels you closer to the grand prize – the thrilling exchange of bishops.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
+&lt;p&gt;Embark on a chess adventure like no other with the 5x4 Bishop Exchange Puzzle Game!
+Crafted with passion and excitement, this puzzle promises an adrenaline-pumping experience
+that will test your chess prowess. Can you crack the code and make those bishops dance?
+Get ready for the challenge of a lifetime – it’s time to unleash your inner chess genius!&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

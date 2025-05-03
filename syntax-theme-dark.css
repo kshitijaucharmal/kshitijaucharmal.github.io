@@ -1,0 +1,391 @@
+.z-code {
+  color: #b3b3b3;
+  background-color: #0f1419;
+}
+
+.z-comment, .z-meta.z-documentation {
+  color: #5c6773;
+}
+
+.z-string {
+  color: #87d96c;
+}
+
+.z-string.z-regexp {
+  color: #87d96c;
+}
+
+.z-constant.z-character.z-escape {
+  color: #ff6666;
+}
+
+.z-constant.z-numeric {
+  color: #dfbfff;
+}
+
+.z-variable {
+  color: #73d0ff;
+}
+
+.z-variable.z-function {
+  color: #ffd137;
+}
+
+.z-variable.z-language {
+  color: #f27983;
+}
+
+.z-keyword {
+  color: #f27983;
+}
+
+.z-meta.z-import .z-keyword,
+.z-keyword.z-control.z-import,
+.z-keyword.z-control.z-import.z-from,
+.z-keyword.z-other.z-import,
+.z-keyword.z-control.z-at-rule.z-include,
+.z-keyword.z-control.z-at-rule.z-import {
+  color: #ffad66;
+}
+
+.z-keyword.z-operator.z-comparison,
+.z-keyword.z-operator.z-assignment,
+.z-keyword.z-operator.z-arithmetic {
+  color: #b3b3b3;
+}
+
+.z-storage {
+  color: #f27983;
+}
+
+.z-storage.z-modifier {
+  color: #b3b3b3;
+}
+
+.z-keyword.z-control.z-class,
+.z-entity.z-name,
+.z-entity.z-name.z-class,
+.z-entity.z-name.z-type.z-class {
+  color: #ffd137;
+}
+
+.z-entity.z-other.z-inherited-class {
+  color: #73d0ff;
+}
+
+.z-entity.z-other.z-attribute-name {
+  color: #ffd137;
+}
+
+.z-support,
+.z-support.z-type,
+.z-support.z-class {
+  color: #f27983;
+}
+
+.z-entity.z-name.z-function {
+  color: #ffd137;
+}
+
+.z-punctuation.z-definition.z-variable {
+  color: #f27983;
+}
+
+.z-constant,
+.z-constant.z-language,
+.z-meta.z-preprocessor {
+  color: #ffd137;
+}
+
+.z-entity.z-name.z-section {
+  color: #ffad66;
+}
+
+.z-support.z-function.z-construct,
+.z-keyword.z-other.z-new {
+  color: #ff6666;
+}
+
+.z-constant.z-character,
+.z-constant.z-other {
+  color: #ffad66;
+}
+
+.z-entity.z-name.z-tag {
+  color: #73d0ff;
+}
+
+.z-punctuation.z-definition.z-tag.z-html,
+.z-punctuation.z-definition.z-tag.z-begin,
+.z-punctuation.z-definition.z-tag.z-end {
+  color: #5c6773;
+}
+
+.z-support.z-function {
+  color: #f27983;
+}
+
+.z-punctuation.z-separator.z-continuation {
+  color: #ff6666;
+}
+
+.z-storage.z-type {
+  color: #73d0ff;
+}
+
+.z-support.z-type.z-exception {
+  color: #ffad66;
+}
+
+.z-keyword.z-other.z-special-method {
+  color: #ffad66;
+}
+
+.z-invalid {
+  background-color: #6e2e32;
+}
+
+.z-string.z-quoted.z-double,
+.z-string.z-quoted.z-single {
+  color: #87d96c;
+}
+
+.z-punctuation.z-definition.z-string {
+  color: #b3b3b3;
+}
+
+.z-meta.z-brace.z-square,
+.z-punctuation.z-section.z-brackets {
+  color: #73d0ff;
+}
+
+.z-meta.z-brace.z-round,
+.z-meta.z-brace.z-curly,
+.z-punctuation.z-section,
+.z-punctuation.z-section.z-block,
+.z-punctuation.z-definition.z-parameters,
+.z-punctuation.z-section.z-group {
+  color: #b3b3b3;
+}
+
+.z-support.z-constant.z-color,
+.z-invalid.z-deprecated.z-color.z-w3c-non-standard-color-name.z-scss {
+  color: #ffd137;
+}
+
+.z-meta.z-selector.z-css {
+  color: #b3b3b3;
+}
+
+.z-entity.z-name.z-tag.z-css,
+.z-entity.z-name.z-tag.z-scss,
+.z-source.z-less .z-keyword.z-control.z-html.z-elements,
+.z-source.z-sass .z-keyword.z-control.z-untitled {
+  color: #ffd137;
+}
+
+.z-entity.z-other.z-attribute-name.z-class {
+  color: #ffd137;
+}
+
+.z-entity.z-other.z-attribute-name.z-id {
+  color: #ffd137;
+}
+
+.z-entity.z-other.z-attribute-name.z-pseudo-element,
+.z-entity.z-other.z-attribute-name.z-tag.z-pseudo-element,
+.z-entity.z-other.z-attribute-name.z-pseudo-class,
+.z-entity.z-other.z-attribute-name.z-tag.z-pseudo-class {
+  color: #73d0ff;
+}
+
+.z-text.z-html.z-basic .z-meta.z-tag.z-other.z-html,
+.z-text.z-html.z-basic .z-meta.z-tag.z-any.z-html,
+.z-text.z-html.z-basic .z-meta.z-tag.z-block.z-any,
+.z-text.z-html.z-basic .z-meta.z-tag.z-inline.z-any,
+.z-text.z-html.z-basic .z-meta.z-tag.z-structure.z-any.z-html,
+.z-text.z-html.z-basic .z-source.z-js.z-embedded.z-html,
+.z-punctuation.z-separator.z-key-value.z-html {
+  color: #b3b3b3;
+}
+
+.z-text.z-html.z-basic .z-entity.z-other.z-attribute-name.z-html,
+.z-meta.z-tag.z-xml .z-entity.z-other.z-attribute-name {
+  color: #ffd137;
+}
+
+.z-keyword.z-other.z-special-method.z-ruby {
+  color: #f27983;
+}
+
+.z-variable.z-other.z-constant.z-ruby {
+  color: #ffd137;
+}
+
+.z-constant.z-other.z-symbol.z-ruby {
+  color: #87d96c;
+}
+
+.z-meta.z-array .z-support.z-function.z-construct.z-php {
+  color: #ffd137;
+}
+
+.z-entity.z-name.z-function.z-preprocessor.z-c,
+.z-meta.z-preprocessor.z-c.z-include,
+.z-meta.z-preprocessor.z-macro.z-c {
+  color: #ffad66;
+}
+
+.z-meta.z-preprocessor.z-c.z-include .z-string.z-quoted.z-other.z-lt-gt.z-include.z-c,
+.z-meta.z-preprocessor.z-c.z-include .z-punctuation.z-definition.z-string.z-begin.z-c,
+.z-meta.z-preprocessor.z-c.z-include .z-punctuation.z-definition.z-string.z-end.z-c {
+  color: #87d96c;
+}
+
+.z-other.z-package.z-exclude,
+.z-other.z-remove {
+  color: #ff6666;
+}
+
+.z-other.z-add {
+  color: #87d96c;
+}
+
+.z-punctuation.z-section.z-group.z-tex,
+.z-punctuation.z-definition.z-arguments.z-begin.z-latex,
+.z-punctuation.z-definition.z-arguments.z-end.z-latex,
+.z-punctuation.z-definition.z-arguments.z-latex {
+  color: #ff6666;
+}
+
+.z-meta.z-group.z-braces.z-tex {
+  color: #ffd137;
+}
+
+.z-string.z-other.z-math.z-tex {
+  color: #ffd137;
+}
+
+.z-variable.z-parameter.z-function.z-latex {
+  color: #ffad66;
+}
+
+.z-punctuation.z-definition.z-constant.z-math.z-tex {
+  color: #ff6666;
+}
+
+.z-text.z-tex.z-latex .z-constant.z-other.z-math.z-tex,
+.z-constant.z-other.z-general.z-math.z-tex,
+.z-constant.z-other.z-general.z-math.z-tex,
+.z-constant.z-character.z-math.z-tex {
+  color: #87d96c;
+}
+
+.z-string.z-other.z-math.z-tex {
+  color: #ffd137;
+}
+
+.z-punctuation.z-definition.z-string.z-begin.z-tex,
+.z-punctuation.z-definition.z-string.z-end.z-tex {
+  color: #ff6666;
+}
+
+.z-keyword.z-control.z-label.z-latex,
+.z-text.z-tex.z-latex .z-constant.z-other.z-general.z-math.z-tex {
+  color: #87d96c;
+}
+
+.z-variable.z-parameter.z-definition.z-label.z-latex {
+  color: #ff6666;
+}
+
+.z-support.z-function.z-be.z-latex {
+  color: #f27983;
+}
+
+.z-support.z-function.z-section.z-latex {
+  color: #ffad66;
+}
+
+.z-support.z-function.z-general.z-tex {
+  color: #87d96c;
+}
+
+.z-keyword.z-control.z-ref.z-latex {
+  color: #87d96c;
+}
+
+.z-storage.z-type.z-class.z-python,
+.z-storage.z-type.z-function.z-python,
+.z-storage.z-modifier.z-global.z-python {
+  color: #f27983;
+}
+
+.z-support.z-type.z-exception.z-python {
+  color: #ffd137;
+}
+
+.z-meta.z-scope.z-for-in-loop.z-shell,
+.z-variable.z-other.z-loop.z-shell {
+  color: #b3b3b3;
+}
+
+.z-meta.z-scope.z-case-block.z-shell,
+.z-meta.z-scope.z-case-body.z-shell {
+  color: #b3b3b3;
+}
+
+.z-punctuation.z-definition.z-logical-expression.z-shell {
+  color: #ff6666;
+}
+
+.z-storage.z-modifier.z-c++ {
+  color: #f27983;
+}
+
+.z-support.z-function.z-perl {
+  color: #73d0ff;
+}
+
+.z-meta.z-diff,
+.z-meta.z-diff.z-header {
+  color: #5c6773;
+}
+
+.z-meta.z-diff.z-range {
+  color: #73d0ff;
+}
+
+.z-markup.z-deleted {
+  color: #ff6666;
+}
+
+.z-markup.z-changed {
+  color: #ffd137;
+}
+
+.z-markup.z-inserted {
+  color: #f27983;
+}
+
+.z-markup.z-warning {
+  color: #ffd137;
+}
+
+.z-markup.z-error {
+  color: #ff6666;
+}
+
+.z-markup.z-heading,
+.z-punctuation.z-definition.z-heading.z-markdown {
+  color: #ffd137;
+  font-weight: bold;
+}
+
+.z-markup.z-quote {
+  color: #f27983;
+}
+
+.z-markup.z-italic {
+  font
+::contentReference[oaicite:8]{index=8}

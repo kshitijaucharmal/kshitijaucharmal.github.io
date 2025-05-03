@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Home - portal</title>
+      <link>https://kshitijaucharmal.github.io</link>
+      <description>Portfolio website to showcase projects, share thoughts, etc.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://kshitijaucharmal.github.io/tags/portal/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 05 Mar 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Maze Master 2</title>
+          <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/mazemaster/</link>
+          <guid>https://kshitijaucharmal.github.io/games/mazemaster/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/mazemaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;mazemaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</description>
+      </item>
+    </channel>
+</rss>

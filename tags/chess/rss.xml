@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Home - chess</title>
+      <link>https://kshitijaucharmal.github.io</link>
+      <description>Portfolio website to showcase projects, share thoughts, etc.</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://kshitijaucharmal.github.io/tags/chess/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Bishop Challenge</title>
+          <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+          <author>Kshitij Aucharmal</author>
+          <link>https://kshitijaucharmal.github.io/games/bishopchallenge/</link>
+          <guid>https://kshitijaucharmal.github.io/games/bishopchallenge/</guid>
+          <description xml:base="https://kshitijaucharmal.github.io/games/bishopchallenge/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;bishopchallenge&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;click-here-to-play-now&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gamejolt.com&#x2F;games&#x2F;bishop-challenge&#x2F;708092&quot;&gt;Click Here to Play Now!&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;&#x2F;h2&gt;
+&lt;p&gt;This is a challenge that I was reminded of recently, and I didn’t find the exact one anywhere on the internet,
+so I though I would make this a game to challenge everyone to solve this short but hard puzzle.
+The rules have not been implemented in the game yet so here they are:&lt;&#x2F;p&gt;
+&lt;p&gt;Rules:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The objective of the puzzle is to exchange the white and the black bishops’ positions.&lt;&#x2F;li&gt;
+&lt;li&gt;The chess board is a 5x4 board which restricts the movement&lt;&#x2F;li&gt;
+&lt;li&gt;All the pieces are on the same color.&lt;&#x2F;li&gt;
+&lt;li&gt;No Bishop of different color can come in the attack range of another (programmed in the game).&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;That’s it!!&lt;&#x2F;p&gt;
+&lt;p&gt;If you solve it, make sure to send me a screenshot&#x2F;moves you did to solve the puzzle on my &lt;a href=&quot;mailto:kshitijaucharmal21@gmail.com&quot;&gt;email&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;thank-you&quot;&gt;THANK YOU!&lt;&#x2F;h2&gt;
+</description>
+      </item>
+    </channel>
+</rss>

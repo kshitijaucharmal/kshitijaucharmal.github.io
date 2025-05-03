@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Home - game</title>
+    <subtitle>Portfolio website to showcase projects, share thoughts, etc.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://kshitijaucharmal.github.io/tags/game/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-05T00:00:00+00:00</updated>
+    <id>https://kshitijaucharmal.github.io/tags/game/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Cursed Collectibles</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/cursedcollectibles/"/>
+        <id>https://kshitijaucharmal.github.io/games/cursedcollectibles/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/cursedcollectibles/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;cursedcollectibles&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Maze Master 2</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/mazemaster/"/>
+        <id>https://kshitijaucharmal.github.io/games/mazemaster/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/mazemaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;mazemaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Oceano</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/oceano/"/>
+        <id>https://kshitijaucharmal.github.io/games/oceano/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/oceano/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;oceano&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Orbit Outbreak</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/orbitoutbreak/"/>
+        <id>https://kshitijaucharmal.github.io/games/orbitoutbreak/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/orbitoutbreak/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;orbitoutbreak&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>REWIND</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/rewind/"/>
+        <id>https://kshitijaucharmal.github.io/games/rewind/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/rewind/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;rewind&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sticky Tanks</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/stickytanks/"/>
+        <id>https://kshitijaucharmal.github.io/games/stickytanks/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/stickytanks/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;stickytanks&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Swamp Master</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/swampmaster/"/>
+        <id>https://kshitijaucharmal.github.io/games/swampmaster/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/swampmaster/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;swampmaster&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;description&quot;&gt;Description&lt;&#x2F;h1&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bishop Challenge</title>
+        <published>2023-11-26T00:00:00+00:00</published>
+        <updated>2023-11-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/blog/bishopchallenge/"/>
+        <id>https://kshitijaucharmal.github.io/blog/bishopchallenge/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/blog/bishopchallenge/">&lt;h2 id=&quot;unleash-your-chess-genius-the-bishop-exchange-puzzle-game&quot;&gt;Unleash Your Chess Genius: The Bishop Exchange Puzzle Game!&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;&#x2F;h3&gt;
+&lt;p&gt;Dive into the thrilling world of chess challenges with a game that
+I crafted in Unity!
+I recently stumbled upon a unique puzzle that couldn’t be found anywhere else on the internet.
+So, naturally, I turned it into a game that’s bound to electrify your strategic senses.
+Welcome to the Bishop Challenge,
+where the objective is to swap the positions of the
+white and black bishops on a compact chess board filled with surprises!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;rules&quot;&gt;Rules&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objective:&lt;&#x2F;strong&gt; Brace yourself for the ultimate chess challenge – &lt;strong&gt;exchange the positions of the white and black bishops&lt;&#x2F;strong&gt; on a tightly packed 5x4 chess board.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Board Size:&lt;&#x2F;strong&gt; The game unfolds on this compact battlefield, where the 5x4 board limits the movement of your chess pieces, adding an extra layer of excitement to the puzzle.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Piece Placement:&lt;&#x2F;strong&gt; Every piece stands proudly on squares of the same color, setting the stage for a visually striking and uniquely challenging experience.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Non-Interference:&lt;&#x2F;strong&gt; Here’s the twist – no bishop of a different color can dare to step into the attack range of another! It’s not just chess; it’s a strategic showdown.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;how-to-conquer-the-challenge&quot;&gt;How to Conquer the Challenge&lt;&#x2F;h3&gt;
+&lt;p&gt;Get ready for a rollercoaster of moves as you kick off the puzzle on the 5x4 chess board.
+Each move is a carefully calculated step toward achieving the mind-bending objective
+of swapping those bishops. With limited space and an unyielding rule against interference,
+every move becomes a pulse-pounding decision that could make or break your victory.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;strategize-like-a-pro&quot;&gt;Strategize Like a Pro&lt;&#x2F;h3&gt;
+&lt;p&gt;To conquer this chess puzzle, you’ll need to channel your inner chess genius.
+Strategize, plan, and execute your moves with precision.
+Factor in the restricted board space, anticipate potential blockades,
+and above all, abide by the non-interference rule.
+Your journey through this puzzle is a strategic dance, and every move
+propels you closer to the grand prize – the thrilling exchange of bishops.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h3&gt;
+&lt;p&gt;Embark on a chess adventure like no other with the 5x4 Bishop Exchange Puzzle Game!
+Crafted with passion and excitement, this puzzle promises an adrenaline-pumping experience
+that will test your chess prowess. Can you crack the code and make those bishops dance?
+Get ready for the challenge of a lifetime – it’s time to unleash your inner chess genius!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bishop Challenge</title>
+        <published>2022-04-15T00:00:00+00:00</published>
+        <updated>2022-04-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/games/bishopchallenge/"/>
+        <id>https://kshitijaucharmal.github.io/games/bishopchallenge/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/games/bishopchallenge/">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;games&#x2F;bishopchallenge&#x2F;cover.png&quot; alt=&quot;Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;click-here-to-play-now&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;gamejolt.com&#x2F;games&#x2F;bishop-challenge&#x2F;708092&quot;&gt;Click Here to Play Now!&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;description&quot;&gt;Description&lt;&#x2F;h2&gt;
+&lt;p&gt;This is a challenge that I was reminded of recently, and I didn’t find the exact one anywhere on the internet,
+so I though I would make this a game to challenge everyone to solve this short but hard puzzle.
+The rules have not been implemented in the game yet so here they are:&lt;&#x2F;p&gt;
+&lt;p&gt;Rules:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;The objective of the puzzle is to exchange the white and the black bishops’ positions.&lt;&#x2F;li&gt;
+&lt;li&gt;The chess board is a 5x4 board which restricts the movement&lt;&#x2F;li&gt;
+&lt;li&gt;All the pieces are on the same color.&lt;&#x2F;li&gt;
+&lt;li&gt;No Bishop of different color can come in the attack range of another (programmed in the game).&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;That’s it!!&lt;&#x2F;p&gt;
+&lt;p&gt;If you solve it, make sure to send me a screenshot&#x2F;moves you did to solve the puzzle on my &lt;a href=&quot;mailto:kshitijaucharmal21@gmail.com&quot;&gt;email&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;thank-you&quot;&gt;THANK YOU!&lt;&#x2F;h2&gt;
+</content>
+        
+    </entry>
+</feed>

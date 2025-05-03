@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Home - neat</title>
+    <subtitle>Portfolio website to showcase projects, share thoughts, etc.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://kshitijaucharmal.github.io/tags/neat/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-09-25T00:00:00+00:00</updated>
+    <id>https://kshitijaucharmal.github.io/tags/neat/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Flappy NEAT</title>
+        <published>2024-09-25T00:00:00+00:00</published>
+        <updated>2024-09-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/blog/flappyneat/"/>
+        <id>https://kshitijaucharmal.github.io/blog/flappyneat/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/blog/flappyneat/">&lt;h1 id=&quot;inc-machine-learning-project&quot;&gt;INC Machine Learning Project&lt;&#x2F;h1&gt;
+&lt;p&gt;Welcome to the INC (Impetus and Concepts) Machine Learning Project repository!
+In this project, we have implemented the NEAT (NeuroEvolution of Augmenting Topologies)
+algorithm from scratch, using the official research paper as our primary guide.
+Our goal was to explore and demonstrate the power of NEAT in evolving neural networks for tasks like playing games.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;project-overview&quot;&gt;Project Overview&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;neat-algorithm&quot;&gt;NEAT Algorithm&lt;&#x2F;h3&gt;
+&lt;p&gt;NEAT is a powerful evolutionary algorithm for evolving artificial neural networks.
+It is especially well-suited for problems where the network’s architecture itself needs to evolve,
+making it a valuable tool in reinforcement learning tasks, like game playing.
+Our implementation closely follows the principles outlined in the original NEAT paper:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;nn.cs.utexas.edu&#x2F;downloads&#x2F;papers&#x2F;stanley.ec02.pdf&quot;&gt;Original NEAT Paper&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;flappy-bird-clone&quot;&gt;Flappy Bird Clone&lt;&#x2F;h3&gt;
+&lt;p&gt;To test the capabilities of our NEAT implementation,
+we created a Flappy Bird clone using the Pygame library.
+Flappy Bird is a simple yet challenging game where a bird must navigate through pipes by jumping.
+Our goal was to evolve neural networks capable of playing the game and achieving high scores autonomously.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;repository-structure&quot;&gt;Repository Structure&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;neat&lt;&#x2F;code&gt;: Folder containing implementation of the NEAT algorithm.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;game&lt;&#x2F;code&gt;: The Flappy Bird game folder (All Game specific files).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;__main__.py&lt;&#x2F;code&gt;: The main script to run NEAT on the Flappy Bird game.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;README.md&lt;&#x2F;code&gt;: You’re reading it right now!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;&#x2F;h2&gt;
+&lt;p&gt;To get started with this project, follow these steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone this repository to your local machine:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;git&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; clone https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;FlappyNEAT.git&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the necessary dependencies. You can use &lt;code&gt;pip&lt;&#x2F;code&gt; to install them:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;pip&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; install pygame&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the NEAT algorithm on the Flappy Bird game:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;python&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; .&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will start the training process and display the progress of the evolving neural networks as they learn to play the game.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;!!! Not implemented yet !!!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;You can fine-tune the NEAT algorithm by modifying the parameters in the &lt;code&gt;config.txt&lt;&#x2F;code&gt; file.
+These parameters include population size, mutation rates, and various other settings that can influence the evolution process.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;contributors&quot;&gt;Contributors&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&quot;&gt;Kshitij Aucharmal&lt;&#x2F;a&gt; - Algorithm Implementation&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;alisha971&quot;&gt;Alisha Shaikh&lt;&#x2F;a&gt; - Game Development&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Cratan228&quot;&gt;Tanish Chaudhari&lt;&#x2F;a&gt; - Project Management&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;contributing&quot;&gt;Contributing&lt;&#x2F;h2&gt;
+&lt;p&gt;Contributions are always welcome!!&lt;&#x2F;p&gt;
+&lt;p&gt;Just fork the repository and create a pull request with your desired changes, we’ll be sure to review them as soon as possible!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;acknowledgments&quot;&gt;Acknowledgments&lt;&#x2F;h2&gt;
+&lt;p&gt;We would like to express our gratitude to the creators of the NEAT algorithm for their pioneering work in neuroevolution.
+This project wouldn’t have been possible without their research.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;license&quot;&gt;License&lt;&#x2F;h2&gt;
+&lt;p&gt;This project is licensed under the GPL 3.0 License - see the &lt;a href=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;flappyneat&#x2F;LICENSE&quot;&gt;LICENSE&lt;&#x2F;a&gt; file for details.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Feel free to explore the code, experiment with the NEAT parameters,
+and enjoy watching neural networks learn to play Flappy Bird!
+If you have any questions or suggestions,
+please don’t hesitate to &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;FlappyNEAT&#x2F;issues&quot;&gt;open an issue&lt;&#x2F;a&gt;
+or &lt;a href=&quot;mailto:kshitijaucharmal21@gmail.com&quot;&gt;reach out to us&lt;&#x2F;a&gt;.
+Happy coding!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Neat-Q-City</title>
+        <published>2024-03-05T00:00:00+00:00</published>
+        <updated>2024-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/projects/neat-q-city/"/>
+        <id>https://kshitijaucharmal.github.io/projects/neat-q-city/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/projects/neat-q-city/">&lt;h1 id=&quot;neat-q-city&quot;&gt;NEAT Q City&lt;&#x2F;h1&gt;
+&lt;h3 id=&quot;evolving-deep-q-learning-for-sustainable-virtual-city-management-inc-pict-college&quot;&gt;Evolving Deep Q-Learning for Sustainable Virtual City Management (INC @ PICT College)&lt;&#x2F;h3&gt;
+&lt;p&gt;This project investigates the synergy between Deep Q-learning (DQL)
+and Neuro-Evolution of Augmenting Topologies (NEAT) for managing a dynamic,
+virtual city simulation within the context of the INC competition at PICT College.&lt;&#x2F;p&gt;
+&lt;p&gt;The goal is to develop an AI agent that learns optimal decisions to enhance the city’s well-being,
+balancing factors like air quality, resource management, and economic growth.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;approach&quot;&gt;Approach&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Simulated City Environment:&lt;&#x2F;strong&gt; We create a simulated virtual city environment that captures essential aspects like air quality index, resource levels, and economic indicators. The environment provides state information (e.g., current air quality) and responds to the agent’s actions (e.g., building infrastructure).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Deep Q-Learning Agent:&lt;&#x2F;strong&gt; A DQL agent interacts with the simulated city. It receives state information from the environment, employs a deep neural network to predict future rewards for different actions, and takes the action with the highest predicted reward. The agent’s performance is evaluated based on a reward function that incentivizes sustainable and beneficial actions for the city.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;NEAT for Evolving Network Topologies:&lt;&#x2F;strong&gt; NEAT manages a population of diverse DQL agents with varying network configurations. Through mutation operators (adding&#x2F;removing connections or nodes) and crossover (combining genetic material), NEAT fosters the evolution of potentially more effective agents across generations. In each generation, agents are evaluated based on their performance within the simulated city, and the best-performing agents are selected for reproduction with variations introduced through mutations.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;execution&quot;&gt;Execution&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Set Up Simulation and Parameters:&lt;&#x2F;strong&gt; Configure the simulation environment, DQL parameters (network architecture, learning rate), and NEAT parameters (population size, mutation rate).&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Run NEAT Evolution:&lt;&#x2F;strong&gt; NEAT iterates through generations, evaluating the performance of each agent in the simulated city and selecting the best ones for reproduction with mutations, leading to a population with potentially improved decision-making strategies.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Evaluation and Visualization (Optional):&lt;&#x2F;strong&gt; Track and visualize the performance of agents across generations, analyzing how the evolved agents’ actions impact the virtual city’s sustainability metrics.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;This project explores the potential of combining DQL and NEAT for evolving effective AI agents to manage complex urban environments in a simulated setting. By participating in the INC competition, we aim to showcase this approach and contribute to advancements in AI-powered urban planning and policy optimization.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

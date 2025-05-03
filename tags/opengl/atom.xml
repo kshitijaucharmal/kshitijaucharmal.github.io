@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Home - opengl</title>
+    <subtitle>Portfolio website to showcase projects, share thoughts, etc.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://kshitijaucharmal.github.io/tags/opengl/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-05-03T00:00:00+00:00</updated>
+    <id>https://kshitijaucharmal.github.io/tags/opengl/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Flying Around in 3D</title>
+        <published>2025-05-03T00:00:00+00:00</published>
+        <updated>2025-05-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/blog/scenewithcamera/"/>
+        <id>https://kshitijaucharmal.github.io/blog/scenewithcamera/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/blog/scenewithcamera/">&lt;h3 id=&quot;repo-link&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;OpenGL-GE&quot;&gt;Repo Link&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;&#x2F;h2&gt;
+&lt;p&gt;Let me just show you the progress, then we can talk about what I did:&lt;&#x2F;p&gt;
+&lt;figure&gt;
+&lt;video class=&quot;&quot; src=&quot;flying_through.mp4&quot;aria-title=&quot;This is a video&quot;autoplay controls loop&gt;&lt;&#x2F;video&gt;
+
+  &lt;figcaption&gt;
+        Flying through the world
+    &lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+&lt;p&gt;Cool right? Let walk through what improvements have been made since the dawn of the age of triangles.
+So I managed to get multiple triangles rendering last time, along with colors for vertices.&lt;&#x2F;p&gt;
+&lt;p&gt;I had to remove the vertex colors, as it leads to very bad texture mapping later on, so that means removing the
+&lt;code&gt;EBO&lt;&#x2F;code&gt; (Element Buffer Object) Entirely as well. Its only really useful in cases where you don’t want the object to have
+textures, or at least if the object can have &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Procedural_texture&quot;&gt;procedural textures&lt;&#x2F;a&gt;, which I haven’t gotten to yet&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;textures&quot;&gt;Textures&lt;&#x2F;h2&gt;
+&lt;p&gt;I can send the texture coordinates along with vertex data, so that it maps as I want it to.
+There are modes to how the texture repeats, given as follows:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;OpenGL Option&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_REPEAT&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;The default behavior for textures. Repeats the texture image.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_MIRRORED_REPEAT&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Same as GL_REPEAT but mirrors the image with each repeat.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_CLAMP_TO_EDGE&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Clamps the coordinates between 0 and 1. The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;GL_CLAMP_TO_BORDER&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Coordinates outside the range are now given a user-specified border color.&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;I just used GL_MIRRORED_REPEAT Mode ’cause the tutorial uses that
+OpenGL also generated &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Mipmap&quot;&gt;Mipmaps&lt;&#x2F;a&gt; on its own using the &lt;code&gt;glGenerateMipmap(GL_TEXTURE_2D)&lt;&#x2F;code&gt; function&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;coordinate-systems&quot;&gt;Coordinate Systems&lt;&#x2F;h2&gt;
+&lt;p&gt;Anyone who knows the &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&quot;&gt;LearnOpenGL&lt;&#x2F;a&gt; website will know I skipped over the transformations section.
+Nothing to say about it except installing the &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;g-truc&#x2F;glm&quot;&gt;glm&lt;&#x2F;a&gt; library, knew how vectors and matrices worked already.&lt;&#x2F;p&gt;
+&lt;p&gt;This image proves very helpful in understanding the stages of transformations to show a 3D scene on a 2D screen:
+&lt;img class=&quot;no-hover&quot;alt=&quot;This is an image&quot;src=&quot;coordinate_systems.png&quot;&#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Each have been explained in ample detail on the &lt;a href=&quot;https:&#x2F;&#x2F;learnopengl.com&#x2F;Getting-started&#x2F;Coordinate-Systems&quot;&gt;website&lt;&#x2F;a&gt;, so you can check out what each
+step does. For an overview,&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Space&lt;&#x2F;th&gt;&lt;th&gt;Description&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Local space&lt;&#x2F;td&gt;&lt;td&gt;Local space is the coordinate space that is local to your object&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;World space&lt;&#x2F;td&gt;&lt;td&gt;space in which the objects can be defined to have a location in 3D space&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;View space&lt;&#x2F;td&gt;&lt;td&gt;Camera space, space scene from camera’s POV&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Clip space&lt;&#x2F;td&gt;&lt;td&gt;Range of coordinates that will be displayed, if outside this, they will be removed&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;Screen space&lt;&#x2F;td&gt;&lt;td&gt;Perspective or Othographic, take your pick&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;These can be represented &#x2F; implemented using transformation matrices, and each transformation is applied seperately in order to form a 3D scene&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;footnotes-and-next-steps&quot;&gt;Footnotes and Next Steps&lt;&#x2F;h2&gt;
+&lt;p&gt;At the end, I implemented the Camera and gave some input instructions to make it a flythrough style camera.
+Also tidied up the code, not exactly how I want it to be but will refactor it later&lt;&#x2F;p&gt;
+&lt;p&gt;Now, the next steps are not gonna be following the tutorial, as it goes in detail about lighting and stuff,
+which is not totally essential right now. The things I need to implement are as follows:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modular system that allows for dynamic creation of objects through UI&lt;&#x2F;li&gt;
+&lt;li&gt;Fullscreen&#x2F;Bigger window editor with imgui windows&lt;&#x2F;li&gt;
+&lt;li&gt;Implementing &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;CedricGuillemet&#x2F;ImGuizmo&quot;&gt;imguizmo&lt;&#x2F;a&gt; and add gizmos to move&#x2F;rotate&#x2F;scale&lt;&#x2F;li&gt;
+&lt;li&gt;Implementing pybind11 to allow creation of objects through python&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;I wanna try the lighting stuff too, but this comes first. After this is done, I’ll try to implement a physics engine, maybe
+from scratch maybe taking a library, and then after the engine is pretty modular and scalable, I’ll try to implement a Ray Tracer in
+it as well.&lt;&#x2F;p&gt;
+&lt;p&gt;So Stay tuned Guys !!!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;repo-link-1&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;kshitijaucharmal&#x2F;OpenGL-GE&quot;&gt;Repo Link&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>OpenGL is Awesome!!</title>
+        <published>2025-04-28T00:00:00+00:00</published>
+        <updated>2025-04-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/blog/opengl-getting-started/"/>
+        <id>https://kshitijaucharmal.github.io/blog/opengl-getting-started/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/blog/opengl-getting-started/">&lt;p&gt;Okay, so this is gonna be a bit long, get excited!&lt;&#x2F;p&gt;
+&lt;p&gt;Lets divide this into three Parts:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;OpenGL&lt;&#x2F;li&gt;
+&lt;li&gt;C++&lt;&#x2F;li&gt;
+&lt;li&gt;Kdevelop&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Lets start with OpenGL first.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;opengl&quot;&gt;OpenGL&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OpenGL (Open Graphics Library) is a cross-language, cross-platform application programming
+interface (API) for rendering 2D and 3D vector graphics&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;OpenGL is cross-platform like vulkan, and wayyyy easier to understand and code than vulkan.
+While vulkan took me &lt;em&gt;one week&lt;&#x2F;em&gt; to get started and to draw a triangle on the screen (the one thing you do first as a
+graphics programming beginner), OpenGL allowed this to happen in under a few hours !!!&lt;&#x2F;p&gt;
+&lt;p&gt;I’ve identified some differences, which maybe good or bad according to industry standards, but I’ll list them here according to &lt;em&gt;my&lt;&#x2F;em&gt; standards&lt;&#x2F;p&gt;
+&lt;p&gt;Lets focus on the good points first:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;OpenGL is &lt;em&gt;easy&lt;&#x2F;em&gt;: The code is easy to understand, it does not require a hell lot of setup to get started, and also makes everything easier to understand. I of course am comparing it to Vulkan&lt;&#x2F;li&gt;
+&lt;li&gt;Handles a lot of things on its own: using glad, which is library for managing function pointers for OpenGL, initialization is a cinch&lt;&#x2F;li&gt;
+&lt;li&gt;Fast on my machine: Vulkan gave me some lagging when resizing windows, maybe it was my fault (probably), but in OpenGL I just used a callback function and it worked without any significant lags&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Unfortunately, OpenGL is not all good:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Not explicit: Many things are handled internally, unlike vulkan which allows for in depth customization of each system using structs.&lt;&#x2F;li&gt;
+&lt;li&gt;Not Shader friendly: Although people may call it shader friendly as you can compile the shaders anywhere you want in the code, but the
+code has to be compiled and shaders are a part of this. shaders can be kept different from the full code compilation, unlike vulkan.&lt;&#x2F;li&gt;
+&lt;li&gt;Slower: I haven’t personally experienced this, but people have said that Vulkan is much more performant than OpenGL&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Given everything above, I’m going to stick to OpenGL and try my best to make the engine
+Next step will be to integrate Imgui, which is much easier as compared to Vulkan&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;current-progress&quot;&gt;Current Progress&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;window.png&quot; alt=&quot;Two triangles&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Yup, two triangles forming a rectangle with only 4 vertices defined and 6 indices for drawing&#x2F;filling in the triangles using VBO and EBO
+This is the progress I got, and I can even send these values to the vertex shader !!!&lt;&#x2F;p&gt;
+&lt;p&gt;The process is for rendering anything on the screen is as follows, taken from the LearnOpenGL website
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;pipeline.png&quot; alt=&quot;pipline&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The Vertex Buffer Objects (VBO) and Element Buffer Objects (EBO) are stored as follows under the Vertex Array Objects
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;opengl-getting-started&#x2F;vertex_array_objects_ebo.png&quot; alt=&quot;vertex&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;c&quot;&gt;C++&lt;&#x2F;h2&gt;
+&lt;p&gt;I’m learning c++ from the c++ playlist series by the cherno, and its been amazing. I understand a lot of concepts, and
+it really allows my code to flow seamlessly. I have taken the liberty to seperate all of the code into seperate files,
+creating namespaces for certain systems such as &lt;code&gt;WindowManagement&lt;&#x2F;code&gt; and &lt;code&gt;InputManagement&lt;&#x2F;code&gt;.
+The heirarchy of the code is as follows:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;OpenGL
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── build
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── CMakeLists.txt
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── external
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── glad
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── imgui
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── include
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── input.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── shaderman.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── window.hpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── Makefile
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── OpenGL.kdev4
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── shaders
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;└── src
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── input.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── main.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ├── shaderman.cpp
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    └── window.cpp
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As you can see, the structure is a pretty standard one with all
+the headers in the &lt;code&gt;include&lt;&#x2F;code&gt; directory, c++ files in the &lt;code&gt;src&lt;&#x2F;code&gt; directory,
+and the libaries in the &lt;code&gt;external&lt;&#x2F;code&gt; directory. The &lt;code&gt;shaders&lt;&#x2F;code&gt; is for storing the shader files, which is
+currently not being used as the shaders are written as &lt;code&gt;const char *&lt;&#x2F;code&gt; (I’m following the tutorial man)&lt;&#x2F;p&gt;
+&lt;p&gt;The CmakeLists.txt handles everything, and I have a new Target in it to run the program once its compiled as well&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kdevelop&quot;&gt;Kdevelop&lt;&#x2F;h2&gt;
+&lt;p&gt;Yeah, I started using Kdevelop. Neovim is amazing, but the syntax highlighting and lsp server messes up as the structure changes.
+It does not take the &lt;code&gt;CmakeLists.txt&lt;&#x2F;code&gt; in consideration, and hence I’m always faced with not resolved&#x2F;found errors.&lt;&#x2F;p&gt;
+&lt;p&gt;As to why I don’t use VSCode, its electron based, and feels too slow for me.&lt;&#x2F;p&gt;
+&lt;p&gt;Kdevelop has been perfect, it automatically detects what my CmakeLists.txt defines, and adds targets to the project window.
+It also has much better autocomplete, vi mode, and my preffered theme &lt;code&gt;ayu-dark&lt;&#x2F;code&gt; built-in, so thats definately a plus.&lt;&#x2F;p&gt;
+&lt;p&gt;I’ve added a custom target to the make system, so that I can just build (the build system is amazing as well, you can just add and remove targets)
+and it will run the binary generated as well. I can’t use harpoon (a nvim plugin) in it, but I’ll soon get used to Kdevelop’s version of it,
+and it definately feels fast as nvim too.&lt;&#x2F;p&gt;
+&lt;p&gt;Thats it! That was the update, will see you guys in the next one!!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Switching from Vulkan to OpenGL</title>
+        <published>2025-04-27T00:00:00+00:00</published>
+        <updated>2025-04-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kshitij Aucharmal
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://kshitijaucharmal.github.io/blog/27-apr-sun/"/>
+        <id>https://kshitijaucharmal.github.io/blog/27-apr-sun/</id>
+        
+        <content type="html" xml:base="https://kshitijaucharmal.github.io/blog/27-apr-sun/">&lt;p&gt;Its been a while since I started work on the &lt;a href=&quot;&#x2F;blog&#x2F;simengine-05-apr-sat&quot;&gt;ConceptForge&lt;&#x2F;a&gt; Project, and have no progress to show other than I managed to integrate imgui into vulkan.
+I tried to learn shaders from the &lt;a href=&quot;https:&#x2F;&#x2F;thebookofshaders.com&#x2F;&quot;&gt;Book Of Shaders&lt;&#x2F;a&gt;, and have a basic understanding of how they work, but the problem I’m facing is seperating out the
+code into multiple files. I’m not very good at cpp, and I shot myself in my foot by taking up this enormous project at the start.&lt;&#x2F;p&gt;
+&lt;p&gt;The imgui integration:
+&lt;img src=&quot;https:&#x2F;&#x2F;kshitijaucharmal.github.io&#x2F;blog&#x2F;27-apr-sun&#x2F;diagram.png&quot; alt=&quot;imgui&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So I’ve decided this: Switching from Vulkan to OpenGL. This decision is based on the experience of many graphics programmers who are at a
+much higher level than me. I’ll do everything in OpenGL, and once I get the gist of how it works, will maybe come back to Vulkan&lt;&#x2F;p&gt;
+&lt;p&gt;So Lets go step by step:&lt;&#x2F;p&gt;
+&lt;p&gt;Firstly, learning cpp by following this &lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&quot;&gt;playlist&lt;&#x2F;a&gt;
+Secondly, Learning OpenGL, will be much easier than Vulkan.
+Then, I’ll integrate imgui in it, which’ll be a cinch too.
+Then, learning shaders and doing some cool stuff using only shaders and the basic engine I’ll have by then
+The next part will be adding pybind11 and so on.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’m not giving up, this is still progress !!&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
+</feed>
